@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand ──────────────────────────────────────────────────────────
+     Sampled from the HFT brand mockups. `brand` is the primary orange
+     used for CTAs, headline accents and rules. */
+  --color-brand-50: #fff3ec;
+  --color-brand-100: #ffe0cd;
+  --color-brand-200: #ffbe9b;
+  --color-brand-300: #ff9660;
+  --color-brand-400: #ff6f2c;
+  --color-brand-500: #e8551c;
+  --color-brand-600: #e34509;
+  --color-brand-700: #c43d06;
+  --color-brand-800: #8f2c05;
+  --color-brand-900: #5c1c03;
+
+  /* Surfaces — near-black, layered by elevation */
+  --color-ink-950: #030303;
+  --color-ink-900: #070707;
+  --color-ink-850: #0a0a0b;
+  --color-ink-800: #0f0f11;
+  --color-ink-700: #17171a;
+  --color-ink-600: #232327;
+
+  --color-zone-sell: #e0342b;
+  --color-zone-hold: #f2b705;
+  --color-zone-buy: #22c55e;
+
+  --font-display: var(--font-condensed), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-pulse-glow: pulse-glow 3.5s ease-in-out infinite;
+  --animate-draw: draw 2s ease-out forwards;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-ink-950);
+    color: #d7d7db;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-600);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 0.95;
+  }
+
+  /* Focus ring that stays visible on black */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-400);
+    outline-offset: 3px;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 1024px) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Thin orange hairline used between mockup sections */
+@utility rule-brand {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--color-brand-600) 55%, transparent),
+    transparent
+  );
+}
+
+/* Scroll-reveal — elements start hidden and are unveiled by the
+   IntersectionObserver in components/Reveal.tsx.
+   Scoped to `.js` so content stays visible if scripts fail or are off. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
