@@ -1,13 +1,21 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 /**
  * Adds `.is-visible` to every `.reveal` element as it scrolls into view.
  * One observer for the whole page — cheaper than a wrapper component per
  * element, and it works for content rendered on the server.
+ *
+ * Re-runs on every navigation: `.js .reveal` starts at opacity 0, and a
+ * client-side route change swaps in fresh nodes the previous observer never
+ * saw. With a one-shot effect those nodes stay invisible until a hard reload,
+ * which reads as "the page didn't load".
  */
 export default function Reveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const showAll = () =>
       document
@@ -50,7 +58,7 @@ export default function Reveal() {
       clearTimeout(fallback);
       io.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

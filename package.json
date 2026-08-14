@@ -6,12 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "db:migrate": "wrangler d1 migrations apply hft-data --local",
+    "db:migrate:remote": "wrangler d1 migrations apply hft-data --remote"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.20.2",
+    "better-auth": "^1.6.27",
     "next": "^16.3.0",
     "react": "19.1.1",
-    "react-dom": "19.1.1"
+    "react-dom": "19.1.1",
+    "stripe": "^22.5.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",
@@ -19,6 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4.1.13",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.122.0"
   }
 }

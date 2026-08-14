@@ -121,7 +121,9 @@ function StrategyHero() {
           </div>
         </div>
 
-        <div className="reveal lg:col-span-8">
+        {/* min-w-0: grid items default to min-width:auto, which would let the
+            720px-wide chart stretch the track and scroll the whole page. */}
+        <div className="reveal min-w-0 lg:col-span-8">
           <Panel className="overflow-hidden p-0">
             <div className="border-b border-white/8 bg-ink-850 px-5 py-3">
               <p className="font-display text-[14px] font-bold uppercase tracking-[0.18em] text-white/85">
@@ -259,7 +261,7 @@ function HowItWorks() {
         </ol>
       </Panel>
 
-      <Panel className="reveal overflow-hidden p-0 lg:col-span-8">
+      <Panel className="reveal min-w-0 overflow-hidden p-0 lg:col-span-8">
         <div className="border-b border-white/8 bg-ink-850 px-5 py-3">
           <p className="font-display text-[14px] font-bold uppercase tracking-[0.18em] text-white/85">
             Live example (NAS100 · 5M)

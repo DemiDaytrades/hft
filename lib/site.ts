@@ -14,15 +14,30 @@ export const site = {
   email: "hello@highfrequencytalent.com",
 } as const;
 
-/** Where every "Join the Frequency" button sends people. */
-export const checkoutUrl =
-  process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK || "#membership";
+/**
+ * Where every "Join the Frequency" button sends people.
+ *
+ * Deliberately NOT overridable by env any more. It used to fall back to a
+ * Stripe Payment Link, but /join is now a real checkout that carries the
+ * referral code, creates the account and links the Stripe customer. A raw
+ * Payment Link would skip all of that -- affiliates would silently stop being
+ * credited and buyers would end up paying with no account.
+ *
+ * It also used to default to "#membership", which did nothing at all on any
+ * page that lacks that anchor (i.e. everywhere except the homepage).
+ */
+export const checkoutUrl = "/join";
 
+/**
+ * Real invite links. Kept as the default rather than env-only so the site works
+ * from a clean checkout with nothing configured; the env var still wins if the
+ * invites ever need swapping without a code change.
+ */
 export const discordUrl =
-  process.env.NEXT_PUBLIC_DISCORD_URL || "#community";
+  process.env.NEXT_PUBLIC_DISCORD_URL || "https://discord.gg/ArywJ9UQ4";
 
 export const telegramUrl =
-  process.env.NEXT_PUBLIC_TELEGRAM_URL || "#community";
+  process.env.NEXT_PUBLIC_TELEGRAM_URL || "https://t.me/+UA9EZye4vloxNTAx";
 
 export const membership = {
   price: 150,
@@ -44,10 +59,31 @@ export const membership = {
   ],
 } as const;
 
+/** Full link set. Used by the footer, where there is room for everything. */
 export const nav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "3ZS Strategy", href: "/3zs-strategy" },
+  { label: "For Creators", href: "/about#creators" },
+  { label: "Community", href: "/#community" },
+  { label: "Contact", href: "/#contact" },
+] as const;
+
+/**
+ * Header split.
+ *
+ * `primaryNav` is real destinations only -- the two pages someone cannot reach
+ * by scrolling. Everything else is a jump to a section they are usually already
+ * looking at, so it lives in the menu rather than eating space in the top bar.
+ * "Home" is omitted because the logo already does that job.
+ */
+export const primaryNav = [
+  { label: "About", href: "/about" },
+  { label: "3ZS Strategy", href: "/3zs-strategy" },
+] as const;
+
+/** On-page jumps, surfaced in the menu overlay. */
+export const sectionNav = [
   { label: "For Creators", href: "/about#creators" },
   { label: "Community", href: "/#community" },
   { label: "Contact", href: "/#contact" },

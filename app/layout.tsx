@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow, Barlow_Semi_Condensed } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 const display = Barlow_Semi_Condensed({
@@ -73,18 +70,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen antialiased">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white"
-        >
-          Skip to content
-        </a>
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
-        <Reveal />
-      </body>
+      {/* Chrome lives in the route-group layouts: app/(marketing) gets the
+          public header/footer, app/(app) gets the signed-in shell. */}
+      <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
 }

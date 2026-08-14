@@ -24,6 +24,7 @@ import {
   discordUrl,
   features,
   membership,
+  site,
   telegramUrl,
   testimonials,
 } from "@/lib/site";
@@ -41,6 +42,9 @@ export default function HomePage() {
     <>
       <Hero />
       <FeatureGrid />
+      {/* Pricing sits after the value, not beside the headline: the hero sells
+          the idea, this asks for the money. */}
+      <MembershipSection />
       <CommunityRow />
       <ClosingBand />
     </>
@@ -58,12 +62,14 @@ function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.022)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.022)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]" />
       </div>
 
-      <div className="container-page relative grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-8">
+      {/* Two columns, not three. Copy gets room to breathe and the chart has
+          space to read as a chart rather than a thumbnail. */}
+      <div className="container-page relative grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
         {/* Copy */}
-        <div className="reveal lg:col-span-4">
-          <Eyebrow rule>Join the Frequency</Eyebrow>
+        <div className="reveal lg:col-span-6">
+          <Eyebrow rule>{site.tagline}</Eyebrow>
 
-          <h1 className="mt-6 text-[clamp(2.2rem,4vw,2.7rem)] font-extrabold leading-[0.96] tracking-[-0.01em]">
+          <h1 className="mt-6 text-[clamp(2.6rem,5.2vw,4rem)] font-extrabold leading-[0.96] tracking-[-0.015em]">
             Master the markets.
             <br />
             <Accent>Build freedom.</Accent>
@@ -71,16 +77,14 @@ function Hero() {
             <Accent>Live your purpose.</Accent>
           </h1>
 
-          <p className="mt-7 max-w-md text-[15.5px] leading-relaxed text-white/65">
+          <p className="mt-7 max-w-lg text-[16.5px] leading-relaxed text-white/65">
             High Frequency Talent is more than a trading community—it&apos;s a
             movement of disciplined traders and creators building financial
             freedom and a life of meaning.
           </p>
-          <p className="mt-4 max-w-md text-[15.5px] leading-relaxed text-white/65">
-            Inside, you&apos;ll get the tools, strategy, and support to elevate
-            your trading, elevate your mind, and elevate your life.
-          </p>
 
+          {/* One ask in the hero. The membership section further down is where
+              price and the full feature list live. */}
           <div className="mt-9 flex flex-col items-start gap-4">
             <CTA size="lg" />
             <Fineprint />
@@ -88,14 +92,21 @@ function Hero() {
         </div>
 
         {/* Terminal */}
-        <div className="reveal lg:col-span-4 lg:pt-6">
+        <div className="reveal lg:col-span-6">
           <TerminalChart />
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Membership card */}
-        <div className="reveal lg:col-span-4">
-          <MembershipCard />
-        </div>
+/* ── Membership ─────────────────────────────────────────────────── */
+
+function MembershipSection() {
+  return (
+    <section className="container-page py-16 lg:py-20">
+      <div className="reveal mx-auto max-w-lg">
+        <MembershipCard />
       </div>
     </section>
   );
@@ -213,7 +224,7 @@ function CommunityRow() {
             href={discordUrl}
             tone="discord"
             title="Discord Community"
-            body="Join our private server with thousands of motivated traders and creators."
+            body="Join our private server with a growing community of motivated traders and creators."
             cta="Join Discord"
           />
           <ChannelCard

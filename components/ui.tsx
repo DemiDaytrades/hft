@@ -19,8 +19,8 @@ const ctaSizes = {
 };
 
 /**
- * Primary conversion button. Defaults to the Stripe checkout URL, so
- * swapping NEXT_PUBLIC_STRIPE_PAYMENT_LINK repoints every CTA at once.
+ * Primary conversion button. Defaults to `checkoutUrl` (/join), which runs the
+ * real checkout: referral attribution, Stripe customer, then account creation.
  */
 export function CTA({
   children = "Join the Frequency",
