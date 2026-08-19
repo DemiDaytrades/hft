@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 
 import { getAuth } from "@/lib/auth";
 import { applySubscription } from "@/lib/membership";
+import { recordCommissionForInvoice } from "@/lib/commission-attribution";
 import { provisionMember } from "@/lib/provision-member";
 import { getStripe, friendlyStripeError } from "@/lib/stripe";
 
@@ -43,7 +44,7 @@ export async function completeSignupAction(
   try {
     const stripe = await getStripe();
     const session = await stripe.checkout.sessions.retrieve(sessionId, {
-      expand: ["subscription"],
+      expand: ["subscription.latest_invoice"],
     });
 
     if (session.payment_status !== "paid") {
@@ -70,13 +71,6 @@ export async function completeSignupAction(
       referralCode: session.client_reference_id,
     });
 
-    if (!result.created) {
-      return {
-        status: "exists",
-        message: "You already have an account with this email — sign in with your existing password.",
-      };
-    }
-
     const subscription = session.subscription;
     if (subscription && typeof subscription !== "string") {
       await applySubscription(result.userId, {
@@ -89,6 +83,18 @@ export async function completeSignupAction(
             ?.current_period_end ??
           null,
       });
+
+      const invoice = subscription.latest_invoice;
+      if (invoice && typeof invoice !== "string") {
+        await recordCommissionForInvoice(invoice);
+      }
+    }
+
+    if (!result.created) {
+      return {
+        status: "exists",
+        message: "You already have an account with this email — sign in with your existing password.",
+      };
     }
 
     // nextCookies() lets this set the session cookie from a server action, so

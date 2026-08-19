@@ -13,10 +13,10 @@ import {
 } from "@/lib/membership";
 import { getAffiliateByCode, setPayoutsEnabled } from "@/lib/affiliates";
 import {
-  recordCommission,
   voidCommissionsByPaymentRef,
   voidCommissionsForInvoice,
 } from "@/lib/commissions";
+import { recordCommissionForInvoice } from "@/lib/commission-attribution";
 
 export const dynamic = "force-dynamic";
 
@@ -100,7 +100,7 @@ async function handleEvent(event: Stripe.Event): Promise<void> {
 
     case "invoice.payment_succeeded": {
       const invoice = event.data.object as Stripe.Invoice;
-      await earnCommission(invoice);
+      await recordCommissionForInvoice(invoice);
       break;
     }
 
@@ -185,62 +185,6 @@ async function linkCheckoutToUser(session: Stripe.Checkout.Session): Promise<voi
     const affiliate = await getAffiliateByCode(session.client_reference_id);
     if (affiliate) await setReferrer(user.id, affiliate.id);
   }
-}
-
-/**
- * Writes the referring affiliate's cut for a paid invoice.
- *
- * Runs on every successful invoice, which is what makes the commission
- * recurring for the life of the subscription rather than a one-off on signup.
- */
-async function earnCommission(invoice: Stripe.Invoice): Promise<void> {
-  if (!invoice.id || !invoice.customer) return;
-  // amount_paid, not amount_due: commission is owed on money actually collected.
-  if (invoice.amount_paid <= 0) return;
-
-  const user = await findUserByCustomerId(String(invoice.customer));
-  if (!user?.referredByAffiliateId) return;
-
-  await recordCommission({
-    affiliateId: user.referredByAffiliateId,
-    memberId: user.id,
-    invoiceId: invoice.id,
-    chargeId: readPaymentRef(invoice),
-    invoiceAmountCents: invoice.amount_paid,
-  });
-}
-
-/**
- * Best-effort payment-intent id for an invoice, used to match a later refund.
- *
- * Stripe has moved this between `charge`, `payment_intent` and the nested
- * `payments` list across API versions, and the installed typings expose none of
- * them on Invoice. Read whichever is present rather than pinning to one shape.
- *
- * If none is found the commission still records correctly -- only automatic
- * void-on-refund is lost, and the hold window means she can still cancel it by
- * hand before payout.
- */
-function readPaymentRef(invoice: Stripe.Invoice): string | null {
-  const loose = invoice as unknown as {
-    payment_intent?: string | { id?: string } | null;
-    charge?: string | null;
-    payments?: {
-      data?: Array<{ payment?: { payment_intent?: string | { id?: string } } }>;
-    };
-  };
-
-  const direct = loose.payment_intent;
-  if (typeof direct === "string") return direct;
-  if (direct?.id) return direct.id;
-
-  if (typeof loose.charge === "string") return loose.charge;
-
-  const nested = loose.payments?.data?.[0]?.payment?.payment_intent;
-  if (typeof nested === "string") return nested;
-  if (nested?.id) return nested.id;
-
-  return null;
 }
 
 async function syncSubscription(subscription: Stripe.Subscription): Promise<void> {

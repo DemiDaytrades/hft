@@ -36,6 +36,9 @@ export async function provisionMember(params: {
 }): Promise<ProvisionResult> {
   const email = params.email.trim().toLowerCase();
   const now = new Date().toISOString();
+  const affiliate = params.referralCode
+    ? await getAffiliateByCode(params.referralCode)
+    : null;
 
   const existing = await db()
     .prepare(`SELECT id FROM "user" WHERE email = ?;`)
@@ -43,14 +46,18 @@ export async function provisionMember(params: {
     .first<{ id: string }>();
 
   if (existing) {
-    // Someone reloaded /welcome, or the webhook already made the link. Attach
-    // the customer id but never touch an existing password.
+    // Someone reloaded /welcome, or already had an account. Attach missing
+    // Stripe/referral links but never overwrite first-touch attribution or an
+    // existing password.
     await db()
       .prepare(
-        `UPDATE "user" SET "stripeCustomerId" = COALESCE("stripeCustomerId", ?), "updatedAt" = ?
+        `UPDATE "user"
+         SET "stripeCustomerId" = COALESCE("stripeCustomerId", ?),
+             "referredByAffiliateId" = COALESCE("referredByAffiliateId", ?),
+             "updatedAt" = ?
          WHERE id = ?;`,
       )
-      .bind(params.stripeCustomerId ?? null, now, existing.id)
+      .bind(params.stripeCustomerId ?? null, affiliate?.id ?? null, now, existing.id)
       .run();
 
     return { created: false, userId: existing.id, reason: "already_exists" };
@@ -62,10 +69,6 @@ export async function provisionMember(params: {
   // Resolve the referral code to an affiliate here rather than trusting a code
   // string on the user row -- a renamed or deleted affiliate must not orphan
   // the attribution.
-  const affiliate = params.referralCode
-    ? await getAffiliateByCode(params.referralCode)
-    : null;
-
   await db().batch([
     db()
       .prepare(

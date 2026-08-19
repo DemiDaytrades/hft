@@ -67,6 +67,10 @@ export async function runPayouts(env: Env) {
 
   for (const commission of due) {
     try {
+      const sourceTransaction = await resolveSourceTransaction(
+        stripe,
+        commission.chargeId,
+      );
       const transfer = await stripe.transfers.create(
         {
           amount: commission.amountCents,
@@ -74,9 +78,7 @@ export async function runPayouts(env: Env) {
           destination: commission.stripeAccountId,
           // Ties the transfer to the original charge so it draws on those funds
           // rather than requiring a settled platform balance.
-          ...(commission.chargeId?.startsWith("ch_")
-            ? { source_transaction: commission.chargeId }
-            : {}),
+          ...(sourceTransaction ? { source_transaction: sourceTransaction } : {}),
           metadata: { commission_id: commission.id },
         },
         {
@@ -98,6 +100,29 @@ export async function runPayouts(env: Env) {
   }
 
   return { ran: true, paid, failed, considered: due.length };
+}
+
+/** Current invoice payloads commonly expose a PaymentIntent rather than the
+ * underlying Charge. Resolve it before transferring so Stripe can associate
+ * the affiliate transfer with the member payment's funds. */
+async function resolveSourceTransaction(
+  stripe: Stripe,
+  paymentRef: string | null,
+): Promise<string | null> {
+  if (!paymentRef) return null;
+  if (paymentRef.startsWith("ch_")) return paymentRef;
+  if (!paymentRef.startsWith("pi_")) return null;
+
+  try {
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentRef);
+    const charge = paymentIntent.latest_charge;
+    return typeof charge === "string" ? charge : charge?.id ?? null;
+  } catch {
+    // A restricted key can permit transfers without permitting PaymentIntent
+    // reads. After the hold window, falling back to the available platform
+    // balance is safer than blocking this commission forever.
+    return null;
+  }
 }
 
 async function buildStripe(env: Env): Promise<Stripe | null> {
