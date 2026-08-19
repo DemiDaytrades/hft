@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "hft-landing",
+  "account_id": "780fda88bb137eedefd9d3981a8816b4",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-01",
   // nodejs_compat: required by both OpenNext and Better Auth (AsyncLocalStorage).
