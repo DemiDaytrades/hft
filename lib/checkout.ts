@@ -39,10 +39,7 @@ export async function createCheckoutSession(options: {
     allow_promotion_codes: true,
     ...(options.customerId
       ? { customer: options.customerId }
-      : {
-          customer_email: options.email,
-          customer_creation: "always" as const,
-        }),
+      : { customer_email: options.email }),
     subscription_data: {
       metadata: { referral_code: options.referralCode ?? "" },
     },
