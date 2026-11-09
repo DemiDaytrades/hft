@@ -1,0 +1,6 @@
+import type {TeachingBar} from '../practical';
+import type {ClassDefinition} from '../contracts';
+export type StageClass=ClassDefinition & {design:{format:string;homeworkTitle:string;homeworkIntro:string;reflectionItemId?:string;pacing:{minimum:number;maximum:number};assessmentCoverage:string[];practicalRequirement:string;videoOpportunity?:string;studyGuideVisual?:StageScene['visual'];studyGuideChecks?:string[]}};
+export type StagePractice={id:string;kind:'choice'|'sequence'|'calculate'|'matching'|'reflect';prompt:string;options?:{id:string;label:string}[];rows?:{id:string;label:string}[];answers?:Record<string,string>;correct?:string;expected?:number;tolerance?:number;explanation:string;retry:string};
+export type StageScene={sectionId:string;hook:string;scenario:string;visual:{kind:'timeline'|'system'|'basket'|'market'|'decisions'|'prices'|'fx'|'quote'|'chart'|'candles'|'session';chart?:{bars:TeachingBar[];aggregateEvery?:number;revealed?:number;caption?:string};nodes:{label:string;detail:string;value?:number}[];caption:string};practice:StagePractice[];explanation:string[];takeaway:string;demi:string};
+export type StageExperience={classId:string;academicVersion:string;revision:string;format:StageScene['visual']['kind'];sections:StageScene[]};

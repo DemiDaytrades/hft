@@ -5,23 +5,20 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 
 import {
-  setMemberPassword,
+  sendMemberPasswordReset,
   setUserBanned,
   setUserRole,
 } from "@/app/(app)/admin/users/actions";
 import type { Member } from "@/lib/members";
+import MemberRecoveryPanel from "@/components/admin/MemberRecoveryPanel";
+import LifecycleControls from "@/components/admin/LifecycleControls";
+import ComplimentaryControls from "@/components/admin/ComplimentaryControls";
+import { isActive, isComplimentaryActive } from "@/lib/membership-access";
 
 const ROLE_LABEL: Record<string, string> = {
   admin: "Admin",
   student: "Student",
 };
-
-/** Readable, unambiguous characters only -- these get read aloud or retyped. */
-function suggestPassword(): string {
-  const alphabet = "abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const bytes = crypto.getRandomValues(new Uint8Array(16));
-  return Array.from(bytes, (b) => alphabet[b % alphabet.length]).join("");
-}
 
 export default function MemberTable({
   members,
@@ -29,12 +26,14 @@ export default function MemberTable({
   page,
   pageCount,
   query,
+  view = "active",
 }: {
   members: Member[];
   currentAdminId: string;
   page: number;
   pageCount: number;
   query: string;
+  view?: string;
 }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -43,12 +42,12 @@ export default function MemberTable({
   const [busyId, setBusyId] = useState<string | null>(null);
   // Which row has the password field open, and its draft value.
   const [pwFor, setPwFor] = useState<string | null>(null);
-  const [pwDraft, setPwDraft] = useState("");
-  // Shown once after a successful set -- the only chance to copy it, since
-  // passwords are hashed and can never be read back.
-  const [savedPw, setSavedPw] = useState<{ email: string; pw: string } | null>(
-    null,
-  );
+  // Which row has the complimentary grant/revoke panel open.
+  const [lifecycleFor, setLifecycleFor] = useState<string | null>(null);
+  const [compFor, setCompFor] = useState<string | null>(null);
+  // Shown once after a successful set -- the password is never displayed;
+  // the member uses Forgot Password to set their own via a secure link.
+  const [savedPw, setSavedPw] = useState<{ email: string } | null>(null);
 
   function run(userId: string, action: () => Promise<{ ok: boolean; error?: string }>) {
     setError(null);
@@ -67,6 +66,7 @@ export default function MemberTable({
   function pageHref(target: number) {
     const params = new URLSearchParams();
     if (query) params.set("q", query);
+    if (view !== "active") params.set("view", view);
     if (target > 1) params.set("page", String(target));
     const qs = params.toString();
     return qs ? `/admin/users?${qs}` : "/admin/users";
@@ -94,30 +94,10 @@ export default function MemberTable({
       )}
 
       {savedPw && (
-        <div
-          role="status"
-          className="flex flex-wrap items-center gap-4 rounded-sm border border-zone-buy/40 bg-zone-buy/8 px-4 py-4"
-        >
-          <div className="min-w-0">
-            <p className="text-[14px] text-white">
-              New password for{" "}
-              <span className="font-semibold">{savedPw.email}</span>
-            </p>
-            <p className="mt-1 text-[13px] text-white/55">
-              Send it to them now — it can&apos;t be shown again. Ask them to
-              change it under Account.
-            </p>
-          </div>
-          <code className="rounded-sm border border-white/12 bg-ink-950/80 px-4 py-2 font-mono text-[14px] text-white">
-            {savedPw.pw}
-          </code>
-          <button
-            type="button"
-            onClick={() => setSavedPw(null)}
-            className="ml-auto rounded-sm border border-white/15 px-3 py-1.5 font-display text-[11.5px] font-semibold uppercase tracking-[0.14em] text-white/60 hover:text-white"
-          >
-            Done
-          </button>
+        <div role="status" className="rounded-sm border border-zone-buy/40 bg-zone-buy/8 px-4 py-4">
+          <p className="text-[14px] text-white">Password action completed for <span className="font-semibold">{savedPw.email}</span>.</p>
+          <p className="mt-1 text-[13px] text-white/55">Direct the member to use Forgot Password / the secure reset flow. Admins cannot view or retrieve passwords.</p>
+          <button type="button" onClick={() => setSavedPw(null)} className="mt-2 rounded-sm border border-white/15 px-3 py-1.5 font-display text-[11.5px] font-semibold uppercase tracking-[0.14em] text-white/60 hover:text-white">Done</button>
         </div>
       )}
 
@@ -178,6 +158,7 @@ export default function MemberTable({
                   </td>
 
                   <td className="px-6 py-4">
+                    <p className="mb-2 text-xs font-semibold text-brand-300">{member.lifecycle_status === "DEACTIVATED" ? "Former / Deactivated — HFT access denied" : "Active lifecycle"}</p>
                     {isBanned ? (
                       <span
                         title={member.banReason ?? undefined}
@@ -185,9 +166,17 @@ export default function MemberTable({
                       >
                         Banned
                       </span>
-                    ) : (
+                    ) : isActive(member.subscriptionStatus) ? (
                       <span className="rounded-sm border border-zone-buy/40 px-2 py-1 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-zone-buy">
-                        Active
+                        Paid billing: Active
+                      </span>
+                    ) : isComplimentaryActive(member) ? (
+                      <span className="rounded-sm border border-brand-600/40 px-2 py-1 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-400">
+                        Complimentary entitlement
+                      </span>
+                    ) : (
+                      <span className="rounded-sm border border-white/12 px-2 py-1 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
+                        No current entitlement
                       </span>
                     )}
                   </td>
@@ -202,6 +191,12 @@ export default function MemberTable({
 
                   <td className="px-6 py-4">
                     <div className="flex items-center justify-end gap-2">
+                      <Link
+                        href={`/admin/students/${member.id}`}
+                        className="rounded-sm border border-white/15 px-3 py-1.5 font-display text-[11.5px] font-semibold uppercase tracking-[0.14em] text-white/70 transition-colors hover:border-white/35 hover:text-white"
+                      >
+                        View
+                      </Link>
                       <button
                         type="button"
                         disabled={isSelf || rowBusy}
@@ -211,6 +206,16 @@ export default function MemberTable({
                         className="rounded-sm border border-white/15 px-3 py-1.5 font-display text-[11.5px] font-semibold uppercase tracking-[0.14em] text-white/70 transition-colors hover:border-white/35 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         Password
+                      </button>
+                      <button
+                        type="button"
+                        disabled={isSelf || rowBusy}
+                        onClick={() =>
+                          setCompFor(compFor === member.id ? null : member.id)
+                        }
+                        className="rounded-sm border border-white/15 px-3 py-1.5 font-display text-[11.5px] font-semibold uppercase tracking-[0.14em] text-white/70 transition-colors hover:border-white/35 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        Comp
                       </button>
                       <button
                         type="button"
@@ -226,44 +231,24 @@ export default function MemberTable({
                       </button>
                     </div>
 
+                    <div className="mt-3 flex flex-wrap gap-3 text-xs text-brand-300"><Link href={`/admin/students/${member.id}`}>View Student</Link><button type="button" onClick={() => setLifecycleFor(current => current === member.id ? null : member.id)}>{member.lifecycle_status === "DEACTIVATED" ? "Reactivate / history / deletion preview" : "Deactivate / lifecycle / deletion preview"}</button></div>
+                    {lifecycleFor === member.id && <LifecycleControls studentId={member.id}/>}
                     {pwFor === member.id && (
-                      <div className="mt-3 flex flex-wrap items-center justify-end gap-2">
-                        <input
-                          type="text"
-                          value={pwDraft}
-                          onChange={(e) => setPwDraft(e.target.value)}
-                          placeholder="New password (12+ chars)"
-                          aria-label={`New password for ${member.email}`}
-                          className="w-56 rounded-sm border border-white/12 bg-ink-950 px-3 py-1.5 font-mono text-[13px] text-white placeholder-white/25 outline-none focus:border-brand-600"
+                      <div className="mt-3 space-y-2">
+                        <MemberRecoveryPanel email={member.email} />
+                        <p className="text-[12px] text-white/45">Use &quot;Send reset email&quot; or &quot;Resend invite&quot; above. Admins cannot view, retrieve, or manually set member passwords.</p>
+                      </div>
+                    )}
+
+                    {compFor === member.id && (
+                      <div className="mt-3 space-y-2">
+                        <ComplimentaryControls
+                          email={member.email}
+                          userId={member.id}
+                          expiresAt={member.complimentaryAccessExpiresAt ?? null}
+                          revokedAt={member.complimentaryAccessRevokedAt ?? null}
                         />
-                        <button
-                          type="button"
-                          onClick={() => setPwDraft(suggestPassword())}
-                          className="rounded-sm border border-white/15 px-3 py-1.5 font-display text-[11.5px] font-semibold uppercase tracking-[0.14em] text-white/60 hover:text-white"
-                        >
-                          Suggest
-                        </button>
-                        <button
-                          type="button"
-                          disabled={pwDraft.length < 12 || rowBusy}
-                          onClick={() =>
-                            run(member.id, async () => {
-                              const res = await setMemberPassword(
-                                member.id,
-                                pwDraft,
-                              );
-                              if (res.ok) {
-                                setSavedPw({ email: member.email, pw: pwDraft });
-                                setPwFor(null);
-                                setPwDraft("");
-                              }
-                              return res;
-                            })
-                          }
-                          className="rounded-sm bg-brand-600 px-4 py-1.5 font-display text-[11.5px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-brand-500 disabled:opacity-40"
-                        >
-                          Set
-                        </button>
+                        <p className="text-[12px] text-white/45">Complimentary access grants non-paid student access. Revoking sets the revoked timestamp; expiry is respected by the access check.</p>
                       </div>
                     )}
                   </td>

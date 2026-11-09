@@ -1,0 +1,47 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import Module from 'node:module';
+import {fixtureDb} from '../../financial-plan/testing/db';
+import {installMoneyLesson} from '../learning/seed';
+import {MONEY_LESSON as doc} from '../curriculum/what-is-money';
+let current:any,session:any;
+const load=(Module as any)._load;
+(Module as any)._load=function(name:string,...args:any[]){if(name==='@opennextjs/cloudflare')return {getCloudflareContext:()=>({env:{DB:current}})};if(name==='@/lib/auth'||name==='./auth')return {ROLES:{admin:'admin',student:'student'},getAuth:()=>({api:{getSession:async()=>session}})};if(name==='react')return {...load.call(this,name,...args),cache:(f:any)=>f};if(name==='next/headers')return {headers:async()=>new Headers()};return load.call(this,name,...args);};
+globalThis.fetch=async()=>{throw Error('Network forbidden');};
+const service=require('./service');
+async function setup(){const f=fixtureDb();current=f.db;for(const [id,role] of [['admin','admin'],['a','student'],['b','student'],['former','student']])f.sqlite.prepare('INSERT INTO user(id,name,email,role,createdAt,updatedAt,subscriptionStatus) VALUES(?,?,?,?,?,?,?)').run(id,id,id+'@example.invalid',role,'2026-11-07','2026-11-07','active');f.sqlite.prepare("UPDATE user SET lifecycle_status='DEACTIVATED' WHERE id='former'").run();await installMoneyLesson(f.db);return f;}
+const snapshot=(sqlite:any)=>JSON.stringify(sqlite.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name").all().map((r:any)=>[r.name,sqlite.prepare(`SELECT * FROM "${r.name}" ORDER BY rowid`).all()]));
+test('instructor sees ordered full catalog/keys without progression; students and disabled staff denied',async()=>{const {db,sqlite}=await setup();try{
+ sqlite.prepare('INSERT INTO academy_lesson(id,module_id,title,lesson_type,content,sort_order,status,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?)').run('draft',doc.moduleId,'Draft fixture','text','',1,'draft','2026-11-07','2026-11-07');
+ const before=snapshot(sqlite),catalog=await service.instructorCurriculum(db,'admin');assert.equal(catalog.courses[0].modules[0].lessons.length,2);assert.equal(catalog.courses[0].modules[0].lessons[1].readiness,'NEEDS_CONTENT');assert.equal(catalog.courses[0].modules[0].lessons[1].publication,'draft');assert.ok(!JSON.stringify(catalog).includes('questionBanks'));
+ const inspection=await service.inspectLesson(db,'admin',doc.id);assert.equal(inspection.interactive.questionBanks[0][0].correct,doc.questionBanks[0][0].correct);assert.ok(inspection.interactive.homework.strong.rubric);assert.equal((await service.inspectLesson(db,'admin','draft')).lesson.id,'draft');
+ await assert.rejects(service.instructorCurriculum(db,'a'),/Forbidden/);await assert.rejects(service.inspectLesson(db,'b',doc.id),/Forbidden/);assert.equal(snapshot(sqlite),before);
+ sqlite.prepare("UPDATE user SET must_change_password=1 WHERE id='admin'").run();await assert.rejects(service.instructorCurriculum(db,'admin'),/Forbidden/);sqlite.prepare("UPDATE user SET must_change_password=0,lifecycle_status='DEACTIVATED' WHERE id='admin'").run();await assert.rejects(service.instructorCurriculum(db,'admin'),/deactivated|Forbidden/i);
+ }finally{sqlite.close();}});
+test('specific-student view accurately projects locks, entitlement, lifecycle and approved public path with no writes',async()=>{const {db,sqlite}=await setup();try{
+ for(const uid of ['a','former'])sqlite.prepare('INSERT INTO student_course_assignment(id,user_id,course_id,assigned_at) VALUES(?,?,?,?)').run('assign-'+uid,uid,doc.courseId,'2026-11-07');
+ const paths=require('../../learning-path/service');let p=await paths.generateLearningPath(db,{userId:'admin',role:'admin'},'a');p=await paths.saveLearningPath(db,{userId:'admin',role:'admin'},p.id,p.revision,{...p.instructor,reason:'Instructor reviewed educational evidence.',privateNotes:'PRIVATE_PLACEMENT_SENTINEL',explanation:'Begin with your required foundational HFT lesson.'});await paths.approveLearningPath(db,{userId:'admin',role:'admin'},p.id,p.revision);
+ const before=snapshot(sqlite),view=await service.studentAcademyView(db,'admin','a',doc.id);assert.equal(view.readOnly,true);assert.equal(view.lessons[0].availability,'AVAILABLE');assert.equal(view.lessonState.canStartAssessment,false);assert.equal(view.learningPath.version,1);for(const k of ['PRIVATE_PLACEMENT_SENTINEL','questionBanks','financial_json','rubric','source_json'])assert.ok(!JSON.stringify(view).includes(k));
+ const unassigned=await service.studentAcademyView(db,'admin','b');assert.match(unassigned.lessons[0].lockReason,/not assigned/i);sqlite.prepare("UPDATE user SET subscriptionStatus='canceled' WHERE id='b'").run();const noAccess=await service.studentAcademyView(db,'admin','b');assert.match(noAccess.access.reason,/entitlement/i);
+ const former=await service.studentAcademyView(db,'admin','former',doc.id);assert.equal(former.student.lifecycle,'DEACTIVATED');assert.match(former.access.reason,/deactivated/i);assert.ok(former.lessons.every((l:any)=>l.availability==='LOCKED'));assert.equal(former.lessonState.canComplete,false);
+ await assert.rejects(service.studentAcademyView(db,'a','b'),/Forbidden/);const selector=await service.instructorStudents(db,'admin');assert.equal(selector.active.length,2);assert.equal(selector.former[0].id,'former');
+ sqlite.prepare("UPDATE user SET subscriptionStatus='active' WHERE id='b'").run();assert.equal(snapshot(sqlite),before);
+ session={user:{id:'a',role:'admin'}};const api=require('../../../app/api/admin/academy-view/route');assert.equal((await api.GET(new Request('https://local.invalid/api/admin/academy-view?studentId=b'))).status,403);
+ }finally{sqlite.close();}});
+test('prerequisite lock reasons follow actual instructor review and homework gates; stale completion does not unlock',async()=>{const {db,sqlite}=await setup();try{
+ sqlite.prepare('INSERT INTO student_course_assignment(id,user_id,course_id,assigned_at) VALUES(?,?,?,?)').run('assigned','a',doc.courseId,'2026-11-07');
+ sqlite.prepare('INSERT INTO academy_lesson(id,module_id,title,lesson_type,content,sort_order,status,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?)').run('following-fixture',doc.moduleId,'Following test fixture','text','Local-only verification text',1,'published','2026-11-07','2026-11-07');
+ let view=await service.studentAcademyView(db,'admin','a');assert.match(view.lessons[1].lockReason,/prerequisite not mastered/);
+ sqlite.prepare('INSERT INTO student_lesson_progress(id,user_id,lesson_id,status,learning_version,updated_at) VALUES(?,?,?,?,?,?)').run('stale','a',doc.id,'completed',doc.version,'2026-11-07');view=await service.studentAcademyView(db,'admin','a');assert.equal(view.lessons[0].completed,false);assert.match(view.lessons[1].lockReason,/prerequisite/);
+ const qs=doc.questionBanks[0],answers=Object.fromEntries(qs.map(q=>[q.id,q.kind==='written'?'A considered local test response.':q.kind==='true_false_explain'?{choice:'false',explanation:'A considered local test explanation.'}:q.correct]));
+ sqlite.prepare('INSERT INTO student_quiz_attempt(id,user_id,quiz_id,attempt_number,status,started_at,learning_version,learning_questions_json,learning_answers_json) VALUES(?,?,?,?,?,?,?,?,?)').run('pending','a',doc.quizId,1,'instructor_review_required','2026-11-07',doc.version,JSON.stringify(qs),JSON.stringify(answers));
+ view=await service.studentAcademyView(db,'admin','a');assert.match(view.lessons[1].lockReason,/instructor review required/);
+ const review={grades:Object.fromEntries(qs.filter(q=>['written','true_false_explain'].includes(q.kind)).map(q=>[q.id,true])),mastery:Object.fromEntries(qs.filter(q=>q.mastery).map(q=>[q.id,true])),feedback:'Local verified answers.'};sqlite.prepare("UPDATE student_quiz_attempt SET status='graded',learning_review_json=? WHERE id='pending'").run(JSON.stringify(review));
+ view=await service.studentAcademyView(db,'admin','a');assert.match(view.lessons[1].lockReason,/homework awaiting approval/);assert.equal(view.lessons[0].completed,false);assert.equal(view.summary.nextAvailableLesson.id,doc.id);
+ }finally{sqlite.close();}});
+test('retained work remains visible after unassignment/unpublication and never restores former access',async()=>{const {db,sqlite}=await setup();try{
+ sqlite.prepare('INSERT INTO student_course_assignment(id,user_id,course_id,status,assigned_at) VALUES(?,?,?,?,?)').run('old','former',doc.courseId,'withdrawn','2026-11-07');
+ sqlite.prepare('INSERT INTO student_quiz_attempt(id,user_id,quiz_id,attempt_number,status,started_at,learning_version,learning_questions_json,learning_answers_json) VALUES(?,?,?,?,?,?,?,?,?)').run('retained','former',doc.quizId,1,'instructor_review_required','2026-11-07',doc.version,JSON.stringify(doc.questionBanks[0]),'{}');
+ sqlite.prepare("UPDATE academy_lesson SET status='draft' WHERE id=?").run(doc.id);
+ const before=snapshot(sqlite),view=await service.studentAcademyView(db,'admin','former',doc.id);assert.equal(view.lessons[0].assigned,false);assert.equal(view.lessons[0].published,false);assert.match(view.lessons[0].lockReason,/deactivated/);assert.equal(view.lessons[0].reviewRequired,true);assert.equal(view.lessons[0].recordedPresentation,true);assert.equal(view.lessonState.attempts[0].id,'retained');assert.equal(view.lessonState.canComplete,false);assert.equal(view.summary.nextAvailableLesson,null);assert.equal(snapshot(sqlite),before);
+ }finally{sqlite.close();}});

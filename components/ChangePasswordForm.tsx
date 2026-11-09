@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { authClient } from "@/lib/auth-client";
 
-const MIN_LENGTH = 12; // must match emailAndPassword.minPasswordLength
+const MIN_LENGTH = 8; // must match emailAndPassword.minPasswordLength
 
 export default function ChangePasswordForm() {
   const router = useRouter();

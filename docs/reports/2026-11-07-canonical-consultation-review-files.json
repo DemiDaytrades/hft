@@ -1,0 +1,285 @@
+{
+  "note": "Scoped candidate files; this manifest excludes its own recursive hash. Local credentials, database, generated build output and unrelated working-tree changes excluded.",
+  "files": [
+    {
+      "path": "app/(app)/admin/student-intake-v2/TradingBehaviorForm.tsx",
+      "sha256": "6ecf5a8363cad59c44cf698352f5b14ac48f46e6c3bb78576b4a11a2640f44e0",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/IntakeV2Workspace.tsx",
+      "sha256": "e8525c0c41ff620f4e041d16b3740f63d14bf3929f2d679cf69df7c8c22e837e",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/SmartInstructorReview.tsx",
+      "sha256": "01c6c230e0a766b06363e47c0a3ce0128c430bdd4186eb4535b2012a50a48b96",
+      "new": true
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/DebtCreditForm.tsx",
+      "sha256": "1df8bcaeaab9c45e6dbac0caca57b04ff3a7773c61f689ef6e287d232a256e0f",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/FinancialHealthForm.tsx",
+      "sha256": "d50d9b075d53bb198290c40c2eb0d9ed1d541b89406efcb50f629a26d32ed847",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/TradingCapitalReadinessForm.tsx",
+      "sha256": "97a30cc928c3dcef16969b3d32a7a998230403546fc9dbd76ec497e74f5f20e6",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/MonthlyObligationsForm.tsx",
+      "sha256": "fcd2ef1a2fe366118c9e95edb42197e2fa30896e832a534643eaf5bbc4f39d91",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/page.tsx",
+      "sha256": "a08b0c93e8da30864abf31ba58cedf345c537494a993bdda7f69ca74638fb2b4",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/CaptureForm.tsx",
+      "sha256": "b52057a9e66572232d3853bdc034c628ba24d1a3fcc783e919875d4d347b85a2",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/page.tsx",
+      "sha256": "31b4083484a34b3077995c72eb7bb60183dd2c30cbc3c45d5e6fa8a6fdcd0749",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/questionnaire/AdminQuestionnaireEditor.tsx",
+      "sha256": "b04bfd035f9875f468357ed4ef9e52ce5aec1648c583e47ff1cbe12137f0dd3d",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/intake/IntakeForm.tsx",
+      "sha256": "6690389b57040a3c5012286feccf426aace095a03a963a28153aec3ddffce0d6",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/intake/actions.ts",
+      "sha256": "2af5707286024668994ca65575a05fe05f1c771cf04d435d4f309fdb163ffbc1",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/intake/page.tsx",
+      "sha256": "f138b5c7054e9badb4710c0ef048799bc72842df770e8f9314b971e8f2e2e2a2",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+      "sha256": "8c6a533484908f9950baa2485a52adc3dc9634430164925d4350777dd9f12113",
+      "new": false
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/training-plan/page.tsx",
+      "sha256": "b370718fb91906f1bc812d344b3b751f7884312c9aee3662363bb48f347aa553",
+      "new": false
+    },
+    {
+      "path": "app/(app)/consultation/questionnaire/QuestionnaireForm.tsx",
+      "sha256": "9b758eefc76af41d4b0cb5b066dfb236edd59a416c865d6a95f39d0dd4e1ec62",
+      "new": false
+    },
+    {
+      "path": "app/api/admin/student-intake-v2/route.ts",
+      "sha256": "180f6f87c09d73389768c9cd629c2e8cb02bd47798bfe655c9c5ff712343d275",
+      "new": false
+    },
+    {
+      "path": "app/api/admin/consultation/questionnaire/route.ts",
+      "sha256": "710017acb123172b7532cd3f00fea0e4fa3875753f980c19edeb607d1c6f07bd",
+      "new": false
+    },
+    {
+      "path": "app/api/admin/consultation/questionnaire/revisions/route.ts",
+      "sha256": "378122dcad49d3954fb6249d01832abd949241fa689a0b024c9a11c0186c5496",
+      "new": false
+    },
+    {
+      "path": "app/api/admin/consultation-review/route.ts",
+      "sha256": "fcb2e35c875f5d2252a4c1996d25797d70e06a4244f7d089831982286234a83d",
+      "new": true
+    },
+    {
+      "path": "lib/student-intake.ts",
+      "sha256": "7ec0a803bc4844aaf8a40ff2a45b9abc3aa916bffa84587852381d1178cc40a3",
+      "new": false
+    },
+    {
+      "path": "lib/training-plan.ts",
+      "sha256": "88dc30c667ac08903102318de21f9e42fdd67fc50f9538880cf2c232ce4c5096",
+      "new": false
+    },
+    {
+      "path": "lib/student-placement.ts",
+      "sha256": "5aaa8a7fd35b6c88ff8859c935d4bf03175e8f253c43b17b7698810cb8746f86",
+      "new": false
+    },
+    {
+      "path": "lib/student-intake-v2/validation.ts",
+      "sha256": "42440e3ef3564a0649062d847b96a204697e8065a551ad09b4a9063d7c66179d",
+      "new": false
+    },
+    {
+      "path": "lib/student-intake-v2/service.ts",
+      "sha256": "c39e7fa2ae0d20ef9ea9bb737124b7101daae828963501a55d8d3f51d7db0598",
+      "new": false
+    },
+    {
+      "path": "lib/consultation-questionnaire/legacy-authority.ts",
+      "sha256": "5c457e8b3dafc276688cca92bbddabff567144a862c503acb6185afc933cb4f3",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-questionnaire/questionnaire.test.ts",
+      "sha256": "de3d8c4445b99dc5e7163b9474917a022f752c10d9af9073c8b6e7c761099d41",
+      "new": false
+    },
+    {
+      "path": "lib/consultation-questionnaire/student-data.ts",
+      "sha256": "9e06d823d0cf268c68b52cb2f614d64f49bfc4ca05832d7cbe5869e5e0b76af3",
+      "new": false
+    },
+    {
+      "path": "lib/consultation-questionnaire/index.ts",
+      "sha256": "a448e4714b8364f9a2b836b6ca06cf7b6e4568d4ee61a50571e505ce242f7b0d",
+      "new": false
+    },
+    {
+      "path": "lib/consultation-questionnaire/legacy-write.ts",
+      "sha256": "8ec5f951e905e548d7d48e4b90bb4faf130b0d93ada9fddb0c718e06c6907af6",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-questionnaire/legacy-authority.test.ts",
+      "sha256": "d0919d952d3536c038faba5b973e121d848248fe43704eaa1b1b8c5a1ab3c9ed",
+      "new": true
+    },
+    {
+      "path": "lib/learning-path/source.ts",
+      "sha256": "265d3a85995404ad88cf6e61786c2c3c4a6a15c8c95d82b559fdd87386b27b70",
+      "new": false
+    },
+    {
+      "path": "lib/learning-path/contracts.ts",
+      "sha256": "7a617e268d7d7991ad9a7ce9b70a87040a2f2a077b1e6ac21c4a42c880ed9f1d",
+      "new": false
+    },
+    {
+      "path": "lib/learning-path/engine.ts",
+      "sha256": "3862139c789d150d10ab97bcaeb209100b0ad3e4ecb3a325b9d571f53adf2e4c",
+      "new": false
+    },
+    {
+      "path": "lib/consultation-review/legacy-labels.ts",
+      "sha256": "08c6654a5ac7ec08c932912502dd9e2e5f88851a47301cc48b01fa05c9bfc30e",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/model.test.ts",
+      "sha256": "340609010d842a3f87fa27c40340653bce0c99426107571e998ca324d5bd7955",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/canonical.test.ts",
+      "sha256": "19d60d5c61814947dd670741e5818c1aa97dbd27ef135018dca9741a57371a9b",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/service.test.ts",
+      "sha256": "5b5a3cea605affc02b6626e7df1eb4f30eb46ad65d01340e99e56edcfcd911e9",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/canonical.ts",
+      "sha256": "f9741ea03b80e3ccc6575b948ae075f1e6fd6a16bc7cc6c5b0eb5ad998c2caaf",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/model.ts",
+      "sha256": "4dcf9fafea7f1dce18efc6841954084030db4982932e701f6a313b7f8197d5c3",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/legacy-education.ts",
+      "sha256": "359099a0b5354e898ae83fb1bbd8c26553d2b4caf46f82034cea0a0644ece592",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/capture-controls.ts",
+      "sha256": "467599f7c5ba6fd1f4364109fdbc81e9ff798603b80b51b67ea58972ea20ea99",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/service.ts",
+      "sha256": "236e30a44d4fc2fd72b254141c39ab873a2b8bd9694474d980bb509c650432c5",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/legacy-education.test.ts",
+      "sha256": "a0d5a17b21c3c021ebf1aafbbb52d0e8b1057a9ab0c84ff2a0d7902b96d4bba7",
+      "new": true
+    },
+    {
+      "path": "lib/consultation-review/capture-controls.test.ts",
+      "sha256": "db3ea3d95c345783407a1121f09fbc24aa1e977afbfcd4820c1dccd9de7d4a89",
+      "new": true
+    },
+    {
+      "path": "lib/financial-plan/service.ts",
+      "sha256": "9953a655a1e236dff46040577eb31997c8338316f032a6e300e679b1e648f2c7",
+      "new": false
+    },
+    {
+      "path": "docs/audits/2026-11-07-capture-field-audit.json",
+      "sha256": "69a1827b259a036b6fd1870ae884c1cae388b4478959aa296d01de430939b1ed",
+      "new": true
+    },
+    {
+      "path": "docs/audits/2026-11-07-joined-canonical-matrix.json",
+      "sha256": "e6dfe272c27923e9cc6c9f99ec6d2dd6730b87f22c4c1e4d1066524ecb602d2f",
+      "new": true
+    },
+    {
+      "path": "docs/audits/2026-11-07-downstream-fields.json",
+      "sha256": "0ae0167a1e47b67990c2e5be1efeef8f5a6fccf35751a0354bb0a163d08ba176",
+      "new": true
+    },
+    {
+      "path": "docs/audits/2026-11-07-downstream-flow.md",
+      "sha256": "d3f85efc1f23ce84bb3a9379e854569e8db61fdef796c2e2ddfda6e5679d7766",
+      "new": true
+    },
+    {
+      "path": "docs/audits/2026-11-07-capture-field-audit.md",
+      "sha256": "3d401fcda62b59be79e9cdec0d474474ed9853afb50b8bf2815dcadb5f0c57b5",
+      "new": true
+    },
+    {
+      "path": "docs/audits/2026-11-07-joined-canonical-matrix.md",
+      "sha256": "591b79953fe8a227af54c15a253b6ccf64954c54db4e51a57b0e44cb4a722901",
+      "new": true
+    },
+    {
+      "path": "docs/audits/2026-11-07-legacy-authority-disposition.md",
+      "sha256": "047af3fe6949e03ab4603ba620d0b094e2bc698be25c050067cf48b776b3b6e6",
+      "new": true
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-canonical-consultation-review.md",
+      "sha256": "1c664f2de5550f5eb404a51232904fe2367a4d6cd47ead6c29c0a09c282649e9",
+      "new": true
+    },
+    {
+      "path": "docs/reports/2026-11-07-canonical-consultation-review.md",
+      "sha256": "45d8b3c2f9018ef40e15bf5e14490a691c379895d63dacc15b170f6c403e384f",
+      "new": true
+    }
+  ]
+}

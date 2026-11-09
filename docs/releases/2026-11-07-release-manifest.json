@@ -1,0 +1,2194 @@
+{
+  "status": "BLOCKED_BEFORE_PRODUCTION_MUTATION",
+  "recordedAtUTC": "2026-11-07T20:12:49.677979+00:00",
+  "sourceBranch": "main",
+  "sourceHead": "8609c225c241fc1765e54eb4a73502d7456d1e9c",
+  "headIsNotDeployedReleaseIdentifier": true,
+  "workingTreeChangedFiles": 330,
+  "changesetFingerprint": "71ab436ce64d28bcff9bd104e73c3581425ab0d505031d79f29dc36a28b2e803",
+  "productionTarget": {
+    "worker": "hft-landing",
+    "accountId": "780fda88bb137eedefd9d3981a8816b4",
+    "database": "hft-data",
+    "databaseId": "baec727f-4a9a-4915-81e2-d549c5095fb5",
+    "bindings": [
+      "DB",
+      "ASSETS",
+      "ACADEMY_BUCKET"
+    ]
+  },
+  "blockingGate": {
+    "gate": "production schema read",
+    "provider": "Cloudflare",
+    "code": 7403,
+    "message": "The given account is not valid or is not authorized to access this service"
+  },
+  "productionMutationPerformed": false,
+  "productionBackupEstablished": false,
+  "exactPendingProductionMigrations": null,
+  "dispositionCounts": {
+    "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED": 215,
+    "WIDER_SCOPE_REVIEW_REQUIRED": 23,
+    "LOCAL_TOOLING_NOT_PRODUCTION_DATA": 2,
+    "DOCUMENTATION_NOT_RUNTIME": 21,
+    "TEST_OR_VERIFICATION_NOT_RUNTIME": 43,
+    "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON": 26
+  },
+  "localOnlyMustExclude": [
+    ".dev.vars",
+    ".env.academy-qa.local",
+    ".wrangler/**",
+    ".next/dev/**",
+    "/tmp/hft-*.cjs",
+    "/tmp/hft-*.html",
+    "local QA users, sessions, credentials and curriculum fixtures"
+  ],
+  "staleBuildDoNotDeploy": [
+    ".open-next/worker.js",
+    ".open-next/server-functions/default/handler.mjs"
+  ],
+  "migrationChain": [
+    {
+      "name": "0001_create_auth_tables.sql",
+      "sha256": "2d84cd71bf0150ec54a4ffd3cba4aca1ac78c4127077499f37f31b2a28a34919",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0002_admin_plugin_fields.sql",
+      "sha256": "5f580cf37e7dcbb3a805ac90fb941d3d929cc98b9f6498afcca6f781963a2905",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0003_app_settings.sql",
+      "sha256": "303e78a4f1ffe7ebb2477b867c471efba46ee64f4bdbbb2ef5c7fae7303da8e1",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0004_stripe_membership.sql",
+      "sha256": "220a589082ca876da8adeddca2bbfbc343306605fa8a9fce68598418288b1311",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0005_affiliates.sql",
+      "sha256": "05d60f237b6875c216282a726632069879b4194754194c6e477e4f7b95379dd6",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0006_invites.sql",
+      "sha256": "459dd38422e1626a8bf38c62b2aba554456b068f222c75a19734ff2beca4c3d7",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0007_communications.sql",
+      "sha256": "7df800f2bd0a8fd3fc258deb881e3a743777de28e23d054ae92366c100697a47",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0008_forced_password_change.sql",
+      "sha256": "d9d10d3bb563d923dec0173ff68c4ee27a31830dc37d703033f0c7c489ca102b",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0009_nullable_user_id.sql",
+      "sha256": "a44be57af6084b8a5dc32ae72a8e2a108bf6cbf2234815fe82c2ff8757aa21b2",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0010_consultation_types.sql",
+      "sha256": "bbd6b03e058105f3aea77a37cd534c1e98ffce2f7d0c276762e79d0e26054b43",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0011_availability_rules.sql",
+      "sha256": "e6d7fefbc23ebbc50f5ec2017472d7bfe3345a5a29fce764264fd23df82fc581",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0012_availability_overrides.sql",
+      "sha256": "b47741a1424bb9e8ab80edee5bc8604619c998a7718b68a6f5b47443bf49632d",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0013_consultation_bookings.sql",
+      "sha256": "9c4b9f00d58c0dce7834b57ac3187b471b930048aa041a9191ee4d6c03c6d6e3",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0014_booking_slot_holds.sql",
+      "sha256": "c5a44304d8f626f879604fac00e3216dbbacacffe83bcf8b1f885448a1a2843d",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0015_complimentary_access.sql",
+      "sha256": "d0840935d2413ea08720330154f4fd5db808c2aebef63896fb1cf28c5df104c7",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0016_student_intake.sql",
+      "sha256": "3d9bb773a3ff7c557f44a90778256621a94775e8da2ba5b2c230318763c781fe",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0017_training_plan.sql",
+      "sha256": "bb487b65fea7a15d1eb9ec49b2fdc6ede8c8cda1916960bafbe9929bcfd3bd10",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0018_placement_assessment.sql",
+      "sha256": "9e6ad220426eaedbd44678bff668353603447843a5545d94294035fec3ff0be3",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0019_student_placement.sql",
+      "sha256": "9529691bd075b90806da3a8051cd1437598c3252a861e08ca0d0038b29e186d0",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0020_member_consultation_type.sql",
+      "sha256": "c9fa502969daa6a99646298cc625755f27a11bb5ce2aefe649a4b2d606bc992b",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0021_consultation_questionnaire.sql",
+      "sha256": "9b4cfaa61b9bcbbdf0137064de0f0c849b9009e3bff8b76c6a785c24a27e3aad",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0022_academy_foundation.sql",
+      "sha256": "6905352ba15e35d0a8a4776de71834f223c7cebd78361905f6d2ca15e89107db",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0023_academy_assessments_foundation.sql",
+      "sha256": "2575b436f6cf6b71f1b544711cbd29f9d2255789c39993fe878a48ef1422411e",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0024_consultation_game_plan_versioning.sql",
+      "sha256": "966bab2d4f6e715d0151f02dfc0de7d380e5a64487a2e96de56288c993e9ccd2",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0025_student_intake_v2_foundation.sql",
+      "sha256": "c0908f39ddc5d35b09a5023541fb8f541fe814e412061efffd337c252631dc92",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0026_consultation_questionnaire_revisions.sql",
+      "sha256": "5a1230bd77cff1f4724199b41db1694d1d42bb7a582570906aea4c086a6dfd19",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0027_interactive_learning.sql",
+      "sha256": "8be720485ecc6ce035cd6a0f6c2237383bab029e308eebe9eaaadda8151c38b3",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0028_learning_versioned_open_attempt.sql",
+      "sha256": "96fb22ac565bfd9be677069383410ad66c43d342781cf9784699ce13080aa39b",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0029_financial_readiness.sql",
+      "sha256": "ae7ef693ed98c2c708d114d718c6cceb235312c4f31640a602b7588b0ee536f3",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0030_complimentary_invite_delivery.sql",
+      "sha256": "7cda2bbac031436add81c62a1943dda966a0cd58ac7ea879b83740ce7abfd034",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0031_member_lifecycle.sql",
+      "sha256": "d308d07c7069144217e38ff831f7c318b1846cbf9f69007eec67c4bac925ab4a",
+      "productionState": "UNKNOWN"
+    },
+    {
+      "name": "0032_personalized_learning_path.sql",
+      "sha256": "ef38e364f7505c35de58aedfdb30dd5ae51a2ad2237028567c6c1e728724dfaf",
+      "productionState": "UNKNOWN"
+    }
+  ],
+  "files": [
+    {
+      "status": " M",
+      "path": "app/(app)/account/actions.ts",
+      "sha256": "038496aa17f5802fd31d031e5c495c8403fc0d3149ce98fecb64cf4943725196",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/account/page.tsx",
+      "sha256": "4ba91fcc85f0ae5a4e25591abb67bd5150e0f75e8e2a062f1207cc1a794f854b",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/admin/affiliates/actions.ts",
+      "sha256": "9c716758cdf663695ebc5c05cee365d4f6c3ec919d174e0520f6f87ec560351f",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/admin/page.tsx",
+      "sha256": "700bc41cfaadb4763b95189ef1be5357ba48c1a67ca10180d4a9aaf6e2f155fe",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/admin/settings/layout.tsx",
+      "sha256": "4226259423ab8c47337b8d5e84b1e7346f8987a83cd59389625addf404aa63ac",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/admin/users/actions.ts",
+      "sha256": "f856ebfe5abd8ca3db1d886bbc13888ac40e61f54ebbda61271fb115d2faae53",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/admin/users/invite-actions.ts",
+      "sha256": "11394c6180873b07e9a41e09dc6760c459f69ce3f1109b2c045ef68fda7e6888",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/admin/users/page.tsx",
+      "sha256": "d6892ad887a77b1d4b08e3373725ec33215cd57e1f1c6896059eebd33929ca69",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/affiliate/actions.ts",
+      "sha256": "95b08405571ed9fb2f0aa2ddfbdd4e79ec6032b349162d288362400e8d6bc7c8",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/affiliate/page.tsx",
+      "sha256": "18a597ffac5cf1bf650070eecdcd22478499d6705cdb0578a0d3832542f6b4fe",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/dashboard/page.tsx",
+      "sha256": "67a35e80dcf19fc6bf7355aa2359aa8881b14fc528f25d11180e4c1fdeecd06f",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(app)/layout.tsx",
+      "sha256": "c97e9adeb3a5cf8cd7179a07f9412341cf981ef160501dd311062533c7d2e549",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/(marketing)/page.tsx",
+      "sha256": "4eb285d9a189a7d2f17875c1ecf4648983db619a2c3d7351406955dcf7331a78",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": " M",
+      "path": "app/api/stripe/webhook/route.ts",
+      "sha256": "89349c42e1d042c97cdd311361da977f08bd55d8d711691eb1ba5d77a71a2124",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/invite/[token]/actions.ts",
+      "sha256": "bbbee15a7a833083f23af162c28309d3c39bf3ce5e6ddfc66f3b4932afa3eeb3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/invite/[token]/page.tsx",
+      "sha256": "2fabd352f93cf91e7cb34134eda32072eb4ed5a2b6141249d04065abeb3bdf6d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/join/actions.ts",
+      "sha256": "2fe2adff969779a581abc624c59e5bfcfe85c59d186df1c5d13e36e3051137c3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/join/page.tsx",
+      "sha256": "6f55ded36df7eeafcc3bc0dfe3fa06350e92771251b7532ad2c373392ee82b68",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/layout.tsx",
+      "sha256": "2a01f9db0a0cad33a5c38bce1fd4eb3a89529c3753da0f8ff8cc8d4c1ba7f79e",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/login/page.tsx",
+      "sha256": "6d5d018a6ffbc70022fd8842fa2f8f62d643c62460171b64c5761d6dddbf6f45",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/welcome/actions.ts",
+      "sha256": "49bf99e5be4930ee969465618746c16d0b167b457175cce7a4b38d96f8079174",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "app/welcome/page.tsx",
+      "sha256": "b162d3db601a81bc1ea2b687f706eff5e8bb248729c58509c30ec9ae82d86053",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "components/ChangePasswordForm.tsx",
+      "sha256": "6a836851a96d811c771ff431e74923d20f9af9d34bf0457d8a71ee7e3a201b1f",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "components/InviteForm.tsx",
+      "sha256": "6c8bc1a091f0bb36084ea5bc4348278191382b813f541a4c37577edceb3576f6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "components/JoinForm.tsx",
+      "sha256": "a12bdf5d3ac3e4cfc489b840db8a0b355c657db70586da9fcf110fbddbfb47c6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "components/LoginForm.tsx",
+      "sha256": "37a7f797d75f5e291413affc5a21beec129dfe77e23f4dba273d502b9556e7b3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "components/SiteFooter.tsx",
+      "sha256": "7887e75300b869e405ab679f3bb01908094ab7a7c8eb44947835460c7a280a73",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": " M",
+      "path": "components/SiteHeader.tsx",
+      "sha256": "5a7be056ebeee9331af76cf5596c0bcb41d0e579f2cc93bfac1a578b76d7123e",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": " M",
+      "path": "components/WelcomeForm.tsx",
+      "sha256": "0426952edf7caf3783d12215f261f976a3b1d92eccde9ebcebc9adf93fedb1b0",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "components/admin/InviteUserForm.tsx",
+      "sha256": "dbc7e0c9da187670e094bb4202552fcfa5969e509eb84df2fdca143af9026c3c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "components/admin/MemberTable.tsx",
+      "sha256": "a7bd2c0f9c392168d9a84e1e3c26ef81dd6a44b750e0bff5891ae6d6dfba1aaf",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "lib/auth.ts",
+      "sha256": "46efa431b50c88e5ef89c971b1dc7b17a051e09a1dd319c4d6ee9340d95f3795",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "lib/checkout.ts",
+      "sha256": "cc69133fb988216b04b302d923123cda793c7c531e16ec26057e7e7c9b54a41e",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "lib/dal.ts",
+      "sha256": "719b74159df528a8538fc7b3503344250ce1f0e544667ebe06c774e96b9e7cb8",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "lib/invites.ts",
+      "sha256": "ecd23d8b5f8388a45f8370c38f3df3493bc6dd4e4d29f0ea4558d09999dd330c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "lib/members.ts",
+      "sha256": "be4b0cc789a5966eed953ea4c2a1d0f749da8b8deb4f1576b6d29db3b182e66e",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "lib/membership.ts",
+      "sha256": "db90d4421dc9de86365eb332e7abe5e3bf7bb6732b2be50a7f675e7113cef969",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "lib/provision-member.ts",
+      "sha256": "8b33a1038528ddeb48aaf7dd3cb2fe244997eece2ca2649ab7dc62cb2979ff35",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "lib/site.ts",
+      "sha256": "f25da3c3ed82cf7aa2ef1b40e48244851ccfb56662302927ee375bb0d7a6fedf",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": " M",
+      "path": "package-lock.json",
+      "sha256": "ff977a5e1b584657203257ba1fd6f0d007be27d968e1961cc47a2ba44b519dc1",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "package.json",
+      "sha256": "75922d53f8301bdcd9c2a0c2d66fd32dd52efa519db7f062ebb1978fa59f39d3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": " M",
+      "path": "wrangler.jsonc",
+      "sha256": "0e00f43b12614a6350a8e21bd417602bcc6643294adfeb7ee738b49a9ddd41a8",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": ".dev.vars.example",
+      "sha256": "f9b313667f8e470e4ae0a22648cdc92a5e5bcde8b9301b9e809f27112c04ae89",
+      "disposition": "LOCAL_TOOLING_NOT_PRODUCTION_DATA"
+    },
+    {
+      "status": "??",
+      "path": "MASTER_CURRICULUM_ARCHITECTURE.md",
+      "sha256": "bd2c50d8d4935c7b4560a56bcea40be568039920d3e5faedd9551429fdbfd981",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/academy/course/[courseId]/page.tsx",
+      "sha256": "ce75b149636823a11fb5f8816b607f753100ffc9bb8c5a79b12c7965966ceb74",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/academy/lesson/[lessonId]/page.tsx",
+      "sha256": "d7d57397941f6372e63724e6cefb00aef13cec3d6f00de1371b79b386383572d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/academy/page.tsx",
+      "sha256": "8871cc7100dec6f34072179f7929af307f2b1d53979c27d481378512872c89d1",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/account/change-password/actions.ts",
+      "sha256": "fbc998870c8563a0059dbd33ea7d251048a87504773aa353f706b7a4658a1d01",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/account/change-password/page.tsx",
+      "sha256": "86b1e38d18e2822ac61c191635f5386b56b9180ecd6171565837fd3d1395345d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/courses/[courseId]/page.tsx",
+      "sha256": "bc758b9f16a3ef1dfe99d82810fcefb942ba6ff751f1654f6002b6cba3819862",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/courses/new/page.tsx",
+      "sha256": "d1c8cfa1e9dd49ff9d66fbeabccaf3356ea598d2af2c9f58122239cc00b68f86",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/inspect/[lessonId]/page.tsx",
+      "sha256": "dbc56775813747eb3d3af71c79b6ca9918b9620b60c0c306f9d9c2b5f43b6264",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/learning/page.tsx",
+      "sha256": "9bc21bdec9ae0df198ed609a5e79deecf72f1dde0b8ce94b2ebf1c782b3ad999",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/lessons/[lessonId]/page.tsx",
+      "sha256": "56fc6c88d87db457233d4e2f6967e866be214e0ca8915deb2d75a463c86017ae",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/modules/[moduleId]/lessons/page.tsx",
+      "sha256": "e952813fb6222d5cf501ba939c17ccec3f8448efabdb891198ef7489f48be7ca",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/page.tsx",
+      "sha256": "a8129edea70d9705567b45a14e0a95fc82554c510dc03c0bb9b536181e685ba6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/preview/[lessonId]/page.tsx",
+      "sha256": "4ae21ba81b8f8adb394b76711749b6b3ddd495ce4e1d2baa8669ca08a62462bb",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/review/[studentId]/page.tsx",
+      "sha256": "4976a430065e3e01692486c18d9073bf5279d5e599f3757439806d2585f9a31a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/review/page.tsx",
+      "sha256": "8e50d4b4860c2fe6db7f13cd38d4554de8566793af3b7844ac43a0c23c5591e3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/academy/student/page.tsx",
+      "sha256": "7b5022397cc7e12008c0d25511d11a6ac3fc6b7b385b7bede5c6c80266dd175c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/availability/AvailabilityManager.tsx",
+      "sha256": "8a3a5062170cc8edbf9a0d53741800d48b50d589e781a70dfe929b7d7630e050",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/availability/page.tsx",
+      "sha256": "80567aa6c953a86abc997be4ba12096b1fd077435bfc45f020576e2cec30b036",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/bookings/[id]/page.tsx",
+      "sha256": "ffe230eb791f6128fcfcb8dfacae8c4699edeba2004062e403fe4d2a5c4fd045",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/bookings/page.tsx",
+      "sha256": "c92456447ca7c2c76d047add453f7db032ea37dbaa5d9a8cc4d4340995f8e107",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/communications-test/CommunicationsTestClient.tsx",
+      "sha256": "f15f194b3b7536b70f984bec815c6f3b0eb7267613f39ef5d2ec6f77d2b4de46",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/communications-test/page.tsx",
+      "sha256": "a4f6d6ae94a7c75de1ae0bb8328ef15d56556e7cf817c070dd2a15c73f87476a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/financial-plan/page.tsx",
+      "sha256": "f5cb51b1cf2152ae5a360221b2e40450e3390a1b36e42792f4b3b15e199a7b04",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/learning-path/page.tsx",
+      "sha256": "85bf3e757c504c9422aa87e5cc68be9712e24087baa1532943e25af5ac79f45b",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/DebtCreditForm.tsx",
+      "sha256": "c982f1132adffcb15ce881316e81e306161889a7f6f61ab192b3abb3555f1d0f",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/FinancialHealthForm.tsx",
+      "sha256": "52b11bde5b639079342ed936c0738f605f6c976974ca4468c623061a39e8dc5c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/IntakeV2Workspace.tsx",
+      "sha256": "2a14a55d9b1e93dc6c0112013eee670997497121d630207a711202de9be95d9d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/MonthlyObligationsForm.tsx",
+      "sha256": "3744ee7226f16f9cbf9ba15ddba9d311fdeab4383ec678f0633c71d76415231d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/TradingBehaviorForm.tsx",
+      "sha256": "1d3782fa4096961cc2d6da584e206d91dedf2c8637fcf80a1797b826d901b0c5",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/TradingCapitalReadinessForm.tsx",
+      "sha256": "dbe67dc556b67cb8ef66d3e0c455c0d24aafb2c07f1e4776cde13f34578bca97",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/debt-credit.ts",
+      "sha256": "08e29c3e5fb1a30b810625ec926073c2a649979d712fa876cad23830e93f208c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/financial-health.ts",
+      "sha256": "3fb3475558bc2add0d57cd37ae4455d634b1ec9aa4c4e58489261a9c9e383d46",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/monthly-obligations.ts",
+      "sha256": "804550e3a717d33df946ecc9afce24532fc3f1432145c313ecacf5de653907e3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/page.tsx",
+      "sha256": "7e40586668a07a0241951dd8d6e9267d854e92c7b60f7118726cd4088ed56ff2",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/trading-behavior.ts",
+      "sha256": "a82bf2daacd9bc93cf32649727c4992222d2d8888e4880b1012a469cfd836a49",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/student-intake-v2/trading-capital-readiness.ts",
+      "sha256": "4af441e575dd14637da4db91e83f9a7e00a1c77c6c18aa00c1086631381ee755",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/academy/page.tsx",
+      "sha256": "79f738e5e22cc71c17e4d91b6e5556077acec37b39c7dc1ece6d0e860d739b72",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/complimentary/actions.ts",
+      "sha256": "7a7cad7ffc2363cab85891b98a73b9009de1af89d647f6c6b1d74bc10dca81d2",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/consultation-results/ConsultationResultsClient.tsx",
+      "sha256": "6139e756e2c1df08086c688b989b2713cdb8b757dcddf7125cbb79dde13d28e2",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/consultation-results/page.tsx",
+      "sha256": "89a58f99156874c3df7ee39ff38bae426c2b6ee9e2a8bda573166eb71736bc73",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/intake/IntakeForm.tsx",
+      "sha256": "8d46a28e5134024a4a5e02422f93c1948e1fefb37eb21938832143e256c12d86",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/intake/actions.ts",
+      "sha256": "e10c7459d50b26e8dc29a45231bf58b2fbac28f6300b041bcb71384c46070675",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/intake/page.tsx",
+      "sha256": "d74cb8bbbc78dd5d3f65009c5b467e40a4e6ca865ea3134ec4bb5742563f9e3d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/page.tsx",
+      "sha256": "c6d11f67eb06981b5b0c3735f4053eae4f574ddb79e6be8aae9c052e6510bd5e",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/placement/actions.ts",
+      "sha256": "eeed91946916366c80c99420c91bfb1fa4f4d8ffce78e66fc56f6750df2bd0f8",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/questionnaire/AdminQuestionnaireEditor.tsx",
+      "sha256": "26230802ccac78e1d2ec04b4ae883e2b6b9f64b57ae2e7bc66f6457d97a12d61",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/questionnaire/StrategyConsultationReport.tsx",
+      "sha256": "ee73bbc218fe2cc94b1b87edc07519cd1001fc047766574b40507ab6f1a5e328",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/questionnaire/page.tsx",
+      "sha256": "6e19e384e22c2e5afd5f8613db19b6149b604c487fc0e922459f7ced27304019",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/questionnaire/questionnaireFields.ts",
+      "sha256": "d392bfca7c43ad096a234e85c2a1b14da6ed6d14510e689f46ad2d9ab410c5ad",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+      "sha256": "af337726920acccb126c730f8fbfa08e704a676886480538abd2368ae51b3141",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/training-plan/actions.ts",
+      "sha256": "b9d9a45f94b839c35f3676e513d8f57893d8baf6e54e70357d62bc27b55411da",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/admin/students/[id]/training-plan/page.tsx",
+      "sha256": "89404eae3d983c961d1a675bbed91340b2577b6fc73cc474ad840d06852daa7a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/assessment/AssessmentClient.tsx",
+      "sha256": "7092211e3a7a2e846639c78b2f60f76b4d9bbec679abdda4ab6c596ac3d0a5c8",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/assessment/actions.ts",
+      "sha256": "c777c01d0d287e4ba1425295ad07c3781fd7ec43d60fe6c25c294e9e6cf10b6c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/assessment/page.tsx",
+      "sha256": "1133aa4e501994639c58205a594cc619ace27fd39659d8266faefcbdc48d4e21",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/consultation/ConsultationBookingClient.tsx",
+      "sha256": "fa074adf852adabeb4307c9dc824dbec5abf157606025f66bb0f2c435cc9d126",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/consultation/page.tsx",
+      "sha256": "0a8cf59494248677057e3741bf7ab4e3954f10afbe0a8a1d3bd91b43cee75fb8",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/consultation/questionnaire/QuestionnaireForm.tsx",
+      "sha256": "b64b2c8fab73b7362f51e9e39b36a1585b4a372c99be7cda80c097f1c761c9df",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/consultation/questionnaire/page.tsx",
+      "sha256": "76f1454c0dc256e803cf9b48a2f8a9f7370eb5abd02949ba0d4725c3aaab9126",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/financial-plan/page.tsx",
+      "sha256": "6af39e71f1f73d3c91d2df58ef1a4f167eefc23dad39eb50e780405eedc28e8d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/game-plan/page.tsx",
+      "sha256": "a3116e61f058e312e8bc607d0ab686bed95c8d99fd8ddd30e52d4e22c938aa11",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/learning-path/page.tsx",
+      "sha256": "b67f086d91ef333b70a1c1efe5d2e2ad5f5fdc0138ed3484bf2e4ec45eb10cfd",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/my-finances/page.tsx",
+      "sha256": "2790bd9a0252dbd44206ee4b93afb7f05c15d2aaa6f2c2af1a08ac551fa73699",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(app)/my-questionnaire/page.tsx",
+      "sha256": "dff2c136a07ba51069b720c8827592058c04fca515bb2d52adff900e03943627",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/(marketing)/privacy/page.tsx",
+      "sha256": "f586782e181c58d5f8dfdca9e60d5622691f1c69b50fec21ec6c37e5ee34dd93",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/(marketing)/terms/page.tsx",
+      "sha256": "ecd7ac435d1c175fe4d39d805539e87a9f54ab403a0ef930d650b1d6a5d6fc39",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/account-deactivated/page.tsx",
+      "sha256": "adab6cf9222afd1bbaf88dae251fed50b227f1c7a54eceb44e9b7d9e814d7c36",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/assignments/files/route.ts",
+      "sha256": "3731c16033fcef945d3fa6192a2efeebb3dd0e342c61fc85a9bbf92b94b4a059",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/assignments/resubmit/route.ts",
+      "sha256": "d915a601dbc96b58257bd28c5acd1502cc2c4969acfe71d4efe40c7346a866d0",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/assignments/submit/route.ts",
+      "sha256": "186d0e2701e68bf65632dabfc90ea08075aecda47f26b56595a0e7dd0ec36c22",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/assignments/upload/route.ts",
+      "sha256": "2e7960b332d54342bc3df5be70a68f9c2187fbed11f9a4840a410721f5d1b678",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/checkpoints/status/route.ts",
+      "sha256": "8c940ad06cb6c75dddf3ef9d1c177d7dcbd2087ead662123b7f55e978c323975",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/instructor/authorize-attempt/route.ts",
+      "sha256": "ff89fcb09ca03085a7af2ea0c01de8b2f1bb09ea3d9012f634a2a5824c4da6c3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/instructor/review/assignment/route.ts",
+      "sha256": "1af925abd528a4fafa1da4195fea4d0c8638a53ebe66a0b7b47618b6ebf46be3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/learning/route.ts",
+      "sha256": "1d6b128581db402609df06972e5afcaca1d163056596a99103609c194f9c70f4",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/quiz/attempts/route.ts",
+      "sha256": "c7e2a3b58aeab77bd3b6512efb203f8c11e4ac8079146afb840747bd425927b4",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/quiz/questions/route.ts",
+      "sha256": "dc44c93ac61b68ad797c8d80d65fab1fd0b5cf202d3a620ab8fc975de908bca3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/quiz/start/route.ts",
+      "sha256": "7ee1992643fe4a8bd51f92b0657968f1b3c6030375c149b9fa56f411870debc4",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/academy/quiz/submit/route.ts",
+      "sha256": "242de709a758065ec14edd2d1add8304f489e17e6e1b86c738db49d8b78d67cf",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/academy-view/route.ts",
+      "sha256": "75d520c40f91922cc2ce74970ef31c5f7920b6cc209aae0237ed664ed2592267",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/academy/learning/route.ts",
+      "sha256": "8f1e3a3f6a555869cb627c64196918e9af211f58c1c32b75d794a60ecea3e586",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/communications-test/route.ts",
+      "sha256": "fa4226662dc171bc6525b5355add45e50a751c51f05635452d6ad8563a146be9",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/complimentary-invitation/route.ts",
+      "sha256": "5849dd70b5bcb56c3b50f36209159968bab0b2362b0a5b8109adb715f93bf05b",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/consultation/game-plan/route.ts",
+      "sha256": "49979716b65823bbaa5684feb7efb991e10e5048c4d67ab870986b8864049e9e",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/consultation/questionnaire/revisions/route.ts",
+      "sha256": "cbb3b68c21d5629777ebbc6bde1902d687e09c98867e9b7f854f915d2753d21d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/consultation/questionnaire/route.ts",
+      "sha256": "6feeb297f87bf52c9371078af67d512d25f9cc8d44050c41595ca89697b2c632",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/financial-plan/route.ts",
+      "sha256": "e8d54a8a165384adb5d8b3f64b264ac629c170374ca52e0561b3871322109c84",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/learning-path/route.ts",
+      "sha256": "75383a5519cb2e60b674d2fbf2cac81c134dae14d1cfdd4ab60377bfb21012d1",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/member-recovery/route.ts",
+      "sha256": "9b27ff5af2cfa745d63a1050e1139c60587b83a9ccc1d3b281830a3e2b78d657",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/student-intake-v2/route.ts",
+      "sha256": "9813348d8af7f62330e5923e502be8e7afc0720cb628e0a13543f6be5ac39b1c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/admin/student-lifecycle/route.ts",
+      "sha256": "13b6fd12a5f62e3ab0302f6e1762ab86f5df64f33bfb341af9ed32489a6eb943",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/availability-rules/route.ts",
+      "sha256": "c70f0e5c2bf40e138a16f2d2501fdaab50edf233a4ba1e3208c3bad470467e1a",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/availability/route.ts",
+      "sha256": "9906b638dbd110cde40eaf3615ad555db2ad0ff82bf3f334397f0c7fc144ae3d",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/bookings/[id]/route.ts",
+      "sha256": "257b9af3584a304e6c88a0d2d7fceaa05aca9b847d2180a7c43e8f998e90c8a9",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/bookings/route.ts",
+      "sha256": "ab58f6e61c691e0a2134171ddf9ac738327493d75e4edd15a8a234dc12303974",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/consultation-types/[id]/route.ts",
+      "sha256": "f89d0dbd5a9cea161ea16f40d1a27815e2a4934e94656b24f0eef6cd495c5cde",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/consultation-types/route.ts",
+      "sha256": "5776bccffe5863b853f69d585ab9017b7f1d65163d1cd09dfdfdef0e201a252e",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/consultation/questionnaire/route.ts",
+      "sha256": "1ba9818611c970aa738f83950996366124d62bfe9286edfaa40f3012b9dbd245",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/financial-plan/route.ts",
+      "sha256": "674a577ee7c242f2d320940fa79c9e10bf6a1d747331bc343b84628572c959d4",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/game-plan/route.ts",
+      "sha256": "5c940e31cd8d06965f2505f8103990f3b2de42e511666879e66b99e1fce2aa08",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/learning-path/route.ts",
+      "sha256": "a267788472744c79a33fc0a0744ab1d8ad32b191a844b76945bf89443219bd02",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/member/consultation/route.ts",
+      "sha256": "527e88142e0e8cef0b06277c3df3adeea4c410bd029b938385bfbb279dc092da",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/resend/webhook/route.ts",
+      "sha256": "44cb94a4c5512c163150fe1462675459e2be899a13a9ec59e27da9bc62e2a243",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/telnyx/webhook/route.ts",
+      "sha256": "38aeb2e9599a47e6814039b5a5c2b4e32fc2d604e3fea996a497e870d9bb2b5c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/api/twilio/webhook/route.ts",
+      "sha256": "1d62cf6162eadaad04ce987a8b54e944adc1c6a500f5769bbac2c0e1b22a1f9a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/book/page.tsx",
+      "sha256": "92a9e371278114b3ed224b47e9f3d9e4db421ce5355b882e55c1d02bef288396",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/book/success/page.tsx",
+      "sha256": "3a2c0a4134d9d8200bae1fdf169565e96d39081d2ab1184e329944cb902c4ece",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "app/forgot-password/page.tsx",
+      "sha256": "446d2bca76d7bb46b821c4fe91d575bf0c31b01e7be34de258549905f0eb217a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "app/reset-password/page.tsx",
+      "sha256": "daac7767443b09a2a4f709fc9c467ffcb09017b14cfa69f080d27713f2179a3e",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/ForgotPasswordForm.tsx",
+      "sha256": "7f2bb7c3a8dc08a834bb48c798d0827ad4485cbaca12351a8aa5e8d03a021432",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/ResetPasswordForm.tsx",
+      "sha256": "3a613e553f751fddb735d44355d82d7552994e22875a466ebdf7abcfcf27c361",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/CourseCard.tsx",
+      "sha256": "7d28dd5fe6909686af3b7ae272820ee818be80bef35220c82a28979399f6b309",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/ProgressBar.tsx",
+      "sha256": "9f13f2da42e2f9fd3f66c3c592be8708d5681243d8183d8850467b72433f6ca3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/assessment/QuizRunner.tsx",
+      "sha256": "fabc6fc056a94d7217ff8188814d16a61b72a0639b800f40a94c6aa40f1c0901",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/assignment/AssignmentPanel.tsx",
+      "sha256": "857b1d43b527ae05a51634d41ef90eb9e43394a8aa410d466fb5425b7730a3ae",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/checkpoint/CheckpointPanel.tsx",
+      "sha256": "30ca88e5d2613d2c521187bffa32034e8ebefdbc0c76fe92b6be6a14f0c5221e",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/instructor/PreviewPlayer.tsx",
+      "sha256": "ec6f33c7b1ec994558dfa1300f4047dda3e9daae58f115a81f89600406103cd3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/instructor/StudentSelector.tsx",
+      "sha256": "3ac95b022c0590caa0676ab0a58790b582317077fa4bdc0ae548084a52222380",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/learning/InteractiveLessonPlayer.tsx",
+      "sha256": "7860dfba7aa9b63078d1439856a484f537f631a4d3120ec6e0b5ab2d2f5f4e28",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/learning/LessonVisuals.tsx",
+      "sha256": "6b7be11434ffe8417ca2562293ec01cdb2db88caf6fe344a0a962fcc7a2283b9",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/learning/QuestionInput.tsx",
+      "sha256": "bdf6ced7ab514ad3c7856014308392bd93992df1da2701c971ebe0d953c526b6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/learning/ReviewWorkspace.tsx",
+      "sha256": "4b99c198f636189b5a2c29e5511c8480fc3faf252afcc1f3da2efbbd59ce1651",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/learning/lesson-experience.css",
+      "sha256": "cd362a6c857143887aba8fdd4998627b642fef38150fb65b081ab15963565c53",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/lesson/LessonContentRenderer.tsx",
+      "sha256": "30d850bcd8cca6e80ccb8e5fd55866d1df9fb9c7e0f1798e635686168e10f9c2",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/academy/lesson/LessonSections.tsx",
+      "sha256": "5b2f7bde55e93e76572a4329275e2ce31cbf231f688f09ddb2eb8876763770e3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/admin/ComplimentaryControls.tsx",
+      "sha256": "8513673664e222a587e0d071f073fe799b2f2db6cafa2f3ccc5e2c3d05012387",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/admin/ComplimentaryDeliveryPanel.tsx",
+      "sha256": "48d7a3453fb6554cbcead7c15076509f507cd0ca9ac2cee6726dcc4b33a1ff9d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/admin/LifecycleControls.tsx",
+      "sha256": "a1ae37e51c7aa7f714b14447e561b96da698d18b668bde97d4f6c2b9932cdb98",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/admin/MemberRecoveryPanel.tsx",
+      "sha256": "cded81fa150ce488509a9bd9928414d4ce3eb7d07b5f16a02f3d59c555f64d8a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/financial-plan/PlanContent.tsx",
+      "sha256": "4198517c2a59625e7f63eeba07b9f900e14ebbb1720a88fadc3ed1242f8782c6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/financial-plan/ReviewWorkspace.tsx",
+      "sha256": "8c4eb1abf4931bb232da62b58b666cebc77f05fea9d3d813794b3822c8a3933c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "components/learning-path/Review.tsx",
+      "sha256": "3789e70455e939f76d39e4158265ed66ff6c2b09eef724ee8b453f6c95775ea9",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "docs/academy-lesson-one-report.md",
+      "sha256": "3883b78530d76f9f48639ac2b54c0e7dbb1dbdd379187c1a8a8af43d44c50775",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/academy-local-lesson-one.md",
+      "sha256": "e4dca25ec94c3eaf69e2b5dd51c8b37730181f20630b231468516949045bc9ea",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/auth-invitation-recovery.md",
+      "sha256": "25361bf6dfbf5cdca5ef48374915ae4bd9622b218a932bea5bdbf9a67735e565",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/complimentary-invite-delivery-report.md",
+      "sha256": "234eefbc73b74cb086349b5a173c16821f8e338862de4b78342a970bf5e3a2f4",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/financial-plan-field-coverage.md",
+      "sha256": "77d3b683aa094ab22952bce5f0222301afa483a03045fbc5ccc6762562578669",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/financial-plan-implementation-report.md",
+      "sha256": "2ba04186d6fe808dd0e3b22914b4643e7861467f6ec262ac78d3775bc0c41651",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/financial-plan-local-verification.md",
+      "sha256": "1936ebef49322a385f84ff4953c5509910b57422698550efa5cc12e2497f0f23",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/instructor-academy-implementation-report.md",
+      "sha256": "d7b293dfd6abadb0e66e9600fb303e7c2f789b9227752865d46f443ab9b2dead",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/lesson-one-visual-redesign-report.md",
+      "sha256": "b88dd24d1cb4ca06d49c6d8a2cbf40a35cdfbeec93bd5bd773cd8c405e93e97c",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/personalized-learning-path-implementation-report.md",
+      "sha256": "1048169d5c2f23f912551e5a7844df8f37d8092211ed0b6ce39e3d5126816bfc",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/phase1-release-verification.md",
+      "sha256": "9c09817912bd89f0c53c3d137d061f3c5ec26ff999effa24c8cd54e43a45b05b",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/student-lifecycle-implementation-report.md",
+      "sha256": "7c8b5535e374238984b361fb4a88609549f163f572d59f76ee6cd3f1245a9c66",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-07-complimentary-invite-delivery.md",
+      "sha256": "fb100e303c4cadca76f6a2904b9a4460d958e70bce7496f6cde985e59eaa3b00",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-07-financial-readiness.md",
+      "sha256": "f83c18484e13657a938cea21f867604c8e33b453011272e08b3ff226a33743e1",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-07-instructor-academy.md",
+      "sha256": "52a46158ee85941bd1cb135245cc287a041d7f24ba8d80fd3f428e2cde89bb8f",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-07-interactive-lesson-one.md",
+      "sha256": "1b3146732f50fdff536e18c94d63dbbd94d53e0009ff816a78f2ac88440d4639",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-07-lesson-one-visual-redesign.md",
+      "sha256": "26a10583fb2ff57a067b58993ed6e095261132915bb477a652e60b9340b56531",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-07-p0-release-phase-1.md",
+      "sha256": "f36341490f0d95eaad021e146f53ea6b7c306e7df6941893744923acbbb36999",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-07-personalized-learning-path.md",
+      "sha256": "cb0ce07f62d1c7fef22b6b97be0a0529fb2355218132630fc4ced133105f5414",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-07-student-lifecycle.md",
+      "sha256": "4a4ec77409475a9a7f2faacf98c77c4fdf83ce1617e896bab44fbcaad8dc41b9",
+      "disposition": "DOCUMENTATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/curriculum/what-is-money.test.ts",
+      "sha256": "cc5905b93e17aba1540421b87cb2d4cefe059909389c9a1299a1e1a80aa1fa4a",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/curriculum/what-is-money.ts",
+      "sha256": "6dfb1911e93b70a7d3a7f9d1ce7ad6b83ee88d9d5eec380a51d13f1d611c4ed3",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/index.ts",
+      "sha256": "79fe2719359e4494dbcefa56bbe8da3831b4ed158cb10fe07c4bdf5118b09a3f",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/instructor/navigation.test.tsx",
+      "sha256": "b8c19ee4a54144edfe7b0cecee67ffa4b34be1a853e99a9b76e37a5647e0fe69",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/instructor/presentation.test.tsx",
+      "sha256": "904a44941e611e6b8ff28f6ac760c61019c45d9e1d3e5e4165126af7d5bd8ccc",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/instructor/service.test.ts",
+      "sha256": "58fd17c91fdb57d7e24e8e0e96eb18c40038e93abf7ee678496047048d556c4c",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/instructor/service.ts",
+      "sha256": "4848881bc6147731018edd529ed18cbe4f4e61ab6db4e9fc52f95653f3bb36cb",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/instructor/simulation.test.ts",
+      "sha256": "87b0a3eaadcfc0563148f2a5615891c2648567f1a0686ed8288192263bda6bd6",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/instructor/simulation.ts",
+      "sha256": "d9ab18c9bdbdfab1721228a2fe116027f7a867170947d45e1ef3ec01989ab28a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/contracts.ts",
+      "sha256": "6a025205f9d124186a973b573fffd14cd787dfca80721c530173c4c7f7126364",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/policy.test.ts",
+      "sha256": "3523ca6ce1a079ed284f5b28877f87a07e16642831acdabd89a1352b34c8bb57",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/policy.ts",
+      "sha256": "ac0436359f6ea54a8a0d63a6eff539748d867e345b0699262ea978ceb006b642",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/review-link.test.ts",
+      "sha256": "a24570d2be3e9e63be2131eba159bc4c7b4eea40b7b6448f7e60ee911125188c",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/review-link.ts",
+      "sha256": "1941de9deba1047c664a761630c029a4786de2ffdd6e1b88a6bf67a9e8a8067d",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/seed.test.ts",
+      "sha256": "f75c5fec929a5c03f5588f119e57381a7497a62f491babe3732ce90a35de14d6",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/seed.ts",
+      "sha256": "cb4972d0afbb0f328ac742a9af7695f9003bcca9d001f46d351a2079591bf414",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/service.test.ts",
+      "sha256": "f35787d233a2f733f7c856bd28352dcc77186e4fc33d1f138ea523fda4c6808e",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/service.ts",
+      "sha256": "1996e7c9e874fdd33bc4a85f3e9f702b4f0f1f730e41b312f0621eb4495ed58a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/learning/visual-presentation.test.tsx",
+      "sha256": "ac5fc07d9448073f51052694021190715a320fc3f8fe3daa5bfc510e4b9609d1",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/academy/security.test.cjs",
+      "sha256": "2a5e54059f7d56e0dab95f80e63d1d54afca2ef965d7cb408a08200b872c0e9e",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/auth-rate-limit-simple.ts",
+      "sha256": "c8b53d3bb9e194926ac37ace563760c868303e34e05b0c7cf643cb0a3567f993",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/auth-rate-limit.ts",
+      "sha256": "b1743d8da408dd1291b9b6857ceacaf8c1d000d58eb4a4ca546f63566b4b7360",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/auth-recovery.test.ts",
+      "sha256": "b0f25385243e3b6a4a8bdaede82e889e196dc896c1f7bc43aa114b64d858d4f0",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/auth-safety.test.ts",
+      "sha256": "774e0e5c2117aa330dcb46b6a30e3e79e7ceceda3b2cdc43ba493f20b33fb0c0",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/availability-rules.ts",
+      "sha256": "880b35497b77eab5ae3c69504b1a655e5c6c302aa1a00ef1b69c630e23937057",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "lib/availability.test.ts",
+      "sha256": "9cbe7c3318d32ac0f9ba4ab45305750d2c147385ecc1ea6025db24b4c91c42b1",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/availability.ts",
+      "sha256": "7af9fb5f24bac10b34d095047be26a23a0f23488d83c7080eb33307ea64f6651",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "lib/bookings.ts",
+      "sha256": "7beb670679fe3f970de00cbcf17cf7d49c449ff9c5fc045f5c8b0bf138ed2a2c",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "lib/communications.ts",
+      "sha256": "3f28648a0232a15599b1479db7c96c4397fe3810e43989b9f51d037bcf4b312b",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/communications/providers.ts",
+      "sha256": "7be2bd3ec8b2ebfa110315c85c73106e914ecc16eacbb8bd2c2311482583f21f",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/communications/templates.ts",
+      "sha256": "c5e6c3585835d7ce18b1bfa7c0ec350aa82fa8fea0c5e1e75622e55c55f9c585",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/complimentary-actions.test.ts",
+      "sha256": "f0620d2638f37898a6aa25499c7d2e90afc04a7a1fa573434696bba9ddc774f6",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/complimentary-invitation.test.ts",
+      "sha256": "4656d75108c3c2bff1e390e20d6cfdab2e2dd277669fe63a8caec44ef050732b",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/complimentary-invitation.ts",
+      "sha256": "15f1c8a72c1a65bcedc08bf6d16b2478e9968644eda9314bd4e42c3a7e711e27",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/consultation-game-plan.ts",
+      "sha256": "8dc06bb4ef8ce3719b9c5d40f31bff00c71882eaf378d12884f8b33b88d9b716",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/consultation-questionnaire/admin.ts",
+      "sha256": "f06599bf505f2db1d85df3af8cba6ce154ba602e241599b8e225151f7d5c6443",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/consultation-questionnaire/index.ts",
+      "sha256": "c995776ec1d31d8e8a48c322b8d79e6d162a711c3eb8c335054c99206762f669",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/consultation-questionnaire/questionnaire.test.ts",
+      "sha256": "b300785306d8f9e7a1909e12a911cd12f0c85267f83d72a94883e612e075d536",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/consultation-questionnaire/student-data.ts",
+      "sha256": "88c075e67b0aeb182abebecdf9a290ab5b989414f699c3597d818f7206c4eb16",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/consultation-questionnaire/types.ts",
+      "sha256": "2318802bd93112501188c955a6a3b7ed184b3ba64c674255b646b0dc260a3e16",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/consultation-types.ts",
+      "sha256": "df52595e5ce0c199ac3a234bfe9e092e0f34a5e1753d16a6d27b3052bbdabc45",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/compose.test.ts",
+      "sha256": "dac4df439640c9eac35853428ee32c932bc0a5374a6a424824b707b8aab92c00",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/compose.ts",
+      "sha256": "459169d18877e7aab7f7e94fea08579f2164a7e00105e2c7530d98962bac5097",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/contracts.ts",
+      "sha256": "bf04f5d26fc080e7d1045621d1d4b52472ddf56ec9f31a9b7905d89fe2565408",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/coverage.ts",
+      "sha256": "83b503a6ed9e1baa042d4fab24b663d9a634397a18934321a809bd0dd8bdce55",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/render.test.tsx",
+      "sha256": "75775dac46df766a33a4d6415f9b3d9a64e1b8001f2cffbce5c578a1cc9201d4",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/routes.test.ts",
+      "sha256": "3303971049589e512fd925a386c4731b0121492c89e1ba90cbe83cda79853b67",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/service.test.ts",
+      "sha256": "12858e3f2ed35d2ce26379f6958bd8dffc6977667f0762984e90a4f8d35cfc7a",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/service.ts",
+      "sha256": "5417d669ace53ccbae83cbc2c0da696bc6592e2d56660c5d0899f299200d0da9",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/testing/db.ts",
+      "sha256": "9f849b75685a49806310dd20a1e8efe02a70c8a8d914c460ebf7e58195fee272",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/financial-plan/testing/fixture.ts",
+      "sha256": "f7c95f0fb03de7b6c960144ea72b8bd5f4de4308546baed6b074e7f779423e84",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/invite-recovery.test.ts",
+      "sha256": "5513cb3c1809feabc5c06af27652a75c4fab654ef71e8278cad0faa8c925171e",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/invite-redemption.test.ts",
+      "sha256": "88a08365e22c5904d1b84afef8322a500d18a71fd9c764c5220948c64d8f0052",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/learning-path/access.ts",
+      "sha256": "8eac84b0f66abf0473282caaf98889326ee2aaaad88e262889648ab4b1d9ce0a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/learning-path/contracts.ts",
+      "sha256": "41ca52964a2e07e29c3746e63698e3c5ea2d65ef10933966d85a6df8bb47ef13",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/learning-path/engine.test.ts",
+      "sha256": "c1d216f06c6d3f200e5404fce9b391bfca4f8c392cd281e98199321c359c4875",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/learning-path/engine.ts",
+      "sha256": "5e15a253b50761d0b2836c51ad02ec5cdc24d6da441807aa5c09870d67c5aec2",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/learning-path/service.test.ts",
+      "sha256": "9e51dba680bb58d9c60da9373d520111a3f5be58c1e36667cb9e97c4a6995367",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/learning-path/service.ts",
+      "sha256": "6d6c3b983f07bf05e9e521badafba1067fd3862f616643ce37dd18843d6daede",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/learning-path/source.ts",
+      "sha256": "28b07caac88f3dd5f12f4a83747f12492e4736a17b8ec5a02956b14b2ea655ff",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/member-recovery-diagnostic.ts",
+      "sha256": "1ede5956210fad0d0ef8caeca97c20db7d4072f4b5da3fbf04e4563aa924dcc2",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/membership-access.test.ts",
+      "sha256": "3228dff159dbc469905946242d0c6d730fc10c142a05a5192ba5e99aa33f158f",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/membership-access.ts",
+      "sha256": "d36731e580f253c94a2747dc1ca388516f29f6d058c6e08dbe609989e1feaad1",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/membership-plans.ts",
+      "sha256": "b8d78c41eb4e8c3e6291a8ad1cbdf010a727278b9e4017297694fbb00dcdca2a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/placement-assessment-storage.ts",
+      "sha256": "c8bcf9d88dff0d4ce7bbb94fbac71c3ccafd3c5ab97821c384759e39da15581c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/placement-assessment.test.ts",
+      "sha256": "ea3bfba676457d64ea810821d6b542c13063d825456aae6044d076f88495655c",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/placement-assessment.ts",
+      "sha256": "d333a3b426bfd72816a2ebf39587924aca8eefeab845ded606c6b9770e17b394",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/stripe-bookings.ts",
+      "sha256": "bd15db4b6c475230408d4e6a3e5a29c41fdf929a37a29ac4237cdff80c105e5c",
+      "disposition": "WIDER_SCOPE_REVIEW_REQUIRED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/acknowledgments.ts",
+      "sha256": "f015744149138d84a09fbe01d339e8d3c32877997b202f9527a4828bc335b241",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/auth.ts",
+      "sha256": "0c6018d93b87ca4545df16460c844a01850264e9e5f403fedc7ff952707f17c6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/compatibility.ts",
+      "sha256": "5d8ea2135d01996bcbd311a59f81f51b6f3ff98ac9a6a9427b3d5dceae1582b2",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/contracts.ts",
+      "sha256": "b612576acdae722f825a7e24a0de3152927c6699a8b777f866e2c2bb5f427cba",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/debt-credit-registry.ts",
+      "sha256": "989e01a92d8e80e5895a2ab91182dbd00f5ad211c88de3214e347303f07278db",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/financial-health-registry.ts",
+      "sha256": "f97b9b68f7e2dea270f7f69319bbeaf36df9292a86805fea2ec99998ef27d1fd",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/flags.ts",
+      "sha256": "3253db15c7084e36066cdd4e0925202b802281cc6fafaf2ab5a2dd7343cbfdf2",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/index.ts",
+      "sha256": "49550434162f83c763bab81ee45300f28196bdf69d515a8e621d0af2403c16e6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/monthly-obligations-registry.ts",
+      "sha256": "b29e7106afb3ba45ebf5c554376d33089e6bc14e3c12d7c5ba94f268922a65c4",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/phase1.test.ts",
+      "sha256": "ff767215883c34960eeeae01a9bd6af9f8eec4dc5822da4b54b7244e0efecddb",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/phase2.test.ts",
+      "sha256": "718ca42f1d5a05be37fa9bfaa995447f6622b2f8a28684adfa8364ff74c34695",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/phase3b-spec.test.ts",
+      "sha256": "ccb528b47c948d4766675c944becbaab73c22065a8692336091aab843fc942c8",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/phase3b.test.ts",
+      "sha256": "bcfe1efa037ff73e921e47a995fea527a9f9afacf1217d2812a8a1cb167db141",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/phase3c.test.ts",
+      "sha256": "4fdc8a86e1dbdefb1a5e3bdaea13f010ac26de70de6ca47b0c49dc60dacecb11",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/phase3d.test.ts",
+      "sha256": "19ce564165f7b53fc9696c436cfaf1594e82661c5be6464f75769486987091e2",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/phase3e.test.ts",
+      "sha256": "9ecfc400a7fe687ac956bfa1e73756a4add84e862273833455225d4018995e3d",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/phase3f.test.ts",
+      "sha256": "15b8e9c88581995d92ed74ad562966af46672e347ce8b9f52075c26bd51bc11a",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/composer.ts",
+      "sha256": "7283f1e3e7870bfe39f0fda654b93b6c11269e1188f8514d0cf271feb2289d76",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+      "sha256": "36ccb57c6222afc46f50b507639b1d0a1c68cbe9c83814c21beea3c9904c0e54",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/contracts.ts",
+      "sha256": "dc2e1c764f1f950ec028fcbccaf8fb80c1bfaadfd1f5966503b09cd5657d948c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+      "sha256": "8479ae8dd598b78c5a73ae215dfa71c4f9bf63828c3bd168d1ce8d14f7d43082",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/index.ts",
+      "sha256": "4797f9809cf2e648ffcbefa3b9f88542e164328cad9ac502af2cf2f402e709cb",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/normalization.ts",
+      "sha256": "db283b873fbbf74dff22c5c8601808df175960c296e763eafd627ce9cb4840f6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/pe1.test.ts",
+      "sha256": "8bf3f797a02391986cd1189a044d4b2167219bd0b6ce8bfdf6101105fd04a525",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/pe2.test.ts",
+      "sha256": "3f5503c7e597809d6619da2f315c653241d8416dc3b0da1240578394b0a83286",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/plan-engine-v1/uncertainty.test.ts",
+      "sha256": "034b65f48f2c1a92f727acb53537ce7fd88d15bd4debbf4cc7a818c0c661b63f",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/service.ts",
+      "sha256": "c7392f9bc3fd61ee2ad8054b4411852fbfce35db7142ffb4e6aee1c040072611",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/snapshot.ts",
+      "sha256": "9a0b61191619ead8e2bad7b17abd6be568d275dede6230a115b57486e46ce504",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/trading-behavior-registry.ts",
+      "sha256": "2d4ec7d2b22c54807978bb896592112767dbd4bf867bfe957729fcf4c6843332",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/trading-capital-readiness-registry.ts",
+      "sha256": "5ce37af5b77071af9d8d8c994a6c6277f366dac5513f2c4d8a2044f598d929d6",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake-v2/validation.ts",
+      "sha256": "c02b28672bf812b93b37a7808beea97dc4c98efb1b1fd8130f2821656eb1dd4a",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-intake.ts",
+      "sha256": "cdb58cb070a9b8e228969ecba54ac8cf4658140cc2582f01e7ce936adf4864d5",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-lifecycle-contracts.ts",
+      "sha256": "1d39ba49c8ad09c93d51f61da0212a48a7a97488c0235a078dc5159262925191",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-lifecycle.test.ts",
+      "sha256": "c56139bc03b7256e44881e68560457415221e618ae1401eb522ee2504022a3ae",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-lifecycle.ts",
+      "sha256": "bee520c9ee55a1c92ec1ecc3c0d004cfbe1c514845bbf988c052b48a69b37601",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/student-placement.ts",
+      "sha256": "623efdc7d40d8d2db1563f925f44f10bd6c6ef54ea3db887d91d15f12ef34a47",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "lib/training-plan.ts",
+      "sha256": "5cd294d29824d007946668970565b49e04755853aabba9e50e589068e577375c",
+      "disposition": "APPLICATION_CANDIDATE_NOT_RELEASE_APPROVED"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0007_communications.sql",
+      "sha256": "7df800f2bd0a8fd3fc258deb881e3a743777de28e23d054ae92366c100697a47",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0008_forced_password_change.sql",
+      "sha256": "d9d10d3bb563d923dec0173ff68c4ee27a31830dc37d703033f0c7c489ca102b",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0009_nullable_user_id.sql",
+      "sha256": "a44be57af6084b8a5dc32ae72a8e2a108bf6cbf2234815fe82c2ff8757aa21b2",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0010_consultation_types.sql",
+      "sha256": "bbd6b03e058105f3aea77a37cd534c1e98ffce2f7d0c276762e79d0e26054b43",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0011_availability_rules.sql",
+      "sha256": "e6d7fefbc23ebbc50f5ec2017472d7bfe3345a5a29fce764264fd23df82fc581",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0012_availability_overrides.sql",
+      "sha256": "b47741a1424bb9e8ab80edee5bc8604619c998a7718b68a6f5b47443bf49632d",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0013_consultation_bookings.sql",
+      "sha256": "9c4b9f00d58c0dce7834b57ac3187b471b930048aa041a9191ee4d6c03c6d6e3",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0014_booking_slot_holds.sql",
+      "sha256": "c5a44304d8f626f879604fac00e3216dbbacacffe83bcf8b1f885448a1a2843d",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0015_complimentary_access.sql",
+      "sha256": "d0840935d2413ea08720330154f4fd5db808c2aebef63896fb1cf28c5df104c7",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0016_student_intake.sql",
+      "sha256": "3d9bb773a3ff7c557f44a90778256621a94775e8da2ba5b2c230318763c781fe",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0017_training_plan.sql",
+      "sha256": "bb487b65fea7a15d1eb9ec49b2fdc6ede8c8cda1916960bafbe9929bcfd3bd10",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0018_placement_assessment.sql",
+      "sha256": "9e6ad220426eaedbd44678bff668353603447843a5545d94294035fec3ff0be3",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0019_student_placement.sql",
+      "sha256": "9529691bd075b90806da3a8051cd1437598c3252a861e08ca0d0038b29e186d0",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0020_member_consultation_type.sql",
+      "sha256": "c9fa502969daa6a99646298cc625755f27a11bb5ce2aefe649a4b2d606bc992b",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0021_consultation_questionnaire.sql",
+      "sha256": "9b4cfaa61b9bcbbdf0137064de0f0c849b9009e3bff8b76c6a785c24a27e3aad",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0022_academy_foundation.sql",
+      "sha256": "6905352ba15e35d0a8a4776de71834f223c7cebd78361905f6d2ca15e89107db",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0023_academy_assessments_foundation.sql",
+      "sha256": "2575b436f6cf6b71f1b544711cbd29f9d2255789c39993fe878a48ef1422411e",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0024_consultation_game_plan_versioning.sql",
+      "sha256": "966bab2d4f6e715d0151f02dfc0de7d380e5a64487a2e96de56288c993e9ccd2",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0025_student_intake_v2_foundation.sql",
+      "sha256": "c0908f39ddc5d35b09a5023541fb8f541fe814e412061efffd337c252631dc92",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0026_consultation_questionnaire_revisions.sql",
+      "sha256": "5a1230bd77cff1f4724199b41db1694d1d42bb7a582570906aea4c086a6dfd19",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0027_interactive_learning.sql",
+      "sha256": "8be720485ecc6ce035cd6a0f6c2237383bab029e308eebe9eaaadda8151c38b3",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0028_learning_versioned_open_attempt.sql",
+      "sha256": "96fb22ac565bfd9be677069383410ad66c43d342781cf9784699ce13080aa39b",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0029_financial_readiness.sql",
+      "sha256": "ae7ef693ed98c2c708d114d718c6cceb235312c4f31640a602b7588b0ee536f3",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0030_complimentary_invite_delivery.sql",
+      "sha256": "7cda2bbac031436add81c62a1943dda966a0cd58ac7ea879b83740ce7abfd034",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0031_member_lifecycle.sql",
+      "sha256": "d308d07c7069144217e38ff831f7c318b1846cbf9f69007eec67c4bac925ab4a",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "migrations/0032_personalized_learning_path.sql",
+      "sha256": "ef38e364f7505c35de58aedfdb30dd5ae51a2ad2237028567c6c1e728724dfaf",
+      "disposition": "MIGRATION_CANDIDATE_PENDING_REMOTE_COMPARISON"
+    },
+    {
+      "status": "??",
+      "path": "scripts/seed-academy-local.cjs",
+      "sha256": "3b6a044cfb0d5ec2504c7ae7f349b0b2f0005d78987eaa39521e7d014cb6cea0",
+      "disposition": "LOCAL_TOOLING_NOT_PRODUCTION_DATA"
+    },
+    {
+      "status": "??",
+      "path": "scripts/test-register.cjs",
+      "sha256": "33e7282ed892a4b726cc21774566f035efb85a0f0516d4c2527154d89f3795f9",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    },
+    {
+      "status": "??",
+      "path": "scripts/test.cjs",
+      "sha256": "3bbb63b662dfeb47ec03f7b6fc24715bcf78c1ae57592479029bb2c2b7f7c8e4",
+      "disposition": "TEST_OR_VERIFICATION_NOT_RUNTIME"
+    }
+  ]
+}

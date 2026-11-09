@@ -1,0 +1,86 @@
+{
+  "scope": "Class 1 presentation redesign \u2014 local only",
+  "productionAuthorized": false,
+  "academicDefinitionUnchanged": true,
+  "databaseMigrationRequired": false,
+  "files": [
+    {
+      "path": "lib/academy/school/presentation.ts",
+      "sha256": "bdcb17cd0438cc53a070beed136a18cdabbb84fba19f65b59722cbf9cbdc814a",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/presentation.test.ts",
+      "sha256": "072e351db10539064832cd8c3c63198eba0d266292298f6ee294b575e65364e2",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/roadmap.ts",
+      "sha256": "95ddb731093cc2a769bbdd2c61fc5d0ae0fd089adb9dfe8064906296a7f8f491",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/roadmap.test.ts",
+      "sha256": "c5dbd4e4df0b31e32affdce5c29f6054b0a2fb94d03221006cc16b2da59970e5",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/experience-ui.test.tsx",
+      "sha256": "f692e1d0bb6d94039c71ea0a13c2d1fa8081cad3c2f04aab1d6dab9fffb55ae3",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/SectionExperience.tsx",
+      "sha256": "2629092e3fda06778d95a56425f20320a872ce7f870dcc1a1232c2baf4138b60",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/ExperienceVisual.tsx",
+      "sha256": "eef33cb988e704a937a1d28544c8c7792deadf743fcaa67740e370ff21496c0e",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/SchoolRoadmap.tsx",
+      "sha256": "a3baa7092024d25c7974fbce84035db481903c6bbc89a853e978723c328daa64",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/SchoolPlayer.tsx",
+      "sha256": "68280df7826127b1c125d9598a24fe35ec001778021ab0fe0a3581a3c4d312b9",
+      "baselineSha256": "a2ff1643482f8e02a3ea7e1dfe75b5ec51b6166ee275495a3b1f94ec846e90a2"
+    },
+    {
+      "path": "components/academy/school/StudyGuide.tsx",
+      "sha256": "19177d2eda6a62c15e580c7033b17277b204042ec066c9f889cb588e2d6a170b",
+      "baselineSha256": "b59bb834a2862890298146bfe8f326f22462e13622203d2664c66ef7a40a54e1"
+    },
+    {
+      "path": "components/academy/school/school.css",
+      "sha256": "6d2148a97149f8fa030e9d9c8199b577eed4536a7d29a98097b256022560fd63",
+      "baselineSha256": "e4ee98e3abf190c06f8c8ee7d9933e89c5be0d2c442ca2cf7edfb5da93e3d147"
+    },
+    {
+      "path": "app/(app)/academy/school/page.tsx",
+      "sha256": "f25a7f770b152974983ec965f4df3ff34d50f9e4a6a6f00f5b6bcf70e18514e5",
+      "baselineSha256": "265abb4b9bd8ded2e793cb195b547dda7114cf4c608067340c963cd07a5834f4"
+    },
+    {
+      "path": "docs/academy/class-authoring-standard.md",
+      "sha256": "447bdd019f2d030246fe6b9966790c8d0c3a8965df116dd73a8d3f5b05298f19",
+      "baselineSha256": null
+    }
+  ],
+  "verification": {
+    "focused": 38,
+    "fullSuite": 602,
+    "failed": 0,
+    "typescript": "PASS",
+    "OpenNext": "PASS",
+    "applicationWorkerDryRun": "PASS",
+    "classroomWorkerDryRun": "Not required \u2014 no shared classroom changes",
+    "desktopChrome": "PASS",
+    "mobileChrome": "PASS at393x852",
+    "localCurriculumTablesUnchanged": 8,
+    "foreignKeyViolations": 0
+  }
+}

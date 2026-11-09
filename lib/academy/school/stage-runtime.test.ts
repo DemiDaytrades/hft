@@ -1,0 +1,18 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {DatabaseSync} from 'node:sqlite';import {readdirSync,readFileSync} from 'node:fs';
+import {installSchool,assignClass,schoolState} from './service';import {STAGE_ONE_CLASSES} from './registry';
+import {stageFixture} from './stage/test-fixture';
+test('all eight classes install idempotently without replacing the original definition',async()=>{const f=stageFixture();await installSchool(f.db);const first=f.sql.prepare("SELECT content_json FROM school_definition WHERE class_id='stage-1-class-1'").get();await installSchool(f.db);assert.equal(f.sql.prepare("SELECT count(*) n FROM school_definition WHERE class_id LIKE 'stage-1-%'").get()!.n,8);assert.deepEqual(f.sql.prepare("SELECT content_json FROM school_definition WHERE class_id='stage-1-class-1'").get(),first);assert.equal(STAGE_ONE_CLASSES.length,8);});
+test('explicit next-class assignment requires prior completion and new class has its own variable-length definition',async()=>{const f=stageFixture();await installSchool(f.db);await assignClass(f.db,'a','s','stage-1-class-1');await assert.rejects(assignClass(f.db,'a','s','stage-1-class-2'));const e=f.sql.prepare("SELECT id FROM school_enrollment WHERE user_id='s'").get()!;f.sql.prepare('INSERT INTO school_completion VALUES(?,?,?)').run(e.id,'{}','2026-11-08');await assignClass(f.db,'a','s','stage-1-class-2');const state=await schoolState(f.db,'s','stage-1-class-2');assert.equal(state.class.sections.length,6);assert.equal(state.completed,false);await assert.rejects(schoolState(f.db,'x','stage-1-class-2'));assert.equal(f.sql.prepare('PRAGMA foreign_key_check').all().length,0);});
+import {schoolCommand,schoolReview} from './service';
+const responses=(items:any[])=>Object.fromEntries(items.map(q=>[q.id,q.correct??'A considered explanation with the action, assumptions and limitation clearly distinguished.']));
+const grades=(items:any[])=>Object.fromEntries(items.filter(q=>q.kind==='written'||q.kind==='reflection').map(q=>[q.id,true]));
+test('each authored class completes through independent reviewed knowledge and homework, preserving prior records',async()=>{
+ const f=stageFixture();await installSchool(f.db);let previous:number=0;
+ for(const d of STAGE_ONE_CLASSES){await assignClass(f.db,'a','s',d.id);const command=async(action:string,extra:any={})=>{const s=await schoolState(f.db,'s',d.id);return schoolCommand(f.db,'s',{action,classId:d.id,version:d.version,expectedRevision:s.revision,requestKey:crypto.randomUUID(),...extra});};
+  for(const section of d.sections){for(const q of section.activities)await command('activity',{itemId:q.id,answer:q.correct});await command('section',{sectionId:section.id});}
+  let s=await command('assessment',{answers:responses(d.assessment)});assert.equal(s.canComplete,false);s=await schoolReview(f.db,'a',{studentId:'s',classId:d.id,submissionId:s.submissions.at(-1)!.id,expectedRevision:s.revision,grades:grades(d.assessment),feedback:'Reviewed the explanation and supporting conditions.'});
+  s=await command('homework',{answers:responses(d.homework)});assert.equal(s.canComplete,false);s=await schoolReview(f.db,'a',{studentId:'s',classId:d.id,submissionId:s.submissions.at(-1)!.id,expectedRevision:s.revision,grades:grades(d.homework),feedback:'Reviewed the required subject-specific application.'});
+  assert.equal(s.canComplete,true,d.title);s=await command('complete');assert.equal(s.completed,true);assert.equal(f.sql.prepare('SELECT count(*) n FROM school_completion').get()!.n,++previous);await assert.rejects(command('assessment',{answers:responses(d.assessment)}));
+ }
+ assert.equal(f.sql.prepare('PRAGMA foreign_key_check').all().length,0);
+});

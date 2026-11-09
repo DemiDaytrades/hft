@@ -118,6 +118,13 @@ export default function SiteHeader() {
               Join
             </CTA>
 
+            <Link
+              href="/book"
+              className="hidden whitespace-nowrap rounded-full bg-brand-600 px-4 py-2 font-display text-[12.5px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-brand-500 sm:inline-block"
+            >
+              Book Demi
+            </Link>
+
             <MenuToggle open={open} onToggle={() => setOpen((v) => !v)} />
           </div>
         </div>

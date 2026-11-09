@@ -13,6 +13,7 @@ import {
   CheckIcon,
   DiscordIcon,
   Icon,
+  LockIcon,
   QuoteIcon,
   TelegramIcon,
   MoneyIcon,
@@ -41,6 +42,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <BookDemiSection />
       <FeatureGrid />
       {/* Pricing sits after the value, not beside the headline: the hero sells
           the idea, this asks for the money. */}
@@ -100,21 +102,48 @@ function Hero() {
   );
 }
 
-/* ── Membership ─────────────────────────────────────────────────── */
+/* ── Book Demi ──────────────────────────────────────────────────── */
 
-function MembershipSection() {
+function BookDemiSection() {
   return (
-    <section className="container-page py-16 lg:py-20">
-      <div className="reveal mx-auto max-w-lg">
-        <MembershipCard />
+    <section className="container-page py-12 lg:py-16">
+      <div className="reveal mx-auto max-w-2xl rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center">
+        <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-white">
+          Book a Call with Demi
+        </h2>
+        <p className="mt-3 text-white/65">
+          Have a trading question or want to learn more about HFT? Book private
+          time with Demi starting at $10.
+        </p>
+        <div className="mt-6">
+          <Link
+            href="/book"
+            className="inline-block rounded-full bg-brand-600 px-6 py-3 font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-brand-500"
+          >
+            Book Demi
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
 
-export function MembershipCard() {
+/* ── Membership ─────────────────────────────────────────────────── */
+
+function MembershipSection() {
   return (
-    <Panel glow id="membership" className="scroll-mt-28 p-7">
+    <section className="container-page py-16 lg:py-20">
+      <div className="reveal grid gap-6 lg:grid-cols-2 lg:items-stretch">
+        <MembershipCard />
+        <InPersonMembershipCard />
+      </div>
+    </section>
+  );
+}
+
+function MembershipCard() {
+  return (
+    <Panel glow id="membership" className="scroll-mt-28 flex h-full flex-col p-7">
       <p className="font-display text-[19px] font-bold uppercase tracking-[0.12em] text-brand-500">
         HFT Membership
       </p>
@@ -145,8 +174,61 @@ export function MembershipCard() {
         ))}
       </ul>
 
-      <CTA size="md" className="mt-8 w-full" />
-      <Fineprint className="mt-4 justify-center" />
+      <div className="mt-auto pt-8">
+        <CTA size="md" className="w-full" />
+        <Fineprint className="mt-4 justify-center" />
+      </div>
+    </Panel>
+  );
+}
+
+function InPersonMembershipCard() {
+  return (
+    <Panel id="in-person-membership" className="scroll-mt-28 flex h-full flex-col p-7">
+      <p className="font-display text-[19px] font-bold uppercase tracking-[0.12em] text-brand-500">
+        HFT In-Person Student Membership
+      </p>
+
+      <p className="mt-3 flex items-baseline gap-2">
+        <span className="font-display text-[62px] font-extrabold leading-none text-white">
+          $250
+        </span>
+        <span className="font-display text-[19px] font-semibold uppercase tracking-[0.1em] text-white/55">
+          /month
+        </span>
+      </p>
+
+      <p className="mt-5 font-display text-[17px] font-bold uppercase tracking-[0.08em] text-brand-500">
+        Train in person.
+      </p>
+      <p className="font-display text-[17px] font-bold uppercase tracking-[0.08em] text-white">
+        Build with the community.
+      </p>
+
+      <ul className="mt-6 space-y-3">
+        {[
+          "In-person student training membership",
+          "Structured HFT education and strategy development",
+          "Hands-on guidance in a live learning environment",
+          "Community access with traders and creators",
+          "Recurring monthly membership access",
+        ].map((item) => (
+          <li key={item} className="flex items-center gap-3 text-[15px] text-white/80">
+            <CheckIcon className="h-[18px] w-[18px] shrink-0 text-brand-500" />
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-auto pt-8">
+        <CTA href="/join?plan=student_250" size="md" className="w-full">
+          JOIN IN-PERSON
+        </CTA>
+        <p className="mt-4 flex items-center justify-center gap-2 text-[12.5px] text-white/45">
+          <LockIcon className="h-3.5 w-3.5" />
+          {membership.fineprint}
+        </p>
+      </div>
     </Panel>
   );
 }

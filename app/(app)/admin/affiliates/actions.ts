@@ -10,6 +10,7 @@ import {
 } from "@/lib/affiliates";
 import { requireAdmin } from "@/lib/dal";
 import { createInvite } from "@/lib/invites";
+import { notifyInvite } from "@/lib/communications";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 export type AffiliateActionResult = { ok: true } | { ok: false; error: string };
@@ -65,12 +66,27 @@ export async function addAffiliateAction(
     const proto =
       h.get("x-forwarded-proto") ?? (host?.startsWith("localhost") ? "http" : "https");
 
+    const inviteUrl = `${proto}://${host}/invite/${invite.token}`;
+
+    // Deliver the affiliate invite via email (best-effort).
+    try {
+      await notifyInvite({
+        userId: admin.id,
+        email: clean,
+        inviteUrl,
+        kind: "affiliate",
+        inviterName: admin.name ?? undefined,
+      });
+    } catch {
+      // Swallowed: affiliate invite email is best-effort.
+    }
+
     revalidatePath("/admin/affiliates");
     return {
       ok: true,
       kind: "invited",
       email: clean,
-      inviteUrl: `${proto}://${host}/invite/${invite.token}`,
+      inviteUrl,
     };
   } catch (error) {
     return fail(error, "Could not add that affiliate.");

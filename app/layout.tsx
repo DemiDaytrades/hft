@@ -19,10 +19,10 @@ const body = Barlow({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://highfrequencytalent.com"),
+  metadataBase: new URL("https://highfrequency.vip"),
   title: {
-    default: "High Frequency Talent — Master the Markets. Build Freedom.",
-    template: "%s | High Frequency Talent",
+    default: "High Frequency Trading — Master the Markets. Build Freedom.",
+    template: "%s | High Frequency Trading",
   },
   description:
     "HFT is a movement of disciplined traders and creators building financial freedom. Get the 3ZS strategy, live trade alerts, daily analysis and a private community for $150/month.",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "High Frequency Talent",
   ],
   openGraph: {
-    title: "High Frequency Talent — Master the Markets. Build Freedom.",
+    title: "High Frequency Trading — Master the Markets. Build Freedom.",
     description:
       "Master the markets with the 3ZS edge. Live alerts, daily analysis, weekly sessions and a private community of traders and creators.",
     siteName: site.name,

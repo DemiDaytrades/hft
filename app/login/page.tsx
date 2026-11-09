@@ -32,7 +32,7 @@ export default async function LoginPage({
     <div className="flex min-h-screen items-center justify-center px-6 py-16">
       <div className="w-full max-w-md">
         <div className="mb-10 flex justify-center">
-          <Link href="/" aria-label="High Frequency Talent — home">
+          <Link href="/" aria-label="High Frequency Trading — home">
             <Logo />
           </Link>
         </div>

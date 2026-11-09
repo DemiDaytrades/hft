@@ -1,0 +1,227 @@
+{
+  "scope": "Local Stage2/3 only; no environment/configuration/state/dependencies/generated artifacts copied",
+  "authority": "docs/superpowers/specs/2026-11-09-hft-master-curriculum-v1-authoritative.md",
+  "authoritySha256": "bc0f7bc5a4c2ad129f6a867a97f8955d2a8c318fd3e8cd9e6669e4544eebcc41",
+  "files": [
+    {
+      "path": "app/(app)/admin/academy/school/page.tsx",
+      "before": "a5b2d483a84ae980059d093210cedd289e6f5fc207f35fd424ce0ffd614f030e",
+      "sha256": "c1813cf33a3619a1339bb79423b6241ac216edf218c456780603710138c42e3f"
+    },
+    {
+      "path": "components/academy/school/StageExperience.tsx",
+      "before": "004f31e010291c090d04bcb2ab5122f8d27552908ab8f7cb034cf8216f7b4e7a",
+      "sha256": "e0263e796adcd98c3037cd3fca7955b5585852b173470f440b3746c2f487fc3e"
+    },
+    {
+      "path": "components/academy/school/TeachingChart.tsx",
+      "before": null,
+      "sha256": "de79e7aa5b1f3592966fa0d72bc268858a23ff9f3e3523d3bf541c0acf5f70ad"
+    },
+    {
+      "path": "components/academy/school/school.css",
+      "before": "44705c443fc10f22fa4dd6825ce110a328ddeeba340e79f1e9838d254b48ea14",
+      "sha256": "cc48cd6d40525a44e6c2ef7c1dc0ec249624fec3ecfae6cf62b77427cd8cb2a2"
+    },
+    {
+      "path": "lib/academy/school/chart-ui.test.tsx",
+      "before": null,
+      "sha256": "6f47eac3be681a7f630ead3989115442fa3441476f3b774d10f375564b9b10fd"
+    },
+    {
+      "path": "lib/academy/school/practical.test.ts",
+      "before": null,
+      "sha256": "f2989af8578bc139f3a21d175c02d4953be6f68e97f1647e2d32865cc4444d2a"
+    },
+    {
+      "path": "lib/academy/school/practical.ts",
+      "before": null,
+      "sha256": "fca230e31cef3b6931e527ace262e85520142914db4a112705c93b1938f0f79c"
+    },
+    {
+      "path": "lib/academy/school/quote-visual.test.ts",
+      "before": null,
+      "sha256": "480edd7dc4c2620fb54d00c46013a018bd941d8318e69968804f042e9301ed8f"
+    },
+    {
+      "path": "lib/academy/school/registry.test.ts",
+      "before": "6f67f7d708150779834c5bce7129b03c806d9ffb527dd95eedaab47cfd82d340",
+      "sha256": "53ec724452237c08130f8b7bc4aa479081023e8deb3a8cd6af5be15f1fc27451"
+    },
+    {
+      "path": "lib/academy/school/registry.ts",
+      "before": "7ea17eee53a4f4f47c64f5b31f8c55cd347e56d3af19ac4460ba36f4be3184a2",
+      "sha256": "5360bfd9a2311dfd7c1da1be9d212c9375ecab9e62b45bf22c5de9f11ae2c3cf"
+    },
+    {
+      "path": "lib/academy/school/service.test.ts",
+      "before": "df68f8d1b6f778199459e8f8f2fc338d347c02d26e8e681d40d014a0582cdcfa",
+      "sha256": "2db6737898090cba84d3738cf688c63e348d3f98240ebc0ba46e7c67b72fccea"
+    },
+    {
+      "path": "lib/academy/school/service.ts",
+      "before": "b81b086339093d5d012b92cfd364112b3e6fbf938e4459b9a1e900265c4f5625",
+      "sha256": "ff5a71086d520b47e6749991e6548b4bb548dc3d74987b1031661dda7fa2e5f6"
+    },
+    {
+      "path": "lib/academy/school/stage-runtime.test.ts",
+      "before": "0d5fef18b65c7d5031ae41b2df2663490f85cb9b65e48c2afbb1054f5502b9d1",
+      "sha256": "0a7cf6985303a37d3b95a34dbee4847c92d0cd321adca164b42b8d8de028f4d0"
+    },
+    {
+      "path": "lib/academy/school/stage/contracts.ts",
+      "before": "28281b174d3a4273f603a7102f969fbce4435cc5260573e49df7a0525df4f443",
+      "sha256": "f66833f72f3994215467aa6f8ebb8347896ff207fc23ea08fc9e631d0e67133d"
+    },
+    {
+      "path": "lib/academy/school/stage/experiences.ts",
+      "before": "a48d9595e07b41d4fde36ca797533f9295cd4227c6611f0e0879e8a46673f724",
+      "sha256": "7669b41b3746585276602056119a156b885dc145a40ee86ae141dac49b35725c"
+    },
+    {
+      "path": "lib/academy/school/stage2/author-four-six.test.ts",
+      "before": null,
+      "sha256": "7c4d54a4fb1680eb77a6a81e2f030c29bb8fb6667ecefd4b88116f3fd07d3f54"
+    },
+    {
+      "path": "lib/academy/school/stage2/author-one-three.test.ts",
+      "before": null,
+      "sha256": "a51188b974b85793b38c01361db2045781a6a3125e8482bf69551472d37fbe3b"
+    },
+    {
+      "path": "lib/academy/school/stage2/class-1.ts",
+      "before": null,
+      "sha256": "f9dbee44b187c7929a283843663e29c23505266e6f35c3291676583ed0c7c3c7"
+    },
+    {
+      "path": "lib/academy/school/stage2/class-2.ts",
+      "before": null,
+      "sha256": "f93679f5da02aa797a8dbba10334c64ea70d1494f7c1eec130a5b93dce79cc46"
+    },
+    {
+      "path": "lib/academy/school/stage2/class-3.ts",
+      "before": null,
+      "sha256": "e32b808458fdfabc855a6917ae0d634b21883c69dfa785d30cd3fc3de2981fa4"
+    },
+    {
+      "path": "lib/academy/school/stage2/class-4.ts",
+      "before": null,
+      "sha256": "e5c0c5ade6c7bef80edb306acc74d5e634de88d2deb78210f740b1538a0fddc6"
+    },
+    {
+      "path": "lib/academy/school/stage2/class-5.ts",
+      "before": null,
+      "sha256": "b9660c77e440339f5055e5de230aa77c84d6f6e6da8b213f9d53d2904e453c41"
+    },
+    {
+      "path": "lib/academy/school/stage2/class-6.ts",
+      "before": null,
+      "sha256": "3cabbf561021ba86c1bf7761ff4dd00e8d6fc48dbcd3d7d7e032017183d61553"
+    },
+    {
+      "path": "lib/academy/school/stage2/experience-1.ts",
+      "before": null,
+      "sha256": "e2c56b52e25e5e92a13f57a81ce8cbf6a0be7e1a704bf0fbcee0488e7e3ad4e7"
+    },
+    {
+      "path": "lib/academy/school/stage2/experience-2.ts",
+      "before": null,
+      "sha256": "566ebc5215040bfb9973bfaf321cb743a2fc38f29b44a3562239dbd3b38a362e"
+    },
+    {
+      "path": "lib/academy/school/stage2/experience-3.ts",
+      "before": null,
+      "sha256": "9759ccfef4541a108e913350049b84d95673ef042d4f662e0e7a8653a8c517b0"
+    },
+    {
+      "path": "lib/academy/school/stage2/experience-4.ts",
+      "before": null,
+      "sha256": "31a876b39cf4fcc8e45b77f93449383e55c6945ddc6808b47bcae5472f1a40bc"
+    },
+    {
+      "path": "lib/academy/school/stage2/experience-5.ts",
+      "before": null,
+      "sha256": "5996521f90bcedac521bf12346113967b1ba9a3e3be5cdefd389949f37872bc6"
+    },
+    {
+      "path": "lib/academy/school/stage2/experience-6.ts",
+      "before": null,
+      "sha256": "a64c3ecaf7035d7b71879260eaabcb3342171a1f8631379e3e1bc93a920047e4"
+    },
+    {
+      "path": "lib/academy/school/stage3/author.test.ts",
+      "before": null,
+      "sha256": "0a85338f7f541b3847914b5c2b4e69e53fe59a448595900eb81952e7cd751ad9"
+    },
+    {
+      "path": "lib/academy/school/stage3/class-1.ts",
+      "before": null,
+      "sha256": "d5b32bcc2a0ce59dec01372b61a97152a88c52f0ebe9cfd33dea6d3f5475d2d2"
+    },
+    {
+      "path": "lib/academy/school/stage3/class-2.ts",
+      "before": null,
+      "sha256": "8c75abac9034c8c945194cd27bd0da94d1e73000af27ef35ab4f3f6381903b4e"
+    },
+    {
+      "path": "lib/academy/school/stage3/class-3.ts",
+      "before": null,
+      "sha256": "10c9120c4d0cf92d27b77f4ebdbc992b85e4818e15285b966ec6b90f57e757de"
+    },
+    {
+      "path": "lib/academy/school/stage3/class-4.ts",
+      "before": null,
+      "sha256": "e1f9729344e381231eac332b429e4d95fbc537061716a6543ecdfb27570fb9a3"
+    },
+    {
+      "path": "lib/academy/school/stage3/class-5.ts",
+      "before": null,
+      "sha256": "c15946600719889b7714e3bb91199a98da8fe972648c2f6a9ee48df1843224e1"
+    },
+    {
+      "path": "lib/academy/school/stage3/experience-1.ts",
+      "before": null,
+      "sha256": "a98729cfc98985553a333605746e10b5f5f7c413b4b4962e5aecf2780887484d"
+    },
+    {
+      "path": "lib/academy/school/stage3/experience-2.ts",
+      "before": null,
+      "sha256": "58270cdfb571a939573558c4613ffdb45722297846ab0d79de5c0633af4ad122"
+    },
+    {
+      "path": "lib/academy/school/stage3/experience-3.ts",
+      "before": null,
+      "sha256": "2ba4271f3cb7ac46386646261d6ffed6dc73a2b73e2767b20d1cb15a0ab7ea65"
+    },
+    {
+      "path": "lib/academy/school/stage3/experience-4.ts",
+      "before": null,
+      "sha256": "62dde811235cd46d208f9296105e9e21cd991bd1314bd523e65460d0d4054f05"
+    },
+    {
+      "path": "lib/academy/school/stage3/experience-5.ts",
+      "before": null,
+      "sha256": "ecf4065e110373abf496bfc6f2054b90ee9f8896c6566ba1ccbcacf00b5d3462"
+    },
+    {
+      "path": "lib/academy/school/stages23-lifecycle.test.ts",
+      "before": null,
+      "sha256": "833f7b555067ee7d7bdee7a2271f9030d2366d17a3f3e1e5a06743ee4290a83b"
+    },
+    {
+      "path": "lib/academy/school/stages23.test.ts",
+      "before": null,
+      "sha256": "0862257e4ac821d836effe5982047c2974616ccbd0eac9ec35d56f7521ebc2ac"
+    },
+    {
+      "path": "lib/academy/school/teaching.ts",
+      "before": "4858f5bafbb143c14c927099dd26876851f4b98ad86114c14764e16bfc70a9cd",
+      "sha256": "b24aa3bd872a3038653197dcc60901562533529bd1ae404baecf7459bd00b3ff"
+    },
+    {
+      "path": "scripts/seed-stages23-local.cjs",
+      "before": null,
+      "sha256": "d69184a568420eb631d2f0ba72272c5db5775496eec794201e5d27be8a7ce638"
+    }
+  ]
+}

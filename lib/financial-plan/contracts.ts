@@ -1,0 +1,11 @@
+import type {IntakeV2Record} from '../student-intake-v2/contracts';
+import type {DerivedFeatureCommonEnvelope,PlanEngineV1Draft,PlanEngineValueStatus} from '../student-intake-v2/plan-engine-v1/contracts';
+export const FINANCIAL_ENGINE_VERSION='financial_readiness_v1.pe1_v1.pe2_v1.uncertainty_v2';
+export type Lifecycle='DRAFT'|'REVIEW'|'APPROVED'|'PUBLISHED'|'SUPERSEDED';
+export type Action={text:string;rationale:string;priority:'normal'|'high';status:'open'|'in_progress'|'done';evidence:string[]};
+export type InstructorContent={privateNotes:string;explanation:string;actions:Action[];reason:string;reviewResolution:string};
+export type FieldContext={key:string;label:string;group:string;value:string;status:PlanEngineValueStatus;policy:string;rules:string[]};
+export type FinancialOutput={findings:Record<string,DerivedFeatureCommonEnvelope>;context:FieldContext[];goals:{key:string;label:string;value:string}[];systemActions:Action[];missing:{key:string;why:string}[];consultationContext:{key:string;value:string}[]};
+export type StudentContent={overview:string;findings:{label:string;summary:string;status:PlanEngineValueStatus;reviewRequired:boolean}[];picture:{label:string;value:string;status:PlanEngineValueStatus}[];goals:{label:string;value:string}[];systemActions:Action[];instructorActions:Action[];guidance:string;missing:{label:string;why:string}[];limits:string[]};
+export type StaffPlan={id:string;seriesId:string;studentId:string;version:number;status:Lifecycle;editRevision:number;source:IntakeV2Record;sourceDigest:string;engineVersion:string;engine:PlanEngineV1Draft;financial:FinancialOutput;instructor:InstructorContent;studentPreview:StudentContent;createdAt:string;generatedAt:string;reviewedAt:string|null;approvedAt:string|null;publishedAt:string|null;supersededAt:string|null;actors:{created:string;updated:string;reviewed:string|null;approved:string|null;published:string|null}};
+export type StudentPlan={plan:{id:string;version:number;publishedAt:string;content:StudentContent};sourceOutdated:boolean};

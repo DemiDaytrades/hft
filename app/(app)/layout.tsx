@@ -33,9 +33,23 @@ export default async function AppLayout({
           { href: "/admin", label: "Overview" },
           { href: "/admin/users", label: "Members" },
           { href: "/admin/affiliates", label: "Affiliates" },
+          { href: "/admin/student-intake-v2", label: "Assessment & Consultation" },
+          { href: "/admin/learning-path", label: "Learning Paths" },
+          { href: "/admin/academy", label: "Academy" },
+          { href: "/admin/teaching", label: "Teaching" },
           { href: "/admin/settings/payments", label: "Settings" },
         ]
-      : [{ href: "/dashboard", label: "Dashboard" }]),
+      : [
+          { href: "/dashboard", label: "Dashboard" },
+          { href: "/assessment", label: "Assessment" },
+          { href: "/consultation", label: "Consultation" },
+          { href: "/game-plan", label: "My HFT Game Plan" },
+          { href: "/academy", label: "Academy" },
+          { href: "/lessons", label: "Weekly Lessons" },
+          { href: "/my-finances", label: "My Finances" },
+          { href: "/learning-path", label: "Your Learning Path" },
+          { href: "/financial-plan", label: "Financial Readiness Plan" },
+        ]),
     ...(affiliate ? [{ href: "/affiliate", label: "Affiliate" }] : []),
     { href: "/account", label: "Account" },
   ];
@@ -45,12 +59,12 @@ export default async function AppLayout({
       <header className="border-b border-white/8 bg-ink-900/80 backdrop-blur-xl">
         {/* h-20 to match the marketing header, so the seal has the same room
             in both and the two bars line up visually. */}
-        <div className="container-page flex h-20 items-center justify-between gap-6">
-          <div className="flex items-center gap-8">
+        <div className="container-page flex min-h-20 flex-wrap items-center justify-between gap-4 py-3">
+          <div className="flex min-w-0 max-w-full flex-wrap items-center gap-4">
             <Link href={isAdmin ? "/admin" : "/dashboard"} aria-label="HFT home">
               <Logo />
             </Link>
-            <nav className="flex items-center gap-1">
+            <nav className="flex max-w-full flex-wrap items-center gap-1">
               {links.map((link) => (
                 <Link
                   key={link.href}

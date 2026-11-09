@@ -5,13 +5,13 @@
  */
 
 export const site = {
-  name: "High Frequency Talent",
+  name: "High Frequency Trading",
   shortName: "HFT",
-  legalName: "High Frequency Talent LLC",
+  legalName: "High Frequency Trading LLC",
   tagline: "Discipline. Purpose. Freedom.",
   strapline: "Elevate your frequency. Elevate your life.",
   founder: "Demi Monroe",
-  email: "hello@highfrequencytalent.com",
+  email: "hello@highfrequency.vip",
 } as const;
 
 /**

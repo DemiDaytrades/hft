@@ -1,0 +1,205 @@
+{
+  "scope": "Phase C local implementation only; not a production release manifest",
+  "files": [
+    {
+      "path": "app/(app)/academy/page.tsx",
+      "rootBefore": "8871cc7100dec6f34072179f7929af307f2b1d53979c27d481378512872c89d1",
+      "sha256": "deada3557677f4338721f4cbf4eaf6a8224583d32aa61372c3757ec0d30ef30c"
+    },
+    {
+      "path": "app/api/academy/classroom-followup/route.ts",
+      "rootBefore": null,
+      "sha256": "ae0d258af4d0b27602d20043eb51a0ae20f9aeba955239fd8638f2a82ea67cc6"
+    },
+    {
+      "path": "app/api/classroom/[sessionId]/route.ts",
+      "rootBefore": "19b60419f3cbce4c1c4e14ad09a575d547d9fcb3fe7ce92a6aca850148959182",
+      "sha256": "2aff54c35163e9427e5053f737255c0b59b4fc161bef41db7a805f2acc2d1a8a"
+    },
+    {
+      "path": "app/api/classroom/[sessionId]/teaching/route.ts",
+      "rootBefore": null,
+      "sha256": "27e9746b200a744dc3ae92ce61b8208ed11f9132d3c88abfa22d849f0fe1b586"
+    },
+    {
+      "path": "components/classroom/Classroom.tsx",
+      "rootBefore": "e0d4772becb40e602deaf29aa41ba3d3d78e3832bf80a838dd4ac87a7b8dabfd",
+      "sha256": "b42c0b808fcdef72f0fcaee49e75cf574b0ad719dacf739946a9398626fa4ea2"
+    },
+    {
+      "path": "components/classroom/presentation.ts",
+      "rootBefore": "1a84dfb2f09c7dd841ac8b07d8137f31a1324a582e3407ed97b517c393e44734",
+      "sha256": "bc50577cd6af48190af004d1a33f74ed600f270bc5d49f59020e9e3bfa7c3ba1"
+    },
+    {
+      "path": "components/classroom/teaching/ActivityForm.tsx",
+      "rootBefore": null,
+      "sha256": "5878122e8ce6ef335b892ceb27c09babf34a5bbdbc40eec676e1505a8f99d0f8"
+    },
+    {
+      "path": "components/classroom/teaching/AfterClass.tsx",
+      "rootBefore": null,
+      "sha256": "4ef89dc64dd34608325f18a632f4f14f5628b39d02e3d55c59dc6e04cb736c30"
+    },
+    {
+      "path": "components/classroom/teaching/TeachingTools.tsx",
+      "rootBefore": null,
+      "sha256": "4188cd074b9ac01b2eb19e5dd9d582969527273219a5104c827ea6e85610be94"
+    },
+    {
+      "path": "components/classroom/teaching/YoutubeStage.tsx",
+      "rootBefore": null,
+      "sha256": "f0edb910951fa626fa2dbc80b4027c6cb98d1ff07dca3a90e76224108bc2049c"
+    },
+    {
+      "path": "components/classroom/teaching/teaching.css",
+      "rootBefore": null,
+      "sha256": "ac2749f66cd93afd1475f901bad78223ecfb3d401c162a958f4e456691f957c3"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-08-classroom-phase-c.md",
+      "rootBefore": "2ff5dbdcd04395ff53f4dec188a77459fc23d577de770e63736de1ff20a69a54",
+      "sha256": "831cb17cc8562c30c6120d67d7fcecf6b6e2deedd0279823cb520fe1d4dbae3a"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-08-classroom-phase-c-design.md",
+      "rootBefore": "cc827d374ac37944e7269af8e1f27b79d464e5045cf09a5569d2cd5a27094a63",
+      "sha256": "cc827d374ac37944e7269af8e1f27b79d464e5045cf09a5569d2cd5a27094a63"
+    },
+    {
+      "path": "lib/classroom/contracts.ts",
+      "rootBefore": "4d8125e9fc92ceb4f063d997efa58e692d65b5612409f7563048ed2f91b72be6",
+      "sha256": "f0f42867af07c7696f2e8e6ee83754d7ef360afa8721c93d5baf15aecd73fe1c"
+    },
+    {
+      "path": "lib/classroom/teaching/access.ts",
+      "rootBefore": null,
+      "sha256": "59c897e8a2f7d0e06a4e39536c538307137cc8b3004c95a556feae262c8c9382"
+    },
+    {
+      "path": "lib/classroom/teaching/context.test.ts",
+      "rootBefore": null,
+      "sha256": "9abe188c722a873c63583e82111e1fd7272915125ffafa40c16e710363ec2839"
+    },
+    {
+      "path": "lib/classroom/teaching/context.ts",
+      "rootBefore": null,
+      "sha256": "814c8158155ebb594815a7062032217407eb7a0c6da26fc84170efa72a62c47e"
+    },
+    {
+      "path": "lib/classroom/teaching/contracts.ts",
+      "rootBefore": null,
+      "sha256": "1aaaa3724f84644214ac5efb4b32993e4c825884f5dfb2f61c5147eb422face1"
+    },
+    {
+      "path": "lib/classroom/teaching/evidence.test.ts",
+      "rootBefore": null,
+      "sha256": "4596ab034a1e79608bef8e1cba482f923009e03e33637a1e80352c6694ec8589"
+    },
+    {
+      "path": "lib/classroom/teaching/evidence.ts",
+      "rootBefore": null,
+      "sha256": "8b87d78b5bcdc29938c99b07f0249eaca287317cf70d79692613243728a3551e"
+    },
+    {
+      "path": "lib/classroom/teaching/handoff.test.ts",
+      "rootBefore": null,
+      "sha256": "e8b3a249918839f5de59d1d40c7258aa7d3b988a6bbc3d93a9371811ccbcfb81"
+    },
+    {
+      "path": "lib/classroom/teaching/handoff.ts",
+      "rootBefore": null,
+      "sha256": "5abdae6ef1a55a4b3958a47d86c52f9ba8b5f4caf2183369ac2cf6266627f968"
+    },
+    {
+      "path": "lib/classroom/teaching/http.test.ts",
+      "rootBefore": null,
+      "sha256": "c78a02cbcf77d582be893f3912f43e7a99d164fac215139e471e2c6984e9a42b"
+    },
+    {
+      "path": "lib/classroom/teaching/http.ts",
+      "rootBefore": null,
+      "sha256": "3308053f9fa66d3d69e2e3636d55e20552cf0cbe6831345dd2b4a974d2895e1c"
+    },
+    {
+      "path": "lib/classroom/teaching/policy.test.ts",
+      "rootBefore": null,
+      "sha256": "208acc33fda889c2b5d7eb7a2d8ddea09fbc6f6bc3dc20b9707f12f58382873b"
+    },
+    {
+      "path": "lib/classroom/teaching/policy.ts",
+      "rootBefore": null,
+      "sha256": "acb4c3cb3f124634ba12a03284099c6c067a122f4b291139d5c90d3c03be311e"
+    },
+    {
+      "path": "lib/classroom/teaching/presentation.ts",
+      "rootBefore": null,
+      "sha256": "13cb73de99391620cb1cbe36a38c55fa96db23168a9a2cc2e1fc40b58347b564"
+    },
+    {
+      "path": "lib/classroom/teaching/projection.ts",
+      "rootBefore": null,
+      "sha256": "dde5f2c4260fc61e2a998c27bf78e563beddc9bc70f34850dcc2b17dab0fac34"
+    },
+    {
+      "path": "lib/classroom/teaching/review-regressions.test.tsx",
+      "rootBefore": null,
+      "sha256": "81443817a6c580d4a26cbc8179cd73be3f5e1559ff739d0790a2d38ec85671e0"
+    },
+    {
+      "path": "lib/classroom/teaching/service.test.ts",
+      "rootBefore": null,
+      "sha256": "d97baef9d4916cd498afa8c951a3dfe82c1dadeaf8ccdfb72b53e0911fa55823"
+    },
+    {
+      "path": "lib/classroom/teaching/service.ts",
+      "rootBefore": null,
+      "sha256": "334a39cbcae902a5a087a541463f9b43de84bcfb6a2952598f205aabb7c8d9d8"
+    },
+    {
+      "path": "lib/classroom/teaching/testing.ts",
+      "rootBefore": null,
+      "sha256": "5037809b9625376910d7ca2680f31bc4b3a28001ae51612dcd11645a31d37341"
+    },
+    {
+      "path": "lib/classroom/teaching/ui.test.tsx",
+      "rootBefore": null,
+      "sha256": "6c86291810e24d8b28851f0f49630322b00d8703d76f3bf629a2cf2cd2e9821c"
+    },
+    {
+      "path": "lib/learning-path/contracts.ts",
+      "rootBefore": "bbdab6088026e101b4107c8a0ecc411a72d70b796c4cd7857bbc0a039cf3f738",
+      "sha256": "0a3c0de0275ccda9c408264c60020a44ad8a2da610f15ae623fc5e4bab7517c2"
+    },
+    {
+      "path": "lib/learning-path/engine.ts",
+      "rootBefore": "429b3c99bcece5d4fe6cb80ac62df9e52a3065cdf144fb9893c3ca491832f5c7",
+      "sha256": "9826602fac682530d6da0f1d84679da957c4efd5f74f7a5a6c0522c7d2e35558"
+    },
+    {
+      "path": "lib/learning-path/source.ts",
+      "rootBefore": "265d3a85995404ad88cf6e61786c2c3c4a6a15c8c95d82b559fdd87386b27b70",
+      "sha256": "45eed94a52ebe41745e6940b5708be2a2a16c52a36415d99dd84559c1d149acc"
+    },
+    {
+      "path": "migrations/0037_classroom_teaching.sql",
+      "rootBefore": null,
+      "sha256": "619257bb37662599b9946437dd2969e251c460fa3ab658af32577b3d948a2110"
+    },
+    {
+      "path": "workers/classroom/src/index.ts",
+      "rootBefore": "dd7afa6f92855c5d496bfe417d227058d7cc39d0e6e8f210381d85c5ed31eee1",
+      "sha256": "1ffe7bd16936abd1f20a168ffce2b323e95165d45683a1fe0ca78656d32ccd08"
+    },
+    {
+      "path": "lib/classroom/client-response.ts",
+      "rootBefore": null,
+      "sha256": "b525eac939ef85de93dd6052eae67c07f5554bc09ef9f2452baf26c2ecf0d58c"
+    },
+    {
+      "path": "lib/classroom/client-response.test.ts",
+      "rootBefore": null,
+      "sha256": "4062939d8890305ae3779a7eb19e246ac2c33b493afa5b6f1920e3b845a9b919"
+    }
+  ]
+}

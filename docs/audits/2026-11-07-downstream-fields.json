@@ -1,0 +1,2360 @@
+{
+  "scope": "downstream consumers; combine capture registry for question text",
+  "entries": [
+    {
+      "key": "assigned_at",
+      "owner": "academy",
+      "categories": [
+        "ACADEMY_READINESS"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/academy/page.tsx",
+          "consumer": "manual Academy course assignment",
+          "mode": "enrollment operation, not intake inference"
+        }
+      ]
+    },
+    {
+      "key": "assigned_by",
+      "owner": "academy",
+      "categories": [
+        "ACADEMY_READINESS"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/academy/page.tsx",
+          "consumer": "manual Academy course assignment",
+          "mode": "enrollment operation, not intake inference"
+        }
+      ]
+    },
+    {
+      "key": "course_id",
+      "owner": "academy",
+      "categories": [
+        "ACADEMY_READINESS"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/academy/page.tsx",
+          "consumer": "manual Academy course assignment",
+          "mode": "enrollment operation, not intake inference"
+        }
+      ]
+    },
+    {
+      "key": "status",
+      "owner": "academy",
+      "categories": [
+        "ACADEMY_READINESS"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/academy/page.tsx",
+          "consumer": "manual Academy course assignment",
+          "mode": "enrollment operation, not intake inference"
+        }
+      ]
+    },
+    {
+      "key": "user_id",
+      "owner": "academy",
+      "categories": [
+        "ACADEMY_READINESS"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/academy/page.tsx",
+          "consumer": "manual Academy course assignment",
+          "mode": "enrollment operation, not intake inference"
+        }
+      ]
+    },
+    {
+      "key": "assessedExperienceLevel",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/composer.ts",
+          "consumer": "instructor-owned sequencing",
+          "mode": "instructor authority; modules/first read but not emitted as catalog assignment"
+        }
+      ]
+    },
+    {
+      "key": "assessedKnowledgeLevel",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "behavioralConcerns",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "consultationContext",
+          "mode": "instructor-only context excluded from student DTO"
+        }
+      ]
+    },
+    {
+      "key": "financialRiskConcerns",
+      "owner": "instructor",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "consultationContext",
+          "mode": "instructor-only context excluded from student DTO"
+        }
+      ]
+    },
+    {
+      "key": "firstHomework",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "immediateActionItems",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "consultationContext",
+          "mode": "instructor-only context excluded from student DTO"
+        }
+      ]
+    },
+    {
+      "key": "instructorNotes",
+      "owner": "instructor",
+      "categories": [
+        "INSTRUCTOR_PRIVATE"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "private note",
+          "mode": "exclude from student projection"
+        }
+      ]
+    },
+    {
+      "key": "instructorPrivateNotes",
+      "owner": "instructor",
+      "categories": [
+        "INSTRUCTOR_PRIVATE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/student-intake-v2/service.ts",
+          "consumer": "private note",
+          "mode": "exclude from student projection"
+        }
+      ]
+    },
+    {
+      "key": "instructorStrengths",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "consultationContext",
+          "mode": "instructor-only context excluded from student DTO"
+        }
+      ]
+    },
+    {
+      "key": "instructorSummary",
+      "owner": "instructor",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "consultationContext",
+          "mode": "instructor-only context excluded from student DTO"
+        }
+      ]
+    },
+    {
+      "key": "instructorWeaknesses",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "consultationContext",
+          "mode": "instructor-only context excluded from student DTO"
+        }
+      ]
+    },
+    {
+      "key": "learningStyleObservations",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "privateNotes",
+      "owner": "instructor",
+      "categories": [
+        "INSTRUCTOR_PRIVATE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/contracts.ts",
+          "consumer": "private note",
+          "mode": "exclude from student projection"
+        },
+        {
+          "path": "lib/financial-plan/contracts.ts",
+          "consumer": "private note",
+          "mode": "exclude from student projection"
+        }
+      ]
+    },
+    {
+      "key": "recommendedAcademyTrack",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/composer.ts",
+          "consumer": "instructor-owned sequencing",
+          "mode": "instructor authority; modules/first read but not emitted as catalog assignment"
+        }
+      ]
+    },
+    {
+      "key": "recommendedCoachingFrequency",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "recommendedFirstLesson",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/composer.ts",
+          "consumer": "instructor-owned sequencing",
+          "mode": "instructor authority; modules/first read but not emitted as catalog assignment"
+        }
+      ]
+    },
+    {
+      "key": "recommendedModules",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/composer.ts",
+          "consumer": "instructor-owned sequencing",
+          "mode": "instructor authority; modules/first read but not emitted as catalog assignment"
+        }
+      ]
+    },
+    {
+      "key": "recommendedPracticeFrequency",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "recommendedStartingLevel",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/composer.ts",
+          "consumer": "instructor-owned sequencing",
+          "mode": "instructor authority; modules/first read but not emitted as catalog assignment"
+        }
+      ]
+    },
+    {
+      "key": "riskRestrictions",
+      "owner": "instructor",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "consultationContext",
+          "mode": "instructor-only context excluded from student DTO"
+        }
+      ]
+    },
+    {
+      "key": "scheduleConcerns",
+      "owner": "instructor",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "consultationContext",
+          "mode": "instructor-only context excluded from student DTO"
+        }
+      ]
+    },
+    {
+      "key": "firstLessonObjective",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "firstLessonTitle",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "goal1",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "goal2",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "goal3",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "instructorLevel",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/student-placement.ts",
+          "consumer": "student_placement",
+          "mode": "legacy editable authority independent of learning path"
+        }
+      ]
+    },
+    {
+      "key": "instructorReason",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/student-placement.ts",
+          "consumer": "student_placement",
+          "mode": "legacy editable authority independent of learning path"
+        }
+      ]
+    },
+    {
+      "key": "instructorTrack",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/student-placement.ts",
+          "consumer": "student_placement",
+          "mode": "legacy editable authority independent of learning path"
+        }
+      ]
+    },
+    {
+      "key": "level",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "methods",
+      "owner": "legacy",
+      "categories": [
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "milestone30",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "milestone60",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "milestone90",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "priorities",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "riskFocus",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "startingSummary",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "supportPlan",
+      "owner": "legacy",
+      "categories": [
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "track",
+      "owner": "legacy",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+          "consumer": "student_training_plan",
+          "mode": "legacy stored plan; some historical keys display-only"
+        }
+      ]
+    },
+    {
+      "key": "accountabilityFeedback",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "additionalIncome",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "affordableLossRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "capital_safety_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "demo_first_readiness_advisory_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveCapitalSafetyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveDemoFirstReadinessAdvisory",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "availableTradingCapitalRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "capital_safety_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "demo_first_readiness_advisory_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveCapitalSafetyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveDemoFirstReadinessAdvisory",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "behaviorMatrix",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "behaviorTendencies",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "biggestTradingConfusion",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "billsMoneyUsedForTradingFrequency",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "funding_source_safety_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "trading_profit_dependency_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveFundingSourceSafetyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveTradingProfitDependencyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "borrowedCreditFundingIntent",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "funding_source_safety_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "demo_first_readiness_advisory_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveFundingSourceSafetyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "cashFlowVariabilityConfidence",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "financial_stability_band_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveFinancialStabilityBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "creditBuildingGoals",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "creditEducationInterest",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "creditScoreRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "creditUtilizationAwareness",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "debtPayoffPriorities",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "debtReductionStrategy",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "debtRelatedStress",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "debtRepaymentConfidence",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "debtStatusTypes",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "demoLiveExperience",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveCurriculumStartingLevel",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "dependentSupportObligation",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "desiredAdditionalMonthlyIncomeRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT",
+        "INFORMATIONAL_ONLY"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "goals",
+          "mode": "aspiration display; no scoring"
+        }
+      ]
+    },
+    {
+      "key": "desiredTradingIncomeRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT",
+        "INFORMATIONAL_ONLY"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "goals",
+          "mode": "aspiration display; no scoring"
+        }
+      ]
+    },
+    {
+      "key": "devicesInternet",
+      "owner": "student",
+      "categories": [
+        "ACADEMY_READINESS",
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "disciplineBreakers",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "disposableIncomeRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "emergencyBorrowingReliance",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "emergencyFundProtectionIntent",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "financialImprovementGoals612",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "financialReasonForTrading",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT",
+        "INFORMATIONAL_ONLY"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "goals",
+          "mode": "aspiration display; no scoring"
+        }
+      ]
+    },
+    {
+      "key": "foodGroceriesRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "goalImmediate",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT",
+        "INFORMATIONAL_ONLY"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "goals",
+          "mode": "aspiration display; no scoring"
+        }
+      ]
+    },
+    {
+      "key": "homeworkPreference",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "householdIncomeSources",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "housingSituationPayment",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "incomeConsistencyPay",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "financial_stability_band_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveFinancialStabilityBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "insuranceMedicalRecurringRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "journalReviewPractice",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveBehavioralDisciplineSupportBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "knowledgeMatrix",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "self-report evidence/conflict and provisional foundations suggestion; never mastery"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveCurriculumStartingLevel",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "learningStyles",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "liveTradingFundingStatus",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "capital_safety_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveCapitalSafetyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "liveTradingReadinessSelfAssessment",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "demo_first_readiness_advisory_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "lossOfTradingCapitalImpact",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "capital_safety_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveCapitalSafetyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "marketsExperience",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveCurriculumStartingLevel",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "minimumPaymentManageability",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "missedTradeFomoResponse",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "monthlyDebtPaymentsRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "monthlySavingsContributionRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "monthlyTakeHomeRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "financial_stability_band_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveFinancialStabilityBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "noTradeDayAcceptance",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "otherRecurringObligations",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "paceAndQuestionComfort",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "paymentHistoryConsistency",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "plannedLossLimitStopAdherence",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveBehavioralDisciplineSupportBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "platformAccess",
+      "owner": "student",
+      "categories": [
+        "ACADEMY_READINESS",
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "platformsBrokerExperience",
+      "owner": "student",
+      "categories": [
+        "ACADEMY_READINESS",
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "pressureToMakeMoneyQuickly",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "trading_profit_dependency_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveTradingProfitDependencyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveDemoFirstReadinessAdvisory",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "priorEducation",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "protectiveExitBehavior",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveBehavioralDisciplineSupportBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "reactionToLoss",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "reactionToWin",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "recentFinancialHardship",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "recurringObligationsRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "reliableMonthlyIncomePlanningRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "remainingDiscretionaryCashFlowRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "financial_stability_band_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveFinancialStabilityBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "savingsEmergencyRanges",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "emergency_resilience_band_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveEmergencyResilienceBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "selfStrength",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "situationalLossResponse",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "situationalWinStreakResponse",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "subscriptionsDiscretionaryRecurringRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "supportTechReadiness",
+      "owner": "student",
+      "categories": [
+        "ACADEMY_READINESS",
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "totalDebtRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "tradingCapitalReplacementExpectation",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "tradingCapitalSeparation",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "capital_safety_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveCapitalSafetyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "tradingCapitalSources",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "funding_source_safety_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "demo_first_readiness_advisory_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveFundingSourceSafetyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "tradingCapitalTimeHorizon",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT",
+        "INFORMATIONAL_ONLY"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/compose.ts",
+          "consumer": "goals",
+          "mode": "aspiration display; no scoring"
+        }
+      ]
+    },
+    {
+      "key": "tradingProfitsForEssentialExpensesExpectation",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "trading_profit_dependency_review_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "demo_first_readiness_advisory_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveTradingProfitDependencyReview",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "transportationObligationRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "unavailableDays",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        }
+      ]
+    },
+    {
+      "key": "unexpectedExpenseAbility",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        },
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "emergency_resilience_band_v1",
+          "mode": "deterministic rule / conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveEmergencyResilienceBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "unplannedTradeFrequency",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveBehavioralDisciplineSupportBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "upcomingMajorExpenses",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "utilitiesHouseholdNecessitiesRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "variableExpensesRange",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/financial-plan/coverage.ts",
+          "consumer": "FINANCIAL_COVERAGE registry display",
+          "mode": "display/review context; see rule consumer separately"
+        }
+      ]
+    },
+    {
+      "key": "weeklyAvailability",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveScheduleRealismBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "weeklyHoursRange",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveScheduleRealismBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "willingDemoFirst",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "willingRiskLimits",
+      "owner": "student",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveBehavioralDisciplineSupportBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    },
+    {
+      "key": "willingToPauseLiveTradingAndReturnToDemo",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+          "consumer": "detectConflicts",
+          "mode": "conflict context; preserve all sources"
+        }
+      ]
+    },
+    {
+      "key": "windowsAndConsistency",
+      "owner": "student",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "FINANCIAL_READINESS_INPUT",
+        "LEARNING_PATH_INPUT",
+        "SUPPORT_PREFERENCE"
+      ],
+      "consumers": [
+        {
+          "path": "lib/learning-path/engine.ts",
+          "consumer": "educationalIntake / recommendLearningPath",
+          "mode": "allowlisted context; not scored"
+        },
+        {
+          "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+          "consumer": "deriveScheduleRealismBand",
+          "mode": "existing categorical derivation or reason/conflict input"
+        }
+      ]
+    }
+  ]
+}

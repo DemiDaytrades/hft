@@ -1,0 +1,163 @@
+{
+  "scope": "LOCAL ONLY Phase B implementation; not a release candidate",
+  "isolatedWorkspace": "/private/tmp/hft-phase-b-local",
+  "baseline": "docs/releases/2026-11-07-teaching-phase-a-candidate.json",
+  "sourceFiles": [
+    {
+      "path": "app/(app)/admin/classroom/[sessionId]/page.tsx",
+      "sha256": "8e9fba26c5ce17aa2f058daf7efeca46d8f9391a3506d4a4cc9845cc009bf424"
+    },
+    {
+      "path": "app/(app)/classroom/[sessionId]/page.tsx",
+      "sha256": "e4cc70f5c7060e276f44873b05ff9b4f83162dc3954e4f46845f5dbb2f1fbca8"
+    },
+    {
+      "path": "app/api/admin/student-lifecycle/route.ts",
+      "sha256": "d6fa9ac8547929cb8e525b90b79aba9f1438ed33a4380a2aecf085ef77e1f5e9"
+    },
+    {
+      "path": "app/api/classroom/[sessionId]/chat/route.ts",
+      "sha256": "30713bff4d6f8a4f2fa6867bf05e80f0461ceac11f25beebf04a795bc0c7962f"
+    },
+    {
+      "path": "app/api/classroom/[sessionId]/route.ts",
+      "sha256": "19b60419f3cbce4c1c4e14ad09a575d547d9fcb3fe7ce92a6aca850148959182"
+    },
+    {
+      "path": "app/api/classroom/webhook/route.ts",
+      "sha256": "4a74d18e90c5ee47169695c03ef556eb45331c95bd3176fe01693f03b25d0965"
+    },
+    {
+      "path": "components/classroom/Classroom.tsx",
+      "sha256": "e0d4772becb40e602deaf29aa41ba3d3d78e3832bf80a838dd4ac87a7b8dabfd"
+    },
+    {
+      "path": "components/classroom/hft-classroom.css",
+      "sha256": "48af80f785cd79a694b678f710eadbd89694b3c7ec5dde55f73bec6b8d9bad99"
+    },
+    {
+      "path": "components/classroom/media.tsx",
+      "sha256": "c71e1726614a8378e21e2e31759eda777afcc5c3d680c37b41cf494df860195f"
+    },
+    {
+      "path": "components/classroom/presentation.ts",
+      "sha256": "1a84dfb2f09c7dd841ac8b07d8137f31a1324a582e3407ed97b517c393e44734"
+    },
+    {
+      "path": "components/teaching/Scheduler.tsx",
+      "sha256": "b7902b82efaf0561b22e0b64f48a85b818ffa80c4d0ab97b81d9f5f412c4e6b6"
+    },
+    {
+      "path": "lib/classroom/contracts.ts",
+      "sha256": "4d8125e9fc92ceb4f063d997efa58e692d65b5612409f7563048ed2f91b72be6"
+    },
+    {
+      "path": "lib/classroom/control-auth.test.ts",
+      "sha256": "a4072ce7f7923d8a3f4dce83951cb8b5f6ebc18293e838f8fb1cdd48fb809b90"
+    },
+    {
+      "path": "lib/classroom/control-auth.ts",
+      "sha256": "8d888e33da4e7fda7353c880afeb9663ec0c8b7008f582b0c88540f331565f53"
+    },
+    {
+      "path": "lib/classroom/environment.ts",
+      "sha256": "30133037715dffd3784c29c24591f31310e330c9076a1f8ff62568e6add47c69"
+    },
+    {
+      "path": "lib/classroom/lifecycle-route.test.ts",
+      "sha256": "c89d5732b54baed54579df715d9edcccf9bb520400a33698daf4b75ce706baf7"
+    },
+    {
+      "path": "lib/classroom/livekit.ts",
+      "sha256": "003ce32fc0a66b5af8a94e65ed0385ac9a480163160df702095917d3a2e28f3e"
+    },
+    {
+      "path": "lib/classroom/presentation.test.tsx",
+      "sha256": "e46bb452db4972c490ccdffa5d39b3cb7a2796a417d3528ce43ec1dd6dc60ba2"
+    },
+    {
+      "path": "lib/classroom/provider.test.ts",
+      "sha256": "10a63609dde45baa3413c55ac79c610a2ef16fce67a9dd0702d5e657f9df90c0"
+    },
+    {
+      "path": "lib/classroom/provider.ts",
+      "sha256": "1470d3d474f03d3b19d4f8a06e1e27bd003388de2ef92548344a0cda85b26211"
+    },
+    {
+      "path": "lib/classroom/realtime.test.ts",
+      "sha256": "bdd4af06c6c972814dffdf5ff27d89d743f1ebd9f32b2e4098d23c4481549eb8"
+    },
+    {
+      "path": "lib/classroom/routes.test.ts",
+      "sha256": "f5bed6396e4c7eab429fffc4a58e5ff158c79801b1ff415f843be21329117690"
+    },
+    {
+      "path": "lib/classroom/service.test.ts",
+      "sha256": "7856bf4cb2cda45fcbef4be9809a4b03c69613c3d0abb7e6d40f1dba5ee2febe"
+    },
+    {
+      "path": "lib/classroom/service.ts",
+      "sha256": "9bb4fba162c6ecc6500d8de5c6db2663b82ac1bc1637728d3c59942bc87a598d"
+    },
+    {
+      "path": "lib/classroom/terminal.ts",
+      "sha256": "6001287c2af960b983b117ff7ad165ca1380aed2f95c39ab981a40b562f19b38"
+    },
+    {
+      "path": "lib/classroom/transport.ts",
+      "sha256": "594e0ebebbc2a81383add32f67ddb4a9ffad0de8a0cb01511f9c64e702573e19"
+    },
+    {
+      "path": "lib/classroom/webhooks.test.ts",
+      "sha256": "21da484f42fc15383b86c1acef634b17ab0038f0fc40581121521c3497db4815"
+    },
+    {
+      "path": "lib/classroom/webhooks.ts",
+      "sha256": "69a51b5befcbdea246939a9de8edc07e1eb06e1883e6f33805c2914ab758dd28"
+    },
+    {
+      "path": "lib/teaching/presentation.test.tsx",
+      "sha256": "858904975ba5d51147f983abb14a40dfd4575a5cd4b5a8163cea6c0795c870bb"
+    },
+    {
+      "path": "migrations/0035_live_classroom.sql",
+      "sha256": "a54339dcf27b06e0af29de8cf7f70a11d46b0115dd162dedf9ccbe2afc916fde"
+    },
+    {
+      "path": "migrations/0036_classroom_webhooks.sql",
+      "sha256": "b9a9056b6154be9a97ad513eac9984b422b5b622ab0736cebcd8b90a817f68f8"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e13f81cea8edf660a1bf263a61a1cfc39a9e00a97d8c872e6e85e66b435771c3"
+    },
+    {
+      "path": "package.json",
+      "sha256": "13a1d297861024da81f4488ba41affbed167bf175f52750ce5db349f7e3c35f8"
+    },
+    {
+      "path": "workers/classroom/server-only.ts",
+      "sha256": "b8f21bed6cfbecc150443adc28d0dff1805fd65ed11d255c642b10c9d02888f5"
+    },
+    {
+      "path": "workers/classroom/src/index.ts",
+      "sha256": "dd7afa6f92855c5d496bfe417d227058d7cc39d0e6e8f210381d85c5ed31eee1"
+    },
+    {
+      "path": "workers/classroom/wrangler.jsonc",
+      "sha256": "a679794995d1ef65530fb381142372640a3b9de1166f76d3d86e54df03be98e8"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "sha256": "2bd2faa77b962d2d6c56ae5f156fd3fbcaf9c73eb769e33cdabd965c8ecc3608"
+    }
+  ],
+  "preserved": "Existing root R2/unrelated working-tree changes; no production config updated",
+  "productionOperations": false,
+  "excludedGeneratedArtifacts": "workers/classroom/.wrangler/** is local emulator output and is not release source.",
+  "isolatedQaConfig": {
+    "path": "wrangler.jsonc",
+    "sha256": "0542be5f4d1f6642d0168b82c3060465d26c14f4f52d97d285953a8543bf37cc",
+    "purpose": "Local QA disables teaching delivery and excludes shared checkout R2 configuration; shared configuration remains preserved."
+  }
+}

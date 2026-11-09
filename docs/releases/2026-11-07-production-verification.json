@@ -1,0 +1,241 @@
+{
+  "status": "DEPLOYED_PRODUCTION_VERIFIED",
+  "recordedAtUTC": "2026-11-07T21:00:10.334719+00:00",
+  "controlledStudentOnboardingMayBegin": true,
+  "candidateFingerprint": "8f9085173e573edae8fe6f8294dcdf5f0edb9be539ae0711294bba07f8b1847d",
+  "frozenSourceStillUnchanged": true,
+  "deployment": {
+    "deploymentId": "b6023013-7a39-428a-b383-3e73acc0b677",
+    "currentVersion": "4ce752ee-afe7-4112-a742-eaa6dcf08880",
+    "rollbackDeploymentId": "eab4c624-eaa9-4cc8-8b3d-76648a183e44",
+    "rollbackWorkerVersion": "8a36201a-f0c8-480b-bf4c-13d6123cf34d",
+    "previousSecretBindingNamesPreserved": true,
+    "previousPlainVariables": [
+      {
+        "name": "EMAIL_FROM",
+        "text": "High Frequency Talent <noreply@highfrequency.vip>"
+      }
+    ],
+    "currentPlainVariables": [
+      {
+        "name": "BETTER_AUTH_URL",
+        "text": "https://highfrequency.vip"
+      },
+      {
+        "name": "EMAIL_FROM",
+        "text": "High Frequency Talent <noreply@highfrequency.vip>"
+      }
+    ]
+  },
+  "d1Health": [
+    {
+      "check": "select1",
+      "success": true,
+      "zeroWrites": true,
+      "resultRows": [
+        1
+      ]
+    },
+    {
+      "check": "ledger",
+      "success": true,
+      "zeroWrites": true,
+      "resultRows": [
+        32
+      ]
+    },
+    {
+      "check": "users",
+      "success": true,
+      "zeroWrites": true,
+      "resultRows": [
+        1
+      ]
+    },
+    {
+      "check": "foreign-keys",
+      "success": true,
+      "zeroWrites": true,
+      "resultRows": [
+        0
+      ]
+    },
+    {
+      "check": "exact-reproduction",
+      "success": true,
+      "zeroWrites": true,
+      "resultRows": [
+        32,
+        0
+      ]
+    }
+  ],
+  "migrationsReplayed": false,
+  "configuration": {
+    "BETTER_AUTH_URL": "https://highfrequency.vip",
+    "existingEmailFromPreserved": true,
+    "existingSecretBindingsPreserved": true,
+    "databaseTargetPreserved": true,
+    "r2Deferred": true
+  },
+  "installation": {
+    "newRecords": 3,
+    "identicalRerunChanges": 0,
+    "publishedReferenceLessonCount": 1,
+    "olderDraftLessonsRetained": 7
+  },
+  "browserSmoke": {
+    "authenticatedAdminSession": "PASS",
+    "intakeV2NoStudentSelected": "PASS",
+    "financialReadinessNoStudentSelected": "PASS",
+    "learningPathNoStudentSelected": "PASS",
+    "courseModuleInspectionNavigation": "PASS",
+    "protectedLessonPreview": "PASS",
+    "redesignedStylesAndJourney": "PASS",
+    "browserOnlyTileAndKeyboardFeedback": "PASS",
+    "complimentaryFormNoSubmit": "PASS",
+    "activeFormerViewsNoChanges": "PASS"
+  },
+  "anonymousSmoke": [
+    {
+      "path": "/",
+      "status": 200,
+      "location": null,
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/login",
+      "status": 200,
+      "location": null,
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/admin",
+      "status": 307,
+      "location": "/login",
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/admin/student-intake-v2",
+      "status": 307,
+      "location": "/login",
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/admin/financial-plan",
+      "status": 307,
+      "location": "/login",
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/admin/learning-path",
+      "status": 307,
+      "location": "/login",
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/admin/academy/inspect/hft-money-1",
+      "status": 307,
+      "location": "/login",
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/admin/academy/preview/hft-money-1",
+      "status": 307,
+      "location": "/login",
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/api/admin/student-intake-v2?studentUserId=nonexistent-release-probe",
+      "status": 307,
+      "location": "/login",
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/api/admin/financial-plan?studentId=nonexistent-release-probe",
+      "status": 401,
+      "location": null,
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/api/admin/learning-path?studentId=nonexistent-release-probe",
+      "status": 401,
+      "location": null,
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/api/financial-plan",
+      "status": 401,
+      "location": null,
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/api/learning-path",
+      "status": 401,
+      "location": null,
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/academy/lesson/hft-money-1",
+      "status": 307,
+      "location": "/login",
+      "noSensitiveResponse": true
+    },
+    {
+      "path": "/api/bookings",
+      "status": 404,
+      "location": null,
+      "noSensitiveResponse": true
+    }
+  ],
+  "dataIntegrity": {
+    "migrationsNotReplayed": true,
+    "ledgerCount": 32,
+    "users": 13,
+    "onlyAuthorizedCurriculumTablesChanged": true,
+    "alteredTables": [
+      {
+        "table": "academy_course",
+        "beforeRows": 1,
+        "afterRows": 1
+      },
+      {
+        "table": "academy_module",
+        "beforeRows": 5,
+        "afterRows": 5
+      },
+      {
+        "table": "academy_lesson",
+        "beforeRows": 7,
+        "afterRows": 8
+      },
+      {
+        "table": "academy_quiz",
+        "beforeRows": 0,
+        "afterRows": 1
+      },
+      {
+        "table": "academy_assignment",
+        "beforeRows": 0,
+        "afterRows": 1
+      }
+    ],
+    "unexpectedTables": [],
+    "referenceLessonCount": 1,
+    "referenceLessonStatus": "published",
+    "quizCount": 1,
+    "assignmentCount": 1,
+    "olderDraftLessons": 7,
+    "foreignKeyViolations": 0,
+    "afterReleaseSha256": "0eea50a7abe7d01fc9bddb6dd9a638dce007789063fc9455821a0f6d374a1455"
+  },
+  "recoveryBookmark": "0000022c-00000002-0000511c-cab39f68270d3eab73d3e51afed6c017",
+  "limitations": [
+    "No real student plans, placement, membership or progress modified",
+    "No production cross-student impersonation or student quiz/homework submission; frozen local security tests covered those scenarios",
+    "No invitation delivery, email/SMS or Stripe transaction performed",
+    "R2 uploads deferred; Lesson 1 uses text homework",
+    "No video asset attached; approved lesson fallback remains"
+  ],
+  "historical7500": "Not reproducible: isolated and exact read-only checks passed with zero writes; consistent with transient provider error; historical root cause not established"
+}

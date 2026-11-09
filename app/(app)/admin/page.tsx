@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { TeachingDashboardCard } from "@/components/teaching/DashboardCard";
+import { teachingSnapshot } from "@/lib/teaching/service";
 
 import SetupChecklist from "@/components/admin/SetupChecklist";
 import { requireAdmin } from "@/lib/dal";
@@ -14,13 +17,16 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function AdminOverviewPage() {
-  await requireAdmin();
+  const instructor = await requireAdmin();
 
   const [stats, recent, setup] = await Promise.all([
     getMemberStats(),
     getRecentMembers(8),
     getSetupStatus(),
   ]);
+
+  const teachingOwner = await getCloudflareContext().env.DB.prepare("SELECT instructor_id FROM teaching_config WHERE id='primary'").first<{ instructor_id: string }>();
+  const teaching = !teachingOwner || teachingOwner.instructor_id === instructor.id ? await teachingSnapshot(getCloudflareContext().env.DB, instructor.id) : null;
 
   const tiles = [
     { label: "Total members", value: stats.total },
@@ -32,14 +38,34 @@ export default async function AdminOverviewPage() {
 
   return (
     <div className="space-y-10">
-      <div>
-        <h1 className="font-display text-[30px] font-bold uppercase tracking-[0.03em]">
-          Overview
-        </h1>
-        <p className="mt-1 text-[14px] text-white/45">
-          Membership at a glance.
-        </p>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h1 className="font-display text-[30px] font-bold uppercase tracking-[0.03em]">
+            Overview
+          </h1>
+          <p className="mt-1 text-[14px] text-white/45">
+            Membership at a glance.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/admin/teaching" className="rounded-sm border border-brand-600/40 px-4 py-2 text-sm text-brand-500">Teaching: calendar and pending requests</Link>
+          <Link href="/admin/financial-plan" className="rounded-sm border border-white/12 px-4 py-2 text-sm text-white/70 hover:text-white">Financial Readiness Plans</Link>
+          <Link
+            href="/admin/student-intake-v2"
+            className="rounded-sm border border-brand-600/40 px-4 py-2 font-display text-[12px] font-semibold uppercase tracking-[0.14em] text-brand-500 transition-colors hover:text-brand-400"
+          >
+            Student Assessment &amp; Consultation
+          </Link>
+          <Link
+            href="/admin/communications-test"
+            className="rounded-sm border border-white/12 px-4 py-2 font-display text-[12px] font-semibold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white"
+          >
+            Communications Test
+          </Link>
+        </div>
       </div>
+
+      {teaching && <TeachingDashboardCard admin sessions={teaching.sessions as any} timezone={teaching.config?.timezone ?? "America/Chicago"} />}
 
       <SetupChecklist status={setup} />
 

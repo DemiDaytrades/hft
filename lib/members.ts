@@ -29,6 +29,11 @@ export type Member = {
   banned: number | null;
   banReason: string | null;
   createdAt: string;
+  subscriptionStatus: string | null;
+  lifecycle_status: "ACTIVE" | "DEACTIVATED";
+  lifecycle_changed_at: string | null;
+  complimentaryAccessExpiresAt: string | null;
+  complimentaryAccessRevokedAt: string | null;
 };
 
 export type MemberStats = {
@@ -61,12 +66,14 @@ export async function getMemberStats(): Promise<MemberStats> {
 }
 
 export async function getRecentMembers(limit = 8): Promise<Member[]> {
-  const { results } = await db()
+const { results } = await db()
     .prepare(
-      `SELECT id, name, email, "emailVerified", role, banned, "banReason", "createdAt"
-       FROM "user"
-       ORDER BY "createdAt" DESC
-       LIMIT ?`,
+      `SELECT id, name, email, "emailVerified", role, banned, "banReason", "createdAt",
+              "lifecycle_status", "lifecycle_changed_at", "subscriptionStatus", "complimentaryAccessExpiresAt", "complimentaryAccessRevokedAt"
+        FROM "user"
+        WHERE lifecycle_status = 'ACTIVE'
+        ORDER BY "createdAt" DESC
+        LIMIT ?`,
     )
     .bind(limit)
     .all<Member>();
@@ -87,21 +94,26 @@ const PAGE_SIZE = 25;
 export async function listMembers({
   search = "",
   page = 1,
+  lifecycle = "active",
+  roleFilter = "students",
 }: {
   search?: string;
   page?: number;
-}): Promise<MemberPage> {
+  lifecycle?: "active" | "former";
+  roleFilter?: "students" | "staff";
+} = {}): Promise<MemberPage> {
   const term = search.trim();
   // LIKE with a leading wildcard cannot use an index, but the member table is
   // small (hundreds, not millions) so a scan is fine here.
-  const where = term ? `WHERE name LIKE ? OR email LIKE ?` : "";
+  const state = lifecycle === "former" ? "DEACTIVATED" : "ACTIVE";
+  const where = `WHERE lifecycle_status = ? AND ${roleFilter === "staff" ? "role = 'admin'" : "COALESCE(role,'student') <> 'admin'"}${term ? " AND (name LIKE ? OR email LIKE ?)" : ""}`;
   const like = `%${term}%`;
 
   const countStmt = db().prepare(
     `SELECT COUNT(*) AS n FROM "user" ${where}`,
   );
   const countRow = await (
-    term ? countStmt.bind(like, like) : countStmt
+    term ? countStmt.bind(state, like, like) : countStmt.bind(state)
   ).first<{ n: number }>();
   const total = countRow?.n ?? 0;
 
@@ -110,7 +122,8 @@ export async function listMembers({
   const offset = (current - 1) * PAGE_SIZE;
 
   const listStmt = db().prepare(
-    `SELECT id, name, email, "emailVerified", role, banned, "banReason", "createdAt"
+    `SELECT id, name, email, "emailVerified", role, banned, "banReason", "createdAt",
+            "lifecycle_status", "lifecycle_changed_at", "subscriptionStatus", "complimentaryAccessExpiresAt", "complimentaryAccessRevokedAt"
      FROM "user"
      ${where}
      ORDER BY "createdAt" DESC
@@ -118,8 +131,8 @@ export async function listMembers({
   );
 
   const { results } = await (term
-    ? listStmt.bind(like, like, PAGE_SIZE, offset)
-    : listStmt.bind(PAGE_SIZE, offset)
+    ? listStmt.bind(state, like, like, PAGE_SIZE, offset)
+    : listStmt.bind(state, PAGE_SIZE, offset)
   ).all<Member>();
 
   return { members: results, total, page: current, pageCount };

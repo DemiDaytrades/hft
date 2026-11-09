@@ -1,0 +1,202 @@
+{
+  "scope": "Master Curriculum + Class 1 local implementation only",
+  "productionAuthorized": false,
+  "sourceBaseline": "docs/releases/2026-11-08-phase-a-booking-window-candidate.json",
+  "files": [
+    {
+      "path": "lib/academy/school/navigation.test.ts",
+      "sha256": "2a245b291fab1d24ce6bdc574079fba6d3942215b468870168d535cb9b4707a1",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/class-one.ts",
+      "sha256": "83e036c91343db36e48ba6a575d97632d06d263181123ef06387c04ad8d9dba7",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/navigation.ts",
+      "sha256": "582dc7d1e0403e6cb4931f24f874b558b1b58f1c5a81989b21f9a81963c8a85e",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/reference.ts",
+      "sha256": "00779d0be107413e321f3d56f5c5f697ad072b221d1092384bb5f3ddbeb8537f",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/service.test.ts",
+      "sha256": "f4e3dcc8e0dfbcba8570635f4417bdc75053c4d3a47d64b2d5b84a5f27f192dc",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/contracts.ts",
+      "sha256": "62f07f9a9148effaef6596cdffc0c23725290499de59643437f2e039f5fa2945",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/routes.test.ts",
+      "sha256": "160e7b0e5af780b70bf5edc2817f38c0cfff524ffdffee51ada1e5e5261f0e62",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/ui.test.tsx",
+      "sha256": "069525078ec6bcc1c1bfdd76a19c0de71c7bceb37700b8816df5a162f2b48775",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/policy.ts",
+      "sha256": "80d659292b456e2cc42099073ae5c8b0d5e2085f94f31fc6353778cfa6481b03",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/registry.test.ts",
+      "sha256": "164feb74af6187b2670ec802518079bb8707798514e72d11b8d46725d184c545",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/registry.ts",
+      "sha256": "85c5c20f8fc979ed4f5f0f23f4ea6985ea05453aa6b8faf87aaf9df8760db794",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/integration.test.ts",
+      "sha256": "29c7f6b5009ec700f93265ce08014322ca83b1b2393d8bd4dbc1abd0040027f2",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/service.ts",
+      "sha256": "eebbb1a94934e0a4a19b07111e657db0f21ec8904e2fd702c700fbbee04eb2b5",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/teaching.ts",
+      "sha256": "009bca0ebb72d259b6bbeae3ed8f548e4c74e01ae1e5c1ad2ad66c81ea589f9b",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/school/teaching.test.ts",
+      "sha256": "7df7f347b50610d65cffb60106171b388579c0202d7344286417512824aaac64",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/QuestionFields.tsx",
+      "sha256": "c8103971aef78d2fa3e95812fb52ef058d862cc65962f9f5f4fc8bbf90429b77",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/StudyGuide.tsx",
+      "sha256": "b59bb834a2862890298146bfe8f326f22462e13622203d2664c66ef7a40a54e1",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/InstructorSchool.tsx",
+      "sha256": "541e5596dfff5491053f9dcf9c6bac82a177b0ebb15a76ebe2a33c10e9fcd1a2",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/SchoolPlayer.tsx",
+      "sha256": "a2ff1643482f8e02a3ea7e1dfe75b5ec51b6166ee275495a3b1f94ec846e90a2",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/school.css",
+      "sha256": "e4ee98e3abf190c06f8c8ee7d9933e89c5be0d2c442ca2cf7edfb5da93e3d147",
+      "baselineSha256": null
+    },
+    {
+      "path": "components/academy/school/ClassVisual.tsx",
+      "sha256": "9022cddcc433863c4cd4c663c03ab3afdd6d02e93efb229cc4a215c0deb2ef5e",
+      "baselineSha256": null
+    },
+    {
+      "path": "app/(app)/academy/school/page.tsx",
+      "sha256": "265abb4b9bd8ded2e793cb195b547dda7114cf4c608067340c963cd07a5834f4",
+      "baselineSha256": null
+    },
+    {
+      "path": "app/(app)/academy/school/[classId]/page.tsx",
+      "sha256": "7b02ef0f14dd3ce6960dadea7d5c76dac9c3f7391aac4461ab5e8973a208a3e3",
+      "baselineSha256": null
+    },
+    {
+      "path": "app/(app)/academy/study-guides/page.tsx",
+      "sha256": "c51955f34b2649ac8cd9fe067195e31e15e06528394340b94eeda6e751059a4b",
+      "baselineSha256": null
+    },
+    {
+      "path": "app/(app)/academy/study-guides/[classId]/page.tsx",
+      "sha256": "a2d5eddcb02b9b462bc97506a43e2e9bab824f3c64f6e66f24022e8bc0895b8d",
+      "baselineSha256": null
+    },
+    {
+      "path": "app/(app)/admin/academy/school/page.tsx",
+      "sha256": "08c4ad7a6559f5f506f5dd0084f6427da638f48dd2a3dd31bdba15bca655684c",
+      "baselineSha256": null
+    },
+    {
+      "path": "app/api/academy/school/route.ts",
+      "sha256": "bd7784387edb6f6b1e287e7aa507e3a0574bde9eae64083b5b4b9d359ec7f8a5",
+      "baselineSha256": null
+    },
+    {
+      "path": "app/api/admin/academy/school/route.ts",
+      "sha256": "17154307ca390ba792f4d77f8e3a8806eeebdcc0e307dadbfb17b406febee70f",
+      "baselineSha256": null
+    },
+    {
+      "path": "migrations/0039_master_curriculum.sql",
+      "sha256": "68b9e62966ea421a666ece71b26903b35a7f723615cd9d36199554a1ae91da3b",
+      "baselineSha256": null
+    },
+    {
+      "path": "scripts/seed-school-local.cjs",
+      "sha256": "1b8d8ef720c47e29f8b84ccedd64b83e1292593e757284422e8e56f1986729da",
+      "baselineSha256": null
+    },
+    {
+      "path": "lib/academy/index.ts",
+      "sha256": "153582311faf736821021314e27d18e09fb7b441d41cb16c064502df7325d915",
+      "baselineSha256": "79fe2719359e4494dbcefa56bbe8da3831b4ed158cb10fe07c4bdf5118b09a3f"
+    },
+    {
+      "path": "app/(app)/academy/page.tsx",
+      "sha256": "2f2714f96053e3af8f977807d70ffd87f5b76b1f6b52a98d01cc09627d1eae97",
+      "baselineSha256": "deada3557677f4338721f4cbf4eaf6a8224583d32aa61372c3757ec0d30ef30c"
+    },
+    {
+      "path": "app/(app)/academy/course/[courseId]/page.tsx",
+      "sha256": "1d3c4747320143a6190c5facfa2a0dc043c8eb52eccea4a0dba82fcbf08790c8",
+      "baselineSha256": "ce75b149636823a11fb5f8816b607f753100ffc9bb8c5a79b12c7965966ceb74"
+    },
+    {
+      "path": "app/(app)/academy/lesson/[lessonId]/page.tsx",
+      "sha256": "6d67906fae79042f453a130a76f17e9f9f2b3dfe8f2ea0489c24b2f0debb3db5",
+      "baselineSha256": "d7d57397941f6372e63724e6cefb00aef13cec3d6f00de1371b79b386383572d"
+    },
+    {
+      "path": "app/(app)/admin/academy/page.tsx",
+      "sha256": "e76488b546bf083437bd82d934c692e4ece01c93a2bdd99cbf073fc5bd89340b",
+      "baselineSha256": "a8129edea70d9705567b45a14e0a95fc82554c510dc03c0bb9b536181e685ba6"
+    },
+    {
+      "path": "app/(app)/admin/academy/inspect/[lessonId]/page.tsx",
+      "sha256": "69dbbfc60379b74a274b6edceb798707b3daec01d6450c85db42d365288a88d8",
+      "baselineSha256": "dbc56775813747eb3d3af71c79b6ca9918b9620b60c0c306f9d9c2b5f43b6264"
+    },
+    {
+      "path": "app/(app)/admin/academy/preview/[lessonId]/page.tsx",
+      "sha256": "ab55fbb74bf4ed097c4e134a42038af2c20e704e08e98ad4aa3d07ce945cb73d",
+      "baselineSha256": "4ae21ba81b8f8adb394b76711749b6b3ddd495ce4e1d2baa8669ca08a62462bb"
+    },
+    {
+      "path": "lib/classroom/teaching/context.ts",
+      "sha256": "504f75b80ad940dd870d85b2e0b1617dd7ebe6c4b463fcb84e64703f57cfc676",
+      "baselineSha256": "814c8158155ebb594815a7062032217407eb7a0c6da26fc84170efa72a62c47e"
+    },
+    {
+      "path": "components/classroom/teaching/TeachingTools.tsx",
+      "sha256": "1e1e86811ffa142f0ac833a4cbddf9ab35d92bb30ea335076fc264274daec541",
+      "baselineSha256": "4188cd074b9ac01b2eb19e5dd9d582969527273219a5104c827ea6e85610be94"
+    }
+  ]
+}

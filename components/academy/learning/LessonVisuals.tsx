@@ -1,0 +1,42 @@
+import type {LearningState,StudentLesson} from '@/lib/academy/learning/contracts';
+
+export function LessonGlyph({name,className=''}:{name?:string;className?:string}){
+ const paths:Record<string,React.ReactNode>={
+  check:<path d="m5 12 4 4L19 6"/>,lock:<><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></>,
+  exchange:<><path d="M3 7h17l-4-4M21 17H4l4 4"/><path d="M20 7 16 11M4 17l4-4"/></>,
+  eggs:<><path d="M10 15c0 3-2 5-4 5s-4-2-4-5 2-8 4-8 4 5 4 8ZM22 15c0 3-2 5-4 5s-4-2-4-5 2-8 4-8 4 5 4 8Z"/><path d="M8 8c1-3 2-5 4-5s3 2 4 5"/></>,
+  shoes:<><path d="m4 7 5 2 2 6 8 2c2 1 3 2 3 4H2v-9l2-5Z"/><path d="m10 12 4-2m-3 5 5-2M2 17h5"/></>,
+  money:<><rect x="2" y="6" width="20" height="13" rx="3"/><circle cx="12" cy="12.5" r="3"/><path d="M5 3h14M5 12h.01M19 12h.01"/></>,
+  scale:<><path d="M12 3v18M5 21h14M4 7h16M5 7l-4 7h8L5 7ZM19 7l-4 7h8l-4-7Z"/></>,
+  clock:<><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></>,
+  globe:<><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6h14M5 18h14"/></>,
+  assignment:<><path d="M9 4H5v17h14V4h-4"/><rect x="9" y="2" width="6" height="5" rx="1"/><path d="M8 11h8M8 15h6"/></>,
+  spark:<><path d="m12 2 2.8 6.2L22 11l-7.2 2.8L12 21l-2.8-7.2L2 11l7.2-2.8L12 2Z"/></>,
+  arrow:<path d="M4 12h16m-6-6 6 6-6 6"/>,
+ };
+ return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>{paths[name??'spark']??paths.spark}</svg>;
+}
+
+export function ScenarioStage({id}:{id:string}){
+ if(id==='cold-open')return <div className="lx-scene lx-scene-barter" aria-label="Barter scenario: you have eggs; the shoemaker has shoes"><div className="lx-scene-caption"><span className="lx-live-dot"/>SCENARIO 01<span>THE EXCHANGE PROBLEM</span></div><div className="lx-trade-scene"><div className="lx-scene-actor"><span className="lx-scene-label">YOU HAVE</span><div className="lx-object"><LessonGlyph name="eggs"/></div><strong>Fresh eggs</strong><span>Your starting point</span></div><div className="lx-scene-gap"><span className="lx-dashed-line"/><span className="lx-scene-question">?</span><span className="lx-dashed-line"/><span className="lx-scene-gap-label">Wants don’t match</span></div><div className="lx-scene-actor"><span className="lx-scene-label">YOU NEED</span><div className="lx-object lx-object-muted"><LessonGlyph name="shoes"/></div><strong>A pair of shoes</strong><span>The shoemaker doesn’t want eggs</span></div></div><div className="lx-scene-footer">One useful good. One unmet need. What’s your next move?</div></div>;
+ if(id==='international')return <div className="lx-scene" aria-label="International payment scenario: a US company holds dollars; its Japanese supplier requires yen"><div className="lx-scene-caption"><span className="lx-live-dot"/>SCENARIO 02<span>A PAYMENT ACROSS BORDERS</span></div><div className="lx-trade-scene"><div className="lx-scene-actor"><span className="lx-scene-label">U.S. COMPANY</span><div className="lx-currency-mark">$<span>USD</span></div><strong>Holds dollars</strong><span>Currency available</span></div><div className="lx-scene-gap"><span className="lx-dashed-line"/><LessonGlyph name="globe" className="lx-scene-world"/><span className="lx-dashed-line"/></div><div className="lx-scene-actor"><span className="lx-scene-label">JAPANESE SUPPLIER</span><div className="lx-currency-mark lx-currency-muted">¥<span>JPY</span></div><strong>¥5,000,000 due</strong><span>Yen required</span></div></div><div className="lx-scene-footer">Two currencies. One obligation. Decide how to meet it.</div></div>;
+ if(id==='money-currency')return <div className="lx-currency-strip" aria-label="Different currencies can perform the functions of money">{[['$','USD'],['¥','JPY'],['£','GBP'],['€','EUR']].map(([symbol,code])=><div key={code}><span>{symbol}</span><strong>{code}</strong><small>Specific currency</small></div>)}</div>;
+ return null;
+}
+
+export function ConceptDiagram({lines}:{lines:string[]}){
+ return <div className="lx-concept-map" aria-label="Concept connection">{lines.map((line,i)=><div className="lx-map-route" key={i}><span className="lx-map-index">{String(i+1).padStart(2,'0')}</span>{line.split('→').map((part,j)=><div className="lx-map-unit" key={j}>{j>0&&<LessonGlyph name="arrow" className="lx-map-arrow"/>}<span className="lx-map-node">{part.trim()}</span></div>)}</div>)}</div>;
+}
+
+export function JourneyRail({lesson,completedSteps,selected,busy,onSelect}:{lesson:StudentLesson;completedSteps:string[];selected:number;busy:boolean;onSelect:(index:number)=>void}){
+ return <nav className="lx-journey" aria-label="Lesson steps"><div className="lx-journey-heading"><span className="lx-overline">Your learning journey</span><span>{completedSteps.length}/{lesson.steps.length}</span></div><ol>{lesson.steps.map((step,index)=>{const complete=completedSteps.includes(step.id),unlocked=index===0||completedSteps.includes(lesson.steps[index-1].id);return <li key={step.id} className={selected===index?'is-current':complete?'is-complete':''}>{(index===0||index===3||index===8)&&<p className="lx-journey-chapter">{index===0?'01 / Discover':index===3?'02 / Connect':'03 / Demonstrate'}</p>}<button disabled={!unlocked||busy} onClick={()=>onSelect(index)} aria-current={index===selected?'step':undefined}><span className="lx-journey-node">{complete?<LessonGlyph name="check"/>:unlocked?String(index+1).padStart(2,'0'):<LessonGlyph name="lock"/>}</span><span>{step.title}<small>{complete?'Complete':selected===index?'You are here':unlocked?'Ready to explore':'Locked'}</small></span>{selected===index&&<span className="lx-current-dot"/>}</button></li>;})}</ol></nav>;
+}
+
+export function MasteryGrowth({state}:{state:LearningState}){
+ const latest=state.attempts.at(-1),reviewed=latest?.status==='graded'&&latest.score!==null;
+ return <section className="lx-mastery-growth"><div className="lx-section-heading"><div><p className="lx-overline">KNOWLEDGE TAKES SHAPE</p><h2>Concept progress</h2></div><LessonGlyph name="spark" className="lx-section-icon"/></div><p className="lx-supporting">Explore the ideas. Demonstrate your understanding. Build your foundation.</p><ul>{state.lesson.concepts.map(c=>{const weak=state.weakConcepts.includes(c.id),demonstrated=state.status==='Completed'||!!latest?.questions.some(q=>q.concept===c.id&&latest.mastery[q.id]===true),explored=state.completedSteps.some(id=>state.lesson.steps.find(s=>s.id===id)?.activities?.some(a=>a.concept===c.id)),label=weak?'Needs reinforcement':demonstrated?'Demonstrated':reviewed?'Knowledge reviewed':explored?'Explored':'Building understanding';return <li key={c.id}><div><span className="lx-concept-symbol"><LessonGlyph name={c.id==='barter'?'exchange':c.id==='functions'?'money':c.id==='currency'?'globe':c.id==='international'?'globe':'spark'}/></span><span><strong>{c.label}</strong><small className={weak?'lx-warm':demonstrated?'lx-positive':''}>{label}</small></span></div><span className="lx-growth-marks" aria-label={label}><i className={explored||demonstrated?'is-lit':''}/><i className={reviewed||demonstrated?'is-lit':''}/><i className={demonstrated?'is-earned':''}/></span></li>;})}</ul><p className="lx-caption">Instructor review and approved homework are still required to complete this lesson.</p></section>;
+}
+
+export function CompletionMilestone({state}:{state:LearningState}){
+ return <div className="lx-milestone"><div className="lx-milestone-grid" aria-hidden="true"/><div className="lx-award" aria-hidden="true"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="72"/><circle cx="80" cy="80" r="61" strokeDasharray="2 8"/><path d="m51 80 19 19 39-41"/></svg><span>01</span></div><p className="lx-overline">LESSON MASTERED</p><h2>Your foundation is built.</h2><p className="lx-milestone-subtitle">You connected money, currencies, and the purpose of foreign exchange.</p><div className="lx-milestone-stats"><div><strong>{state.completedSteps.length}<span>/{state.lesson.steps.length}</span></strong><small>Journey steps</small></div><div><strong>{state.attempts.at(-1)?.score??'—'}<span>%</span></strong><small>Knowledge check</small></div><div><LessonGlyph name="check"/><small>Mastery & homework approved</small></div></div><p className="lx-milestone-note">A real milestone. A stronger starting point for everything ahead.</p></div>;
+}

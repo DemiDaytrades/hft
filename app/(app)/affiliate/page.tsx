@@ -4,7 +4,7 @@ import PayoutSetupButton from "@/components/affiliate/PayoutSetupButton";
 import ReferralLink from "@/components/affiliate/ReferralLink";
 import { getAffiliateByUserId } from "@/lib/affiliates";
 import { getCommissionTotals } from "@/lib/commissions";
-import { requireUser } from "@/lib/dal";
+import { requirePasswordReadyUser } from "@/lib/dal";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { syncPayoutStatusAction } from "./actions";
 
@@ -23,7 +23,7 @@ export default async function AffiliatePage({
 }: {
   searchParams: Promise<{ setup?: string }>;
 }) {
-  const user = await requireUser();
+  const user = await requirePasswordReadyUser();
   const { setup } = await searchParams;
 
   const affiliate = await getAffiliateByUserId(user.id);

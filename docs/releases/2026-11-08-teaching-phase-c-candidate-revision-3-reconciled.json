@@ -1,0 +1,2790 @@
+{
+  "release": "teaching-phase-c",
+  "candidateRevision": 3,
+  "reconciliationRevision": 1,
+  "frozen": true,
+  "candidate": "/private/tmp/hft-phase-c-r3-reconciled",
+  "candidateFingerprint": "8a911d8f97bcd48d2ab0cb5d7ac4299fb12421f497576d11db416548e0f0292a",
+  "sourceFingerprintAlgorithm": "sha256 of JSON path-to-sha256 inventory with sorted keys and compact separators",
+  "originalRevision3Manifest": "docs/releases/2026-11-08-teaching-phase-c-blocker-candidate.json",
+  "originalRevision3Fingerprint": "a68e794c70895f31fc02aaf657d8e9fab0c38444451c2edfa4a7ac92491ae659",
+  "certifiedPhaseBManifest": "docs/releases/2026-11-08-phase-b-cpu-candidate.json",
+  "certifiedPhaseBFingerprint": "df954a6e6d64f45cb6eaff60a1a9c373f51d5c0963670cf04072f37bbe534957",
+  "requiredProductionSchemaLevel": 37,
+  "pendingMigrations": [],
+  "doNotReplay0037": true,
+  "productionMutationAuthorized": false,
+  "preparedForControlledRedeployment": true,
+  "readyForControlledProductionDeployment": false,
+  "stopReason": "Original Revision 3 predates certified Phase B fixes. Corrected candidate frozen locally; stop for authorization of this exact replacement candidate.",
+  "productionBaselineWorker": "61d7f304-6c8d-433f-97e6-40efd13d0cbf",
+  "productionBaselineControlWorker": "00a54732-aec8-4508-84d1-eba0292993ce",
+  "rollback": {
+    "main": "61d7f304-6c8d-433f-97e6-40efd13d0cbf",
+    "control": "00a54732-aec8-4508-84d1-eba0292993ce"
+  },
+  "deploymentConfiguration": {
+    "mainCpuMs": 3000,
+    "controlCpuMs": 3000,
+    "preservePinnedActiveBindingsAndCurrentProductionSecrets": true,
+    "neverCloneNewestStoredUnreleasedVersion": true,
+    "noD1Migrations": true,
+    "noDurableObjectMigrationChanges": true
+  },
+  "phaseBFixVerification": {
+    "consumedBodyReconstructedAndForwardAwaited": true,
+    "coreSecurityByteIdentical": [
+      "lib/classroom/service.ts",
+      "lib/classroom/livekit.ts",
+      "lib/classroom/terminal.ts",
+      "lib/classroom/control-auth.ts",
+      "lib/dal.ts",
+      "lib/access-context.ts",
+      "components/classroom/media.tsx"
+    ],
+    "cpuOptimizationPorted": true,
+    "phaseCResponseAndMediaGuardsPreserved": true,
+    "phaseCTeachingHooksPreserved": true
+  },
+  "verification": {
+    "focusedRegressionTests": 16,
+    "fullSuiteTests": 554,
+    "fullSuiteFailures": 0,
+    "typescript": "PASS",
+    "openNext": "PASS",
+    "mainWorkerDryRun": "PASS",
+    "controlWorkerDryRun": "PASS",
+    "independentReview": "No actionable omissions; safe to freeze locally; not production acceptance",
+    "credentialValueMatches": 0,
+    "credentialScanFiles": 625,
+    "productionSmokeTests": "NOT RUN; outdated-candidate stop",
+    "phaseBAcceptanceRepeated": false,
+    "originalCandidateRedRegressions": 3
+  },
+  "artifacts": [
+    {
+      "path": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/frozen-app/README.md",
+      "sha256": "6536899c747822cd3de1ce364342971847a7c37d8ae40788403ff64d7363a3ae"
+    },
+    {
+      "path": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/frozen-app/worker.js",
+      "sha256": "aaa837ac89556589a970c574a64d32b946fbcb73a736b2c605a845533ee08e66"
+    },
+    {
+      "path": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/frozen-app/worker.js.map",
+      "sha256": "7ca82653dc6e5669eadb9764a8d6a4a5ee829a8dce397d5817220258422250c7"
+    },
+    {
+      "path": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/frozen-control/README.md",
+      "sha256": "7214ef650188fc74a1419631af1a7e00144e3893574ee565bd58d2fc2a49407c"
+    },
+    {
+      "path": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/frozen-control/index.js",
+      "sha256": "45058b4d9d270ea15a2035a58116aa659f1594df4639681c2bc4db4cf68f9fd3"
+    },
+    {
+      "path": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/frozen-control/index.js.map",
+      "sha256": "cbd130ab80c3ebe7aded24953d969c5febcc8bf23a23e94ffb173f103746ab9e"
+    }
+  ],
+  "assetsInventory": {
+    "path": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/assets-inventory.json",
+    "sha256": "d120d3d69658269bb30a1880ecf2743b30370de74882dc7d61f3fa83b64480b6",
+    "count": 92
+  },
+  "frozenAssetsDirectory": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/frozen-assets",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "f1ac97bdcf98078982f18be0ccf1773657ca20444554158e485be312c5441249",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "CANDIDATE-ASSEMBLY-MANIFEST.json",
+      "sha256": "9d8fe76fb8a7ce0611f60c09c4923981fc873e28bc1cae07d60369b9604d42c9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "CANDIDATE-ASSEMBLY-SCRIPT.cjs",
+      "sha256": "e1463ecbe88907386bc4bca31c4f79884d1cfd0be7ec664d839faf9b9e53cb9c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "MASTER_CURRICULUM_ARCHITECTURE.md",
+      "sha256": "bd2c50d8d4935c7b4560a56bcea40be568039920d3e5faedd9551429fdbfd981",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f889b9a83ff971495951c892a4a5d36182979d5ead594b218ad48d4a0d286e35",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/academy/course/[courseId]/page.tsx",
+      "sha256": "ce75b149636823a11fb5f8816b607f753100ffc9bb8c5a79b12c7965966ceb74",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/academy/lesson/[lessonId]/page.tsx",
+      "sha256": "d7d57397941f6372e63724e6cefb00aef13cec3d6f00de1371b79b386383572d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/academy/page.tsx",
+      "sha256": "deada3557677f4338721f4cbf4eaf6a8224583d32aa61372c3757ec0d30ef30c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/account/actions.ts",
+      "sha256": "038496aa17f5802fd31d031e5c495c8403fc0d3149ce98fecb64cf4943725196",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/account/change-password/actions.ts",
+      "sha256": "fbc998870c8563a0059dbd33ea7d251048a87504773aa353f706b7a4658a1d01",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/account/change-password/page.tsx",
+      "sha256": "86b1e38d18e2822ac61c191635f5386b56b9180ecd6171565837fd3d1395345d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/account/page.tsx",
+      "sha256": "4ba91fcc85f0ae5a4e25591abb67bd5150e0f75e8e2a062f1207cc1a794f854b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/courses/[courseId]/page.tsx",
+      "sha256": "bc758b9f16a3ef1dfe99d82810fcefb942ba6ff751f1654f6002b6cba3819862",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/courses/new/page.tsx",
+      "sha256": "d1c8cfa1e9dd49ff9d66fbeabccaf3356ea598d2af2c9f58122239cc00b68f86",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/inspect/[lessonId]/page.tsx",
+      "sha256": "dbc56775813747eb3d3af71c79b6ca9918b9620b60c0c306f9d9c2b5f43b6264",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/learning/page.tsx",
+      "sha256": "9bc21bdec9ae0df198ed609a5e79deecf72f1dde0b8ce94b2ebf1c782b3ad999",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/lessons/[lessonId]/page.tsx",
+      "sha256": "56fc6c88d87db457233d4e2f6967e866be214e0ca8915deb2d75a463c86017ae",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/modules/[moduleId]/lessons/page.tsx",
+      "sha256": "e952813fb6222d5cf501ba939c17ccec3f8448efabdb891198ef7489f48be7ca",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/page.tsx",
+      "sha256": "a8129edea70d9705567b45a14e0a95fc82554c510dc03c0bb9b536181e685ba6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/preview/[lessonId]/page.tsx",
+      "sha256": "4ae21ba81b8f8adb394b76711749b6b3ddd495ce4e1d2baa8669ca08a62462bb",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/review/[studentId]/page.tsx",
+      "sha256": "4976a430065e3e01692486c18d9073bf5279d5e599f3757439806d2585f9a31a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/review/page.tsx",
+      "sha256": "8e50d4b4860c2fe6db7f13cd38d4554de8566793af3b7844ac43a0c23c5591e3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/academy/student/page.tsx",
+      "sha256": "7b5022397cc7e12008c0d25511d11a6ac3fc6b7b385b7bede5c6c80266dd175c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/affiliates/actions.ts",
+      "sha256": "9c716758cdf663695ebc5c05cee365d4f6c3ec919d174e0520f6f87ec560351f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/affiliates/page.tsx",
+      "sha256": "2e890751eacc9204929038e6215064784e587c8ba9bce3e69b63d4b7cb0a7265",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/classroom/[sessionId]/page.tsx",
+      "sha256": "8e9fba26c5ce17aa2f058daf7efeca46d8f9391a3506d4a4cc9845cc009bf424",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/communications-test/CommunicationsTestClient.tsx",
+      "sha256": "f15f194b3b7536b70f984bec815c6f3b0eb7267613f39ef5d2ec6f77d2b4de46",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/communications-test/page.tsx",
+      "sha256": "a4f6d6ae94a7c75de1ae0bb8328ef15d56556e7cf817c070dd2a15c73f87476a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/financial-plan/page.tsx",
+      "sha256": "f5cb51b1cf2152ae5a360221b2e40450e3390a1b36e42792f4b3b15e199a7b04",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/learning-path/page.tsx",
+      "sha256": "85bf3e757c504c9422aa87e5cc68be9712e24087baa1532943e25af5ac79f45b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/page.tsx",
+      "sha256": "d1e6a50ffa21b1d2223d04dd86935c88f62626f621d54e5d553a321fe9238f73",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/settings/affiliates/actions.ts",
+      "sha256": "c59335d8878a782d502541dcd298057ad47c7bb9e68f38d9e8abd85c7a9424da",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/settings/affiliates/page.tsx",
+      "sha256": "a57077bb021b6bf6e6ea4baf0bcc181d2a271abbc73a16cb0d31f488033e246f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/settings/layout.tsx",
+      "sha256": "4226259423ab8c47337b8d5e84b1e7346f8987a83cd59389625addf404aa63ac",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/settings/payments/actions.ts",
+      "sha256": "1bb2f13d4faab327bf24d42840f48c40222be36c4373eda8a49c037663e632af",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/settings/payments/page.tsx",
+      "sha256": "467ad73674f3faa33796bab2e0e01c2a4801bf1fbd197073ce8622b9086c9c73",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/settings/pricing/actions.ts",
+      "sha256": "e7403bbb2bad7f537f354529e3af6a92d163d8ecc118153d5018dfdbd2ad1f72",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/settings/pricing/page.tsx",
+      "sha256": "03a34e3963c4a381e256c3a20178257cead1d95499cc93aa949dde3f9505126e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/CaptureForm.tsx",
+      "sha256": "b52057a9e66572232d3853bdc034c628ba24d1a3fcc783e919875d4d347b85a2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/CompletionPanel.tsx",
+      "sha256": "c70625c13964c63c15ec00c9dcc8290793990d82a7dc7e461f55e6ebb657f738",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/DebtCreditForm.tsx",
+      "sha256": "1df8bcaeaab9c45e6dbac0caca57b04ff3a7773c61f689ef6e287d232a256e0f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/FinancialHealthForm.tsx",
+      "sha256": "d50d9b075d53bb198290c40c2eb0d9ed1d541b89406efcb50f629a26d32ed847",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/IntakeV2Workspace.tsx",
+      "sha256": "e8525c0c41ff620f4e041d16b3740f63d14bf3929f2d679cf69df7c8c22e837e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/MonthlyObligationsForm.tsx",
+      "sha256": "fcd2ef1a2fe366118c9e95edb42197e2fa30896e832a534643eaf5bbc4f39d91",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/SmartInstructorReview.tsx",
+      "sha256": "307486bae8b9a1352b7d8c460ee09bc922cec3cd6793be1917c6c4f7de145ff6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/TradingBehaviorForm.tsx",
+      "sha256": "6ecf5a8363cad59c44cf698352f5b14ac48f46e6c3bb78576b4a11a2640f44e0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/TradingCapitalReadinessForm.tsx",
+      "sha256": "97a30cc928c3dcef16969b3d32a7a998230403546fc9dbd76ec497e74f5f20e6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/debt-credit.ts",
+      "sha256": "08e29c3e5fb1a30b810625ec926073c2a649979d712fa876cad23830e93f208c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/financial-health.ts",
+      "sha256": "3fb3475558bc2add0d57cd37ae4455d634b1ec9aa4c4e58489261a9c9e383d46",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/monthly-obligations.ts",
+      "sha256": "804550e3a717d33df946ecc9afce24532fc3f1432145c313ecacf5de653907e3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/page.tsx",
+      "sha256": "a08b0c93e8da30864abf31ba58cedf345c537494a993bdda7f69ca74638fb2b4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/trading-behavior.ts",
+      "sha256": "a82bf2daacd9bc93cf32649727c4992222d2d8888e4880b1012a469cfd836a49",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/student-intake-v2/trading-capital-readiness.ts",
+      "sha256": "4af441e575dd14637da4db91e83f9a7e00a1c77c6c18aa00c1086631381ee755",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/academy/page.tsx",
+      "sha256": "79f738e5e22cc71c17e4d91b6e5556077acec37b39c7dc1ece6d0e860d739b72",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/complimentary/actions.ts",
+      "sha256": "7a7cad7ffc2363cab85891b98a73b9009de1af89d647f6c6b1d74bc10dca81d2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/consultation-results/ConsultationResultsClient.tsx",
+      "sha256": "6139e756e2c1df08086c688b989b2713cdb8b757dcddf7125cbb79dde13d28e2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/consultation-results/page.tsx",
+      "sha256": "89a58f99156874c3df7ee39ff38bae426c2b6ee9e2a8bda573166eb71736bc73",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/intake/IntakeForm.tsx",
+      "sha256": "6690389b57040a3c5012286feccf426aace095a03a963a28153aec3ddffce0d6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/intake/actions.ts",
+      "sha256": "2af5707286024668994ca65575a05fe05f1c771cf04d435d4f309fdb163ffbc1",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/intake/page.tsx",
+      "sha256": "f138b5c7054e9badb4710c0ef048799bc72842df770e8f9314b971e8f2e2e2a2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/page.tsx",
+      "sha256": "31b4083484a34b3077995c72eb7bb60183dd2c30cbc3c45d5e6fa8a6fdcd0749",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/placement/actions.ts",
+      "sha256": "eeed91946916366c80c99420c91bfb1fa4f4d8ffce78e66fc56f6750df2bd0f8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/questionnaire/AdminQuestionnaireEditor.tsx",
+      "sha256": "b04bfd035f9875f468357ed4ef9e52ce5aec1648c583e47ff1cbe12137f0dd3d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/questionnaire/StrategyConsultationReport.tsx",
+      "sha256": "ee73bbc218fe2cc94b1b87edc07519cd1001fc047766574b40507ab6f1a5e328",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/questionnaire/page.tsx",
+      "sha256": "6e19e384e22c2e5afd5f8613db19b6149b604c487fc0e922459f7ced27304019",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/questionnaire/questionnaireFields.ts",
+      "sha256": "d392bfca7c43ad096a234e85c2a1b14da6ed6d14510e689f46ad2d9ab410c5ad",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/training-plan/TrainingPlanWorkspace.tsx",
+      "sha256": "8c6a533484908f9950baa2485a52adc3dc9634430164925d4350777dd9f12113",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/training-plan/actions.ts",
+      "sha256": "b9d9a45f94b839c35f3676e513d8f57893d8baf6e54e70357d62bc27b55411da",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/students/[id]/training-plan/page.tsx",
+      "sha256": "b370718fb91906f1bc812d344b3b751f7884312c9aee3662363bb48f347aa553",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/teaching/page.tsx",
+      "sha256": "b0439cf59214b4db454a55fc2080ebe3a78a7c9c520974e369b705b55ad719a4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/users/actions.ts",
+      "sha256": "f856ebfe5abd8ca3db1d886bbc13888ac40e61f54ebbda61271fb115d2faae53",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/users/invite-actions.ts",
+      "sha256": "11394c6180873b07e9a41e09dc6760c459f69ce3f1109b2c045ef68fda7e6888",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/admin/users/page.tsx",
+      "sha256": "d6892ad887a77b1d4b08e3373725ec33215cd57e1f1c6896059eebd33929ca69",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/affiliate/actions.ts",
+      "sha256": "95b08405571ed9fb2f0aa2ddfbdd4e79ec6032b349162d288362400e8d6bc7c8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/affiliate/page.tsx",
+      "sha256": "18a597ffac5cf1bf650070eecdcd22478499d6705cdb0578a0d3832542f6b4fe",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/assessment/AssessmentClient.tsx",
+      "sha256": "7092211e3a7a2e846639c78b2f60f76b4d9bbec679abdda4ab6c596ac3d0a5c8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/assessment/actions.ts",
+      "sha256": "c777c01d0d287e4ba1425295ad07c3781fd7ec43d60fe6c25c294e9e6cf10b6c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/assessment/page.tsx",
+      "sha256": "1133aa4e501994639c58205a594cc619ace27fd39659d8266faefcbdc48d4e21",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/classroom/[sessionId]/page.tsx",
+      "sha256": "e4cc70f5c7060e276f44873b05ff9b4f83162dc3954e4f46845f5dbb2f1fbca8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/consultation/ConsultationBookingClient.tsx",
+      "sha256": "16c423483bebfffc10c3540f94c61900726f614a313f5293747df84bb69c0ee8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/consultation/page.tsx",
+      "sha256": "1e14bbc55b39b48be050095e6ce97e007bd2002d13083bfa8e0f682dd9c114e0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/consultation/questionnaire/QuestionnaireForm.tsx",
+      "sha256": "9b758eefc76af41d4b0cb5b066dfb236edd59a416c865d6a95f39d0dd4e1ec62",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/consultation/questionnaire/page.tsx",
+      "sha256": "76f1454c0dc256e803cf9b48a2f8a9f7370eb5abd02949ba0d4725c3aaab9126",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/dashboard/page.tsx",
+      "sha256": "3bd193f318a88c41d0a32b5d44b7b931b69e913f9adcbce9b8c0a2d46744a3c2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/financial-plan/page.tsx",
+      "sha256": "6af39e71f1f73d3c91d2df58ef1a4f167eefc23dad39eb50e780405eedc28e8d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/game-plan/page.tsx",
+      "sha256": "a3116e61f058e312e8bc607d0ab686bed95c8d99fd8ddd30e52d4e22c938aa11",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/layout.tsx",
+      "sha256": "9edffbe0d6bcf136bf0de5f8105e858857e2fbaad87cf5d4f3a0a5e2af66c0c2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/learning-path/page.tsx",
+      "sha256": "b67f086d91ef333b70a1c1efe5d2e2ad5f5fdc0138ed3484bf2e4ec45eb10cfd",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/lessons/page.tsx",
+      "sha256": "d9da72580c0d0b563f07dc863cafaa4cc7856982efec46b1310681fa560aef6d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/my-finances/page.tsx",
+      "sha256": "2790bd9a0252dbd44206ee4b93afb7f05c15d2aaa6f2c2af1a08ac551fa73699",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(app)/my-questionnaire/page.tsx",
+      "sha256": "dff2c136a07ba51069b720c8827592058c04fca515bb2d52adff900e03943627",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(marketing)/3zs-strategy/page.tsx",
+      "sha256": "6120fb84cd9b4d8fc52e6f305cb08011006a37fdf671d66e15aada8383b48c99",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(marketing)/about/page.tsx",
+      "sha256": "13ac79185c18b65bae4c3ef2a75823472cec21d109702b1a9718cd5725bef1cd",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(marketing)/layout.tsx",
+      "sha256": "0a14aa7ff62ff4650a1c3a5c43c5f9b1f5a84ce3cc8c11b57c4b8e0c77fb4377",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/(marketing)/page.tsx",
+      "sha256": "1a30f14e36bcf349f54ff95c2250fc9367122ea698750223fce692780312a7d4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/account-deactivated/page.tsx",
+      "sha256": "adab6cf9222afd1bbaf88dae251fed50b227f1c7a54eceb44e9b7d9e814d7c36",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/assignments/files/route.ts",
+      "sha256": "3731c16033fcef945d3fa6192a2efeebb3dd0e342c61fc85a9bbf92b94b4a059",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/assignments/resubmit/route.ts",
+      "sha256": "d915a601dbc96b58257bd28c5acd1502cc2c4969acfe71d4efe40c7346a866d0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/assignments/submit/route.ts",
+      "sha256": "186d0e2701e68bf65632dabfc90ea08075aecda47f26b56595a0e7dd0ec36c22",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/assignments/upload/route.ts",
+      "sha256": "2e7960b332d54342bc3df5be70a68f9c2187fbed11f9a4840a410721f5d1b678",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/checkpoints/status/route.ts",
+      "sha256": "8c940ad06cb6c75dddf3ef9d1c177d7dcbd2087ead662123b7f55e978c323975",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/classroom-followup/route.ts",
+      "sha256": "ae0d258af4d0b27602d20043eb51a0ae20f9aeba955239fd8638f2a82ea67cc6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/instructor/authorize-attempt/route.ts",
+      "sha256": "ff89fcb09ca03085a7af2ea0c01de8b2f1bb09ea3d9012f634a2a5824c4da6c3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/instructor/review/assignment/route.ts",
+      "sha256": "1af925abd528a4fafa1da4195fea4d0c8638a53ebe66a0b7b47618b6ebf46be3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/learning/route.ts",
+      "sha256": "1d6b128581db402609df06972e5afcaca1d163056596a99103609c194f9c70f4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/quiz/attempts/route.ts",
+      "sha256": "c7e2a3b58aeab77bd3b6512efb203f8c11e4ac8079146afb840747bd425927b4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/quiz/questions/route.ts",
+      "sha256": "dc44c93ac61b68ad797c8d80d65fab1fd0b5cf202d3a620ab8fc975de908bca3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/quiz/start/route.ts",
+      "sha256": "7ee1992643fe4a8bd51f92b0657968f1b3c6030375c149b9fa56f411870debc4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/academy/quiz/submit/route.ts",
+      "sha256": "242de709a758065ec14edd2d1add8304f489e17e6e1b86c738db49d8b78d67cf",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/academy-view/route.ts",
+      "sha256": "75d520c40f91922cc2ce74970ef31c5f7920b6cc209aae0237ed664ed2592267",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/academy/learning/route.ts",
+      "sha256": "8f1e3a3f6a555869cb627c64196918e9af211f58c1c32b75d794a60ecea3e586",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/communications-test/route.ts",
+      "sha256": "fa4226662dc171bc6525b5355add45e50a751c51f05635452d6ad8563a146be9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/complimentary-invitation/route.ts",
+      "sha256": "5849dd70b5bcb56c3b50f36209159968bab0b2362b0a5b8109adb715f93bf05b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/consultation-review/route.ts",
+      "sha256": "fcb2e35c875f5d2252a4c1996d25797d70e06a4244f7d089831982286234a83d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/consultation/game-plan/route.ts",
+      "sha256": "49979716b65823bbaa5684feb7efb991e10e5048c4d67ab870986b8864049e9e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/consultation/questionnaire/revisions/route.ts",
+      "sha256": "378122dcad49d3954fb6249d01832abd949241fa689a0b024c9a11c0186c5496",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/consultation/questionnaire/route.ts",
+      "sha256": "710017acb123172b7532cd3f00fea0e4fa3875753f980c19edeb607d1c6f07bd",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/financial-plan/route.ts",
+      "sha256": "e8d54a8a165384adb5d8b3f64b264ac629c170374ca52e0561b3871322109c84",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/learning-path/route.ts",
+      "sha256": "75383a5519cb2e60b674d2fbf2cac81c134dae14d1cfdd4ab60377bfb21012d1",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/member-recovery/route.ts",
+      "sha256": "9b27ff5af2cfa745d63a1050e1139c60587b83a9ccc1d3b281830a3e2b78d657",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/student-intake-v2/route.ts",
+      "sha256": "180f6f87c09d73389768c9cd629c2e8cb02bd47798bfe655c9c5ff712343d275",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/admin/student-lifecycle/route.ts",
+      "sha256": "d6fa9ac8547929cb8e525b90b79aba9f1438ed33a4380a2aecf085ef77e1f5e9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/auth/[...all]/route.ts",
+      "sha256": "656a0169c339e0c5ddfde4c69c5ef4bb5b75698e3a01c4b9e3026dc3c3088e08",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/classroom/[sessionId]/chat/route.ts",
+      "sha256": "30713bff4d6f8a4f2fa6867bf05e80f0461ceac11f25beebf04a795bc0c7962f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/classroom/[sessionId]/route.ts",
+      "sha256": "2aff54c35163e9427e5053f737255c0b59b4fc161bef41db7a805f2acc2d1a8a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/classroom/[sessionId]/teaching/route.ts",
+      "sha256": "27e9746b200a744dc3ae92ce61b8208ed11f9132d3c88abfa22d849f0fe1b586",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/classroom/webhook/route.ts",
+      "sha256": "4a74d18e90c5ee47169695c03ef556eb45331c95bd3176fe01693f03b25d0965",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/consultation/questionnaire/route.ts",
+      "sha256": "1ba9818611c970aa738f83950996366124d62bfe9286edfaa40f3012b9dbd245",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/financial-plan/route.ts",
+      "sha256": "674a577ee7c242f2d320940fa79c9e10bf6a1d747331bc343b84628572c959d4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/game-plan/route.ts",
+      "sha256": "5c940e31cd8d06965f2505f8103990f3b2de42e511666879e66b99e1fce2aa08",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/internal/teaching-delivery/route.ts",
+      "sha256": "faa3ee71b2586e74864293e7cabf60158fa9575a26a93bdfb713b5fe06ff6c6f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/learning-path/route.ts",
+      "sha256": "a267788472744c79a33fc0a0744ab1d8ad32b191a844b76945bf89443219bd02",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/member/consultation/route.ts",
+      "sha256": "6336bb374d01b0d121825e23c65c569c849d75c2c1407e215394736ebbbe3422",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/resend/webhook/route.ts",
+      "sha256": "44cb94a4c5512c163150fe1462675459e2be899a13a9ec59e27da9bc62e2a243",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/stripe/webhook/route.ts",
+      "sha256": "30b9aea4da9f2a10376968183ab1cf5afe931d8c79cf638626e4eb4c766db368",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/teaching/route.ts",
+      "sha256": "74240b5b8250be5c78ada0f660f541a26c4411a0972b7f118d54193c13f9f81e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/telnyx/webhook/route.ts",
+      "sha256": "38aeb2e9599a47e6814039b5a5c2b4e32fc2d604e3fea996a497e870d9bb2b5c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/api/twilio/webhook/route.ts",
+      "sha256": "1d62cf6162eadaad04ce987a8b54e944adc1c6a500f5769bbac2c0e1b22a1f9a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/forgot-password/page.tsx",
+      "sha256": "446d2bca76d7bb46b821c4fe91d575bf0c31b01e7be34de258549905f0eb217a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "f204e54278f675386b225735fc96e613150a07c9ecc06f20225cae09ed821b1d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/invite/[token]/actions.ts",
+      "sha256": "bbbee15a7a833083f23af162c28309d3c39bf3ce5e6ddfc66f3b4932afa3eeb3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/invite/[token]/page.tsx",
+      "sha256": "2fabd352f93cf91e7cb34134eda32072eb4ed5a2b6141249d04065abeb3bdf6d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/join/actions.ts",
+      "sha256": "8692878488b4bdd6115ec2e3d20f03154e366bddda524da47df9c690169bcd3b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/join/page.tsx",
+      "sha256": "a2f93d22c9d5e5207dc9a41fe899492b3e5cd9f36a527b908846a4e9f8f5ba4c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha256": "2a01f9db0a0cad33a5c38bce1fd4eb3a89529c3753da0f8ff8cc8d4c1ba7f79e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/login/page.tsx",
+      "sha256": "6d5d018a6ffbc70022fd8842fa2f8f62d643c62460171b64c5761d6dddbf6f45",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/r/[code]/route.ts",
+      "sha256": "0801c6ead87be77562f9e79d12dbc945f0e4c9b7a32ec5c064c5ea9c96db59be",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/reset-password/page.tsx",
+      "sha256": "daac7767443b09a2a4f709fc9c467ffcb09017b14cfa69f080d27713f2179a3e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/welcome/actions.ts",
+      "sha256": "55bce8733ab18e4e00372f78c14e43e4fdb2bd7da4d674d8124c8b35c0e8db01",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "app/welcome/page.tsx",
+      "sha256": "faa2a7d8ae1fa52cddc854f4db70db141662622cf1952320a45a7f3ca9471605",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "cloudflare-env.d.ts",
+      "sha256": "2a06b20e7203e5160a017547ed66477563afcd2ec8b39d3235cd10cac71b3252",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/Candles.tsx",
+      "sha256": "74f8ca3115cc8d820569da63f943a4550a09f3a56c54bfae9f93b9469586377c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/ChangePasswordForm.tsx",
+      "sha256": "6a836851a96d811c771ff431e74923d20f9af9d34bf0457d8a71ee7e3a201b1f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/ForgotPasswordForm.tsx",
+      "sha256": "7f2bb7c3a8dc08a834bb48c798d0827ad4485cbaca12351a8aa5e8d03a021432",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/InviteForm.tsx",
+      "sha256": "6c8bc1a091f0bb36084ea5bc4348278191382b813f541a4c37577edceb3576f6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/JoinForm.tsx",
+      "sha256": "99ac84f4f4ab46fcddb801db55a95fe166360f632160de36a0b92ff4563d919d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/LoginForm.tsx",
+      "sha256": "37a7f797d75f5e291413affc5a21beec129dfe77e23f4dba273d502b9556e7b3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/Logo.tsx",
+      "sha256": "53d365ffac57a4329b7b32319120e6cb19ea58469f4161d9e178292f1c690083",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/ResetPasswordForm.tsx",
+      "sha256": "3a613e553f751fddb735d44355d82d7552994e22875a466ebdf7abcfcf27c361",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/Reveal.tsx",
+      "sha256": "ebbaadf6eadc8e049a9de419ff43c08190833b2eea9bc0b3bdcf911e88027278",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/SignOutButton.tsx",
+      "sha256": "9f5df1a4bfd7c58df001903f6aa634dff14d92b8adb8d7f2cb0720af177ed3ec",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/SiteFooter.tsx",
+      "sha256": "28a2236a8d27979148dc0cec2aee7a3f81ca3490932995ad1af0542e9a57c588",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/SiteHeader.tsx",
+      "sha256": "56db9c817d34b811c31f64035d842c2cc2d14fdb6f66f8bc8b133cde25f33111",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/TerminalChart.tsx",
+      "sha256": "caa62064005a29393e8679690915a99ba92b0299ed24e883244a405de1f5de46",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/WelcomeForm.tsx",
+      "sha256": "b4c7d98694611b4a74584629d4c1c8c75a01b07e1cd0d617b24ffe5c86eb4472",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/ZoneChart.tsx",
+      "sha256": "028f081566b4ac0035dff26ca48c34659b69a3a9d1ba9c29d79469a716b726fc",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/CourseCard.tsx",
+      "sha256": "7d28dd5fe6909686af3b7ae272820ee818be80bef35220c82a28979399f6b309",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/ProgressBar.tsx",
+      "sha256": "9f13f2da42e2f9fd3f66c3c592be8708d5681243d8183d8850467b72433f6ca3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/assessment/QuizRunner.tsx",
+      "sha256": "fabc6fc056a94d7217ff8188814d16a61b72a0639b800f40a94c6aa40f1c0901",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/assignment/AssignmentPanel.tsx",
+      "sha256": "857b1d43b527ae05a51634d41ef90eb9e43394a8aa410d466fb5425b7730a3ae",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/checkpoint/CheckpointPanel.tsx",
+      "sha256": "30ca88e5d2613d2c521187bffa32034e8ebefdbc0c76fe92b6be6a14f0c5221e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/instructor/PreviewPlayer.tsx",
+      "sha256": "ec6f33c7b1ec994558dfa1300f4047dda3e9daae58f115a81f89600406103cd3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/instructor/StudentSelector.tsx",
+      "sha256": "3ac95b022c0590caa0676ab0a58790b582317077fa4bdc0ae548084a52222380",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/learning/InteractiveLessonPlayer.tsx",
+      "sha256": "7860dfba7aa9b63078d1439856a484f537f631a4d3120ec6e0b5ab2d2f5f4e28",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/learning/LessonVisuals.tsx",
+      "sha256": "6b7be11434ffe8417ca2562293ec01cdb2db88caf6fe344a0a962fcc7a2283b9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/learning/QuestionInput.tsx",
+      "sha256": "bdf6ced7ab514ad3c7856014308392bd93992df1da2701c971ebe0d953c526b6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/learning/ReviewWorkspace.tsx",
+      "sha256": "4b99c198f636189b5a2c29e5511c8480fc3faf252afcc1f3da2efbbd59ce1651",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/learning/lesson-experience.css",
+      "sha256": "cd362a6c857143887aba8fdd4998627b642fef38150fb65b081ab15963565c53",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/lesson/LessonContentRenderer.tsx",
+      "sha256": "30d850bcd8cca6e80ccb8e5fd55866d1df9fb9c7e0f1798e635686168e10f9c2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/academy/lesson/LessonSections.tsx",
+      "sha256": "5b2f7bde55e93e76572a4329275e2ce31cbf231f688f09ddb2eb8876763770e3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/AddAffiliateForm.tsx",
+      "sha256": "89f7d468f978e63a64a0720304568705574c13085407b6a3b2b16386efacca2c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/AffiliateSettingsForm.tsx",
+      "sha256": "f2080ca7de42ec05f8ec554281286b12549c0779c2003576f7dd709c45315e27",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/AffiliateTable.tsx",
+      "sha256": "6674a32a56a989240147f2265e6905459cb823ddb476d2664b14573e3b2bbb8d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/ComplimentaryControls.tsx",
+      "sha256": "8513673664e222a587e0d071f073fe799b2f2db6cafa2f3ccc5e2c3d05012387",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/ComplimentaryDeliveryPanel.tsx",
+      "sha256": "48d7a3453fb6554cbcead7c15076509f507cd0ca9ac2cee6726dcc4b33a1ff9d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/ConnectStripeForm.tsx",
+      "sha256": "a51392ba197c86ab08a99450790d3910f4e7a4be10ff490e4b80af831cbfe060",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/InviteUserForm.tsx",
+      "sha256": "dbc7e0c9da187670e094bb4202552fcfa5969e509eb84df2fdca143af9026c3c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/LifecycleControls.tsx",
+      "sha256": "a1ae37e51c7aa7f714b14447e561b96da698d18b668bde97d4f6c2b9932cdb98",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/MemberRecoveryPanel.tsx",
+      "sha256": "cded81fa150ce488509a9bd9928414d4ce3eb7d07b5f16a02f3d59c555f64d8a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/MemberSearch.tsx",
+      "sha256": "ff018ac5829ec6526edaaaf10753fba2bba1e47fbbb2dc1a6ab9ec988d3f6854",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/MemberTable.tsx",
+      "sha256": "a7bd2c0f9c392168d9a84e1e3c26ef81dd6a44b750e0bff5891ae6d6dfba1aaf",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/PriceEditor.tsx",
+      "sha256": "f5bb8e9d2da6dc2cc6beb3c6f89e9badb97ded5b33e92a3fa3b8181c7e5d5f3a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/admin/SetupChecklist.tsx",
+      "sha256": "79a2c3530438c46739570716db3197d00a8786ffca27075750753c2fdf62c131",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/affiliate/PayoutSetupButton.tsx",
+      "sha256": "dc7e67f6da16cb5e0034e9ccaccb807cd3d5f3f9cc9fd11a884d86576844acf6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/affiliate/ReferralLink.tsx",
+      "sha256": "b3ee035ee18cd7fbc4fa5b75809938182c0e81a00af63cf3186bee9a9197974b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/classroom/Classroom.tsx",
+      "sha256": "cdd34d215c5fe72a2f08ce402123612566bbc271ecea685d1d3edbcd5132a902",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "components/classroom/hft-classroom.css",
+      "sha256": "48af80f785cd79a694b678f710eadbd89694b3c7ec5dde55f73bec6b8d9bad99",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/classroom/media.tsx",
+      "sha256": "c71e1726614a8378e21e2e31759eda777afcc5c3d680c37b41cf494df860195f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/classroom/presentation.ts",
+      "sha256": "71fc9183d93f17f2c1413b426387d8d54f8ceb317183592968952f0728bedff9",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "components/classroom/teaching/ActivityForm.tsx",
+      "sha256": "5878122e8ce6ef335b892ceb27c09babf34a5bbdbc40eec676e1505a8f99d0f8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/classroom/teaching/AfterClass.tsx",
+      "sha256": "4ef89dc64dd34608325f18a632f4f14f5628b39d02e3d55c59dc6e04cb736c30",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/classroom/teaching/TeachingTools.tsx",
+      "sha256": "4188cd074b9ac01b2eb19e5dd9d582969527273219a5104c827ea6e85610be94",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/classroom/teaching/YoutubeStage.tsx",
+      "sha256": "f0edb910951fa626fa2dbc80b4027c6cb98d1ff07dca3a90e76224108bc2049c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/classroom/teaching/teaching.css",
+      "sha256": "ac2749f66cd93afd1475f901bad78223ecfb3d401c162a958f4e456691f957c3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/financial-plan/PlanContent.tsx",
+      "sha256": "4198517c2a59625e7f63eeba07b9f900e14ebbb1720a88fadc3ed1242f8782c6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/financial-plan/ReviewWorkspace.tsx",
+      "sha256": "8c4eb1abf4931bb232da62b58b666cebc77f05fea9d3d813794b3822c8a3933c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/icons.tsx",
+      "sha256": "c5940eb9edf39183555419bae5bf7b6638990bf5d14021d55a208d594e09577a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/learning-path/Review.tsx",
+      "sha256": "3789e70455e939f76d39e4158265ed66ff6c2b09eef724ee8b453f6c95775ea9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/teaching/DashboardCard.tsx",
+      "sha256": "820d83386775b887a5fa69c92191aba32d399b361abd66364f608fc292557c8f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/teaching/Scheduler.tsx",
+      "sha256": "d1a6829556fb553b6be3544b66afa7757a32ed4133763d47d9a51f54f664796a",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "components/teaching/teaching.css",
+      "sha256": "af8c81c84b0f84ca8e445139c42ae25cec39b230b966cb170328aa040e3556b9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "components/ui.tsx",
+      "sha256": "5ae5f419ed599bd8067d6373686947c8bf8528f10c2cd189771cd31ae1ea7431",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/academy-lesson-one-report.md",
+      "sha256": "3883b78530d76f9f48639ac2b54c0e7dbb1dbdd379187c1a8a8af43d44c50775",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/academy-local-lesson-one.md",
+      "sha256": "e4dca25ec94c3eaf69e2b5dd51c8b37730181f20630b231468516949045bc9ea",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-capture-field-audit.json",
+      "sha256": "69a1827b259a036b6fd1870ae884c1cae388b4478959aa296d01de430939b1ed",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-capture-field-audit.md",
+      "sha256": "3d401fcda62b59be79e9cdec0d474474ed9853afb50b8bf2815dcadb5f0c57b5",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-carlos-numbered-readonly-verification.json",
+      "sha256": "80317d4bcf3dc06888a724e0bdb18cc28244cfc3aba945fa743bfb472ed2b711",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-carlos-numbered-readonly-verification.md",
+      "sha256": "97944b4e9fed9cd49e76341e446ca64f0c2c16f81ecf9857945908ffb5d39d36",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-downstream-fields.json",
+      "sha256": "0ae0167a1e47b67990c2e5be1efeef8f5a6fccf35751a0354bb0a163d08ba176",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-downstream-flow.md",
+      "sha256": "d3f85efc1f23ce84bb3a9379e854569e8db61fdef796c2e2ddfda6e5679d7766",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-joined-canonical-matrix.json",
+      "sha256": "e6dfe272c27923e9cc6c9f99ec6d2dd6730b87f22c4c1e4d1066524ecb602d2f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-joined-canonical-matrix.md",
+      "sha256": "591b79953fe8a227af54c15a253b6ccf64954c54db4e51a57b0e44cb4a722901",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-legacy-authority-disposition.md",
+      "sha256": "047af3fe6949e03ab4603ba620d0b094e2bc698be25c050067cf48b776b3b6e6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-numbered-form-v39-source.txt",
+      "sha256": "49489cf3b45210093e04515f64031b32a7e886827090a49b51c533ec26ddc734",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-numbered-question-mapping.json",
+      "sha256": "50f1505a8dab033e3dc86552cad5236493c607c6c9bd23813650e00425408c6d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/audits/2026-11-07-numbered-question-mapping.md",
+      "sha256": "7fdd6c394fa4cb173bd5557d4627201a8ed1e5c63bcc74d93592c7ff664693b8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/auth-invitation-recovery.md",
+      "sha256": "25361bf6dfbf5cdca5ef48374915ae4bd9622b218a932bea5bdbf9a67735e565",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/complimentary-invite-delivery-report.md",
+      "sha256": "234eefbc73b74cb086349b5a173c16821f8e338862de4b78342a970bf5e3a2f4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/financial-plan-field-coverage.md",
+      "sha256": "77d3b683aa094ab22952bce5f0222301afa483a03045fbc5ccc6762562578669",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/financial-plan-implementation-report.md",
+      "sha256": "2ba04186d6fe808dd0e3b22914b4643e7861467f6ec262ac78d3775bc0c41651",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/financial-plan-local-verification.md",
+      "sha256": "1936ebef49322a385f84ff4953c5509910b57422698550efa5cc12e2497f0f23",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/instructor-academy-implementation-report.md",
+      "sha256": "d7b293dfd6abadb0e66e9600fb303e7c2f789b9227752865d46f443ab9b2dead",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/lesson-one-visual-redesign-report.md",
+      "sha256": "b88dd24d1cb4ca06d49c6d8a2cbf40a35cdfbeec93bd5bd773cd8c405e93e97c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/personalized-learning-path-implementation-report.md",
+      "sha256": "1048169d5c2f23f912551e5a7844df8f37d8092211ed0b6ce39e3d5126816bfc",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/phase1-release-verification.md",
+      "sha256": "9c09817912bd89f0c53c3d137d061f3c5ec26ff999effa24c8cd54e43a45b05b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/releases/2026-11-07-lesson1-installer.md",
+      "sha256": "d2a934fd28de2cbbfb04f9c61d62f2ed3983d1998dc922437e8e1e2804dce02c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/releases/2026-11-07-numbered-compatibility-report.md",
+      "sha256": "fd57abc450b27e52335dd84315a5c0718225a605a65d9218f9ee0788d6f7d029",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/releases/2026-11-07-production-preflight-report.md",
+      "sha256": "35d67d9021fe666cbb7ed10e543ccf815c79e2afded3be742e17d0f6ff05ce29",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/releases/2026-11-07-release-manifest.json",
+      "sha256": "2ec64bc7fbc7410772f9be08bc6d767a23395342be0d6e5f61db7a92d3368432",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/releases/2026-11-07-resumed-preflight-report.md",
+      "sha256": "eddc7025fac1f5bc3bca1f599aa2fbc7a8b0826c18f0a95a020a53ac4093e336",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/releases/2026-11-07-resumed-release-scope.json",
+      "sha256": "922d1ae792be3d68482357c8996af6eb923b855102d8b0a132d9f652fa9da4d2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/reports/2026-11-07-canonical-consultation-review-files.json",
+      "sha256": "c88345a64cd037ef22c3b74bb922e4209b20c906d60246aec878055d2d237d15",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/reports/2026-11-07-canonical-consultation-review.md",
+      "sha256": "45d8b3c2f9018ef40e15bf5e14490a691c379895d63dacc15b170f6c403e384f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/student-lifecycle-implementation-report.md",
+      "sha256": "7c8b5535e374238984b361fb4a88609549f163f572d59f76ee6cd3f1245a9c66",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-canonical-consultation-review.md",
+      "sha256": "1c664f2de5550f5eb404a51232904fe2367a4d6cd47ead6c29c0a09c282649e9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-complimentary-invite-delivery.md",
+      "sha256": "fb100e303c4cadca76f6a2904b9a4460d958e70bce7496f6cde985e59eaa3b00",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-controlled-launch-blockers.md",
+      "sha256": "fa98e55148a2a4b1a9c4171c8fc864235f6b5c2861a9dd9c5c3ac09d12674702",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-financial-readiness.md",
+      "sha256": "f83c18484e13657a938cea21f867604c8e33b453011272e08b3ff226a33743e1",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-instructor-academy.md",
+      "sha256": "52a46158ee85941bd1cb135245cc287a041d7f24ba8d80fd3f428e2cde89bb8f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-interactive-lesson-one.md",
+      "sha256": "1b3146732f50fdff536e18c94d63dbbd94d53e0009ff816a78f2ac88440d4639",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-lesson-one-visual-redesign.md",
+      "sha256": "26a10583fb2ff57a067b58993ed6e095261132915bb477a652e60b9340b56531",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-p0-release-phase-1.md",
+      "sha256": "f36341490f0d95eaad021e146f53ea6b7c306e7df6941893744923acbbb36999",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-personalized-learning-path.md",
+      "sha256": "cb0ce07f62d1c7fef22b6b97be0a0529fb2355218132630fc4ced133105f5414",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-student-lifecycle.md",
+      "sha256": "4a4ec77409475a9a7f2faacf98c77c4fdf83ce1617e896bab44fbcaad8dc41b9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-08-classroom-phase-c.md",
+      "sha256": "831cb17cc8562c30c6120d67d7fcecf6b6e2deedd0279823cb520fe1d4dbae3a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-08-classroom-phase-c-design.md",
+      "sha256": "cc827d374ac37944e7269af8e1f27b79d464e5045cf09a5569d2cd5a27094a63",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/curriculum/what-is-money.test.ts",
+      "sha256": "cc5905b93e17aba1540421b87cb2d4cefe059909389c9a1299a1e1a80aa1fa4a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/curriculum/what-is-money.ts",
+      "sha256": "6dfb1911e93b70a7d3a7f9d1ce7ad6b83ee88d9d5eec380a51d13f1d611c4ed3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/index.ts",
+      "sha256": "79fe2719359e4494dbcefa56bbe8da3831b4ed158cb10fe07c4bdf5118b09a3f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/instructor/navigation.test.tsx",
+      "sha256": "b8c19ee4a54144edfe7b0cecee67ffa4b34be1a853e99a9b76e37a5647e0fe69",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/instructor/presentation.test.tsx",
+      "sha256": "904a44941e611e6b8ff28f6ac760c61019c45d9e1d3e5e4165126af7d5bd8ccc",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/instructor/service.test.ts",
+      "sha256": "58fd17c91fdb57d7e24e8e0e96eb18c40038e93abf7ee678496047048d556c4c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/instructor/service.ts",
+      "sha256": "4848881bc6147731018edd529ed18cbe4f4e61ab6db4e9fc52f95653f3bb36cb",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/instructor/simulation.test.ts",
+      "sha256": "87b0a3eaadcfc0563148f2a5615891c2648567f1a0686ed8288192263bda6bd6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/instructor/simulation.ts",
+      "sha256": "d9ab18c9bdbdfab1721228a2fe116027f7a867170947d45e1ef3ec01989ab28a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/contracts.ts",
+      "sha256": "6a025205f9d124186a973b573fffd14cd787dfca80721c530173c4c7f7126364",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/installer.test.ts",
+      "sha256": "22f89414edd17eb31b59d374bbaa5f74cb7cd113607c6badd6e2ca68035c12e5",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/installer.ts",
+      "sha256": "48354f9738f812778d2c48f3a369e4305f86753dbe44d6a4ff4e131c20679cb5",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/policy.test.ts",
+      "sha256": "3523ca6ce1a079ed284f5b28877f87a07e16642831acdabd89a1352b34c8bb57",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/policy.ts",
+      "sha256": "ac0436359f6ea54a8a0d63a6eff539748d867e345b0699262ea978ceb006b642",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/review-link.test.ts",
+      "sha256": "a24570d2be3e9e63be2131eba159bc4c7b4eea40b7b6448f7e60ee911125188c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/review-link.ts",
+      "sha256": "1941de9deba1047c664a761630c029a4786de2ffdd6e1b88a6bf67a9e8a8067d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/seed.test.ts",
+      "sha256": "f75c5fec929a5c03f5588f119e57381a7497a62f491babe3732ce90a35de14d6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/seed.ts",
+      "sha256": "67fd1ec14b586ba514fa8ba17fe0661cfb4c4c3c505e91d8da79a58efa5b68fe",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/service.test.ts",
+      "sha256": "f35787d233a2f733f7c856bd28352dcc77186e4fc33d1f138ea523fda4c6808e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/service.ts",
+      "sha256": "1996e7c9e874fdd33bc4a85f3e9f702b4f0f1f730e41b312f0621eb4495ed58a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/learning/visual-presentation.test.tsx",
+      "sha256": "ac5fc07d9448073f51052694021190715a320fc3f8fe3daa5bfc510e4b9609d1",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/academy/security.test.cjs",
+      "sha256": "2a5e54059f7d56e0dab95f80e63d1d54afca2ef965d7cb408a08200b872c0e9e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/access-context.test.ts",
+      "sha256": "40457e13648c76de5ce3a478b5aec74b0b76bbc679ab0bc8fef8b6511ff76066",
+      "disposition": "verified Phase B CPU optimization/helper/regression"
+    },
+    {
+      "path": "lib/access-context.ts",
+      "sha256": "4d841b7aeb0acad25a0a7bbec74684c46638f330b04ab3f7faddf57fbb4cb4d3",
+      "disposition": "verified Phase B CPU optimization/helper/regression"
+    },
+    {
+      "path": "lib/affiliate-payouts.ts",
+      "sha256": "f2187351aa7d589710f48293217701629ecddcb4c934d0968a19490602f90c46",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/affiliates.ts",
+      "sha256": "ed261fd462f5475bd2b8c4e472f2401d75196f4c1ce4fdeebe5cf87fb45910bf",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/auth-client.ts",
+      "sha256": "c9e57b77ffbf678a8e9f78b7758ff85170e36a2370c5d41fd4fc1a69e179950c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/auth-rate-limit-simple.ts",
+      "sha256": "c8b53d3bb9e194926ac37ace563760c868303e34e05b0c7cf643cb0a3567f993",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/auth-rate-limit.ts",
+      "sha256": "b1743d8da408dd1291b9b6857ceacaf8c1d000d58eb4a4ca546f63566b4b7360",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/auth-recovery.test.ts",
+      "sha256": "b0f25385243e3b6a4a8bdaede82e889e196dc896c1f7bc43aa114b64d858d4f0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/auth-safety.test.ts",
+      "sha256": "1b25ee5c4b87029121c0bc4b70a9b5aeb9f0b36fba61be432b7d66d9687123d6",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "lib/auth.ts",
+      "sha256": "46efa431b50c88e5ef89c971b1dc7b17a051e09a1dd319c4d6ee9340d95f3795",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/availability.test.ts",
+      "sha256": "201a5c76e732bf879af18b251a4500293080059b6383ec0e95b30c636474758c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/availability.ts",
+      "sha256": "7af9fb5f24bac10b34d095047be26a23a0f23488d83c7080eb33307ea64f6651",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/bookings.ts",
+      "sha256": "fbf535d0d2445e0b6e7f77879be9974bf8f6a2ee0069720c6838cb37c5e123dd",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/candles.ts",
+      "sha256": "248996f60ed6d1a264ec73e3768640479c14fd719f61ad87ac88d273913895bf",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/checkout.ts",
+      "sha256": "23c90bd6ba3e0caafdb3cf1e164b096dba141e5af1de808e68f0c50c3826a0f9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/client-response.test.ts",
+      "sha256": "4062939d8890305ae3779a7eb19e246ac2c33b493afa5b6f1920e3b845a9b919",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/client-response.ts",
+      "sha256": "b525eac939ef85de93dd6052eae67c07f5554bc09ef9f2452baf26c2ecf0d58c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/contracts.ts",
+      "sha256": "f0f42867af07c7696f2e8e6ee83754d7ef360afa8721c93d5baf15aecd73fe1c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/control-auth.test.ts",
+      "sha256": "a4072ce7f7923d8a3f4dce83951cb8b5f6ebc18293e838f8fb1cdd48fb809b90",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/control-auth.ts",
+      "sha256": "8d888e33da4e7fda7353c880afeb9663ec0c8b7008f582b0c88540f331565f53",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/cost.test.ts",
+      "sha256": "ed1f06b7a38d55f603b73fa6b5d96725f06a0b97ce6536d6b83facfbf2766ac9",
+      "disposition": "verified Phase B CPU optimization/helper/regression"
+    },
+    {
+      "path": "lib/classroom/environment.ts",
+      "sha256": "30133037715dffd3784c29c24591f31310e330c9076a1f8ff62568e6add47c69",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/lifecycle-route.test.ts",
+      "sha256": "c89d5732b54baed54579df715d9edcccf9bb520400a33698daf4b75ce706baf7",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/livekit.ts",
+      "sha256": "003ce32fc0a66b5af8a94e65ed0385ac9a480163160df702095917d3a2e28f3e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/polling.test.ts",
+      "sha256": "5774f701f6d92095f43f6c4406eb493c4b6b3a6807600e964fb699e28d01d6b9",
+      "disposition": "verified Phase B CPU optimization/helper/regression"
+    },
+    {
+      "path": "lib/classroom/presentation.test.tsx",
+      "sha256": "e46bb452db4972c490ccdffa5d39b3cb7a2796a417d3528ce43ec1dd6dc60ba2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/provider.test.ts",
+      "sha256": "10a63609dde45baa3413c55ac79c610a2ef16fce67a9dd0702d5e657f9df90c0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/provider.ts",
+      "sha256": "1470d3d474f03d3b19d4f8a06e1e27bd003388de2ef92548344a0cda85b26211",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/realtime.test.ts",
+      "sha256": "c63002471c029cc81ba109b3338761f74d95d5215f719c198240603928048218",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "lib/classroom/routes.test.ts",
+      "sha256": "f5bed6396e4c7eab429fffc4a58e5ff158c79801b1ff415f843be21329117690",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/service.test.ts",
+      "sha256": "7856bf4cb2cda45fcbef4be9809a4b03c69613c3d0abb7e6d40f1dba5ee2febe",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/service.ts",
+      "sha256": "00871fc04189c8fd4a9a3d34e784afe0f409baef3ce6f85b7b9161d10f1a72f9",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "lib/classroom/teaching/access.ts",
+      "sha256": "59c897e8a2f7d0e06a4e39536c538307137cc8b3004c95a556feae262c8c9382",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/context.test.ts",
+      "sha256": "9abe188c722a873c63583e82111e1fd7272915125ffafa40c16e710363ec2839",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/context.ts",
+      "sha256": "814c8158155ebb594815a7062032217407eb7a0c6da26fc84170efa72a62c47e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/contracts.ts",
+      "sha256": "1aaaa3724f84644214ac5efb4b32993e4c825884f5dfb2f61c5147eb422face1",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/evidence.test.ts",
+      "sha256": "4596ab034a1e79608bef8e1cba482f923009e03e33637a1e80352c6694ec8589",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/evidence.ts",
+      "sha256": "8b87d78b5bcdc29938c99b07f0249eaca287317cf70d79692613243728a3551e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/handoff.test.ts",
+      "sha256": "e8b3a249918839f5de59d1d40c7258aa7d3b988a6bbc3d93a9371811ccbcfb81",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/handoff.ts",
+      "sha256": "5abdae6ef1a55a4b3958a47d86c52f9ba8b5f4caf2183369ac2cf6266627f968",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/http.test.ts",
+      "sha256": "c78a02cbcf77d582be893f3912f43e7a99d164fac215139e471e2c6984e9a42b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/http.ts",
+      "sha256": "3308053f9fa66d3d69e2e3636d55e20552cf0cbe6831345dd2b4a974d2895e1c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/policy.test.ts",
+      "sha256": "208acc33fda889c2b5d7eb7a2d8ddea09fbc6f6bc3dc20b9707f12f58382873b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/policy.ts",
+      "sha256": "acb4c3cb3f124634ba12a03284099c6c067a122f4b291139d5c90d3c03be311e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/presentation.ts",
+      "sha256": "13cb73de99391620cb1cbe36a38c55fa96db23168a9a2cc2e1fc40b58347b564",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/projection.ts",
+      "sha256": "dde5f2c4260fc61e2a998c27bf78e563beddc9bc70f34850dcc2b17dab0fac34",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/review-regressions.test.tsx",
+      "sha256": "81443817a6c580d4a26cbc8179cd73be3f5e1559ff739d0790a2d38ec85671e0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/service.test.ts",
+      "sha256": "d97baef9d4916cd498afa8c951a3dfe82c1dadeaf8ccdfb72b53e0911fa55823",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/service.ts",
+      "sha256": "334a39cbcae902a5a087a541463f9b43de84bcfb6a2952598f205aabb7c8d9d8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/testing.ts",
+      "sha256": "5037809b9625376910d7ca2680f31bc4b3a28001ae51612dcd11645a31d37341",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/teaching/ui.test.tsx",
+      "sha256": "6c86291810e24d8b28851f0f49630322b00d8703d76f3bf629a2cf2cd2e9821c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/terminal.ts",
+      "sha256": "6001287c2af960b983b117ff7ad165ca1380aed2f95c39ab981a40b562f19b38",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/testing/request-cost.ts",
+      "sha256": "3b5d558fbd29cd99e4f8573a51dd7d4d32c18a8fa347e519b2097888d8bfa41f",
+      "disposition": "verified Phase B CPU optimization/helper/regression"
+    },
+    {
+      "path": "lib/classroom/transport.ts",
+      "sha256": "594e0ebebbc2a81383add32f67ddb4a9ffad0de8a0cb01511f9c64e702573e19",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/webhooks.test.ts",
+      "sha256": "21da484f42fc15383b86c1acef634b17ab0038f0fc40581121521c3497db4815",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/classroom/webhooks.ts",
+      "sha256": "69a51b5befcbdea246939a9de8edc07e1eb06e1883e6f33805c2914ab758dd28",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/commission-attribution.ts",
+      "sha256": "42d7fe707b7bc14dcbc9b016e6a241fa145e1a3edbbac7456ec58a3152f15984",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/commissions.ts",
+      "sha256": "e5f1219e28df07cacf72f2d85040d0b7852c89396eb0c1e2ecf28a6233513421",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/communications.ts",
+      "sha256": "5c6d4786066b698d8f0786cb01cc4a6407e34ad152e5178ce0b9913699edd1e2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/communications/providers.ts",
+      "sha256": "7be2bd3ec8b2ebfa110315c85c73106e914ecc16eacbb8bd2c2311482583f21f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/communications/templates.ts",
+      "sha256": "c5e6c3585835d7ce18b1bfa7c0ec350aa82fa8fea0c5e1e75622e55c55f9c585",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/complimentary-actions.test.ts",
+      "sha256": "f0620d2638f37898a6aa25499c7d2e90afc04a7a1fa573434696bba9ddc774f6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/complimentary-invitation.test.ts",
+      "sha256": "4656d75108c3c2bff1e390e20d6cfdab2e2dd277669fe63a8caec44ef050732b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/complimentary-invitation.ts",
+      "sha256": "15f1c8a72c1a65bcedc08bf6d16b2478e9968644eda9314bd4e42c3a7e711e27",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-game-plan.ts",
+      "sha256": "8dc06bb4ef8ce3719b9c5d40f31bff00c71882eaf378d12884f8b33b88d9b716",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-questionnaire/admin.ts",
+      "sha256": "f06599bf505f2db1d85df3af8cba6ce154ba602e241599b8e225151f7d5c6443",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-questionnaire/index.ts",
+      "sha256": "a448e4714b8364f9a2b836b6ca06cf7b6e4568d4ee61a50571e505ce242f7b0d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-questionnaire/legacy-authority.test.ts",
+      "sha256": "486bb8e775705c7a68c6e67ed0f6e14000a2d1f274feca88f487926a55107601",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-questionnaire/legacy-authority.ts",
+      "sha256": "5c457e8b3dafc276688cca92bbddabff567144a862c503acb6185afc933cb4f3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-questionnaire/legacy-write.ts",
+      "sha256": "8ec5f951e905e548d7d48e4b90bb4faf130b0d93ada9fddb0c718e06c6907af6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-questionnaire/questionnaire.test.ts",
+      "sha256": "de3d8c4445b99dc5e7163b9474917a022f752c10d9af9073c8b6e7c761099d41",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-questionnaire/student-data.ts",
+      "sha256": "9e06d823d0cf268c68b52cb2f614d64f49bfc4ca05832d7cbe5869e5e0b76af3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-questionnaire/types.ts",
+      "sha256": "2318802bd93112501188c955a6a3b7ed184b3ba64c674255b646b0dc260a3e16",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/canonical.test.ts",
+      "sha256": "19d60d5c61814947dd670741e5818c1aa97dbd27ef135018dca9741a57371a9b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/canonical.ts",
+      "sha256": "cdac15d0e213561a2872a0627403e927b81b74dc3e6f29f10401351621beb0a2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/capture-controls.test.ts",
+      "sha256": "db3ea3d95c345783407a1121f09fbc24aa1e977afbfcd4820c1dccd9de7d4a89",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/capture-controls.ts",
+      "sha256": "467599f7c5ba6fd1f4364109fdbc81e9ff798603b80b51b67ea58972ea20ea99",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/legacy-education.test.ts",
+      "sha256": "a0d5a17b21c3c021ebf1aafbbb52d0e8b1057a9ab0c84ff2a0d7902b96d4bba7",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/legacy-education.ts",
+      "sha256": "73c91a9d044c190ea8c2d954ef61ac7f100821b33baea4e0a1b7338591833dae",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/legacy-labels.ts",
+      "sha256": "08c6654a5ac7ec08c932912502dd9e2e5f88851a47301cc48b01fa05c9bfc30e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/model.test.ts",
+      "sha256": "340609010d842a3f87fa27c40340653bce0c99426107571e998ca324d5bd7955",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/model.ts",
+      "sha256": "4dcf9fafea7f1dce18efc6841954084030db4982932e701f6a313b7f8197d5c3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/numbered.test.ts",
+      "sha256": "27b4a18b00307ab7f3fe356c1ea3b2b210c29bb87618fa0b4faa18e1355e8c79",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/numbered.ts",
+      "sha256": "326dfba0207d0f78c09c12c54f8cacf3430fd66b0fcfe2fbcf7fa82c600d5f58",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/service.test.ts",
+      "sha256": "5b5a3cea605affc02b6626e7df1eb4f30eb46ad65d01340e99e56edcfcd911e9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-review/service.ts",
+      "sha256": "aa4ddf0747a92637478150488fb154b8f614e62769aa9daa9711d78c762fda39",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/consultation-types.ts",
+      "sha256": "695aec45579a604afecd9e076072c8678fb7ded767ee90fa253a57974bfee687",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/dal.ts",
+      "sha256": "4b8636e65d5ca1281db5841c2b29f99b63f0f631b2699fb2e107fb4cda46d854",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "lib/financial-plan/compose.test.ts",
+      "sha256": "dac4df439640c9eac35853428ee32c932bc0a5374a6a424824b707b8aab92c00",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/compose.ts",
+      "sha256": "459169d18877e7aab7f7e94fea08579f2164a7e00105e2c7530d98962bac5097",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/contracts.ts",
+      "sha256": "bf04f5d26fc080e7d1045621d1d4b52472ddf56ec9f31a9b7905d89fe2565408",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/coverage.ts",
+      "sha256": "83b503a6ed9e1baa042d4fab24b663d9a634397a18934321a809bd0dd8bdce55",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/render.test.tsx",
+      "sha256": "75775dac46df766a33a4d6415f9b3d9a64e1b8001f2cffbce5c578a1cc9201d4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/routes.test.ts",
+      "sha256": "3303971049589e512fd925a386c4731b0121492c89e1ba90cbe83cda79853b67",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/service.test.ts",
+      "sha256": "12858e3f2ed35d2ce26379f6958bd8dffc6977667f0762984e90a4f8d35cfc7a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/service.ts",
+      "sha256": "9953a655a1e236dff46040577eb31997c8338316f032a6e300e679b1e648f2c7",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/testing/db.ts",
+      "sha256": "9f849b75685a49806310dd20a1e8efe02a70c8a8d914c460ebf7e58195fee272",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/financial-plan/testing/fixture.ts",
+      "sha256": "f7c95f0fb03de7b6c960144ea72b8bd5f4de4308546baed6b074e7f779423e84",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/invite-recovery.test.ts",
+      "sha256": "5513cb3c1809feabc5c06af27652a75c4fab654ef71e8278cad0faa8c925171e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/invite-redemption.test.ts",
+      "sha256": "88a08365e22c5904d1b84afef8322a500d18a71fd9c764c5220948c64d8f0052",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/invites.ts",
+      "sha256": "ecd23d8b5f8388a45f8370c38f3df3493bc6dd4e4d29f0ea4558d09999dd330c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/learning-path/access.ts",
+      "sha256": "8eac84b0f66abf0473282caaf98889326ee2aaaad88e262889648ab4b1d9ce0a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/learning-path/contracts.ts",
+      "sha256": "0a3c0de0275ccda9c408264c60020a44ad8a2da610f15ae623fc5e4bab7517c2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/learning-path/engine.test.ts",
+      "sha256": "c1d216f06c6d3f200e5404fce9b391bfca4f8c392cd281e98199321c359c4875",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/learning-path/engine.ts",
+      "sha256": "9826602fac682530d6da0f1d84679da957c4efd5f74f7a5a6c0522c7d2e35558",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/learning-path/service.test.ts",
+      "sha256": "9e51dba680bb58d9c60da9373d520111a3f5be58c1e36667cb9e97c4a6995367",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/learning-path/service.ts",
+      "sha256": "6d6c3b983f07bf05e9e521badafba1067fd3862f616643ce37dd18843d6daede",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/learning-path/source.ts",
+      "sha256": "45eed94a52ebe41745e6940b5708be2a2a16c52a36415d99dd84559c1d149acc",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/member-recovery-diagnostic.ts",
+      "sha256": "1ede5956210fad0d0ef8caeca97c20db7d4072f4b5da3fbf04e4563aa924dcc2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/members.ts",
+      "sha256": "be4b0cc789a5966eed953ea4c2a1d0f749da8b8deb4f1576b6d29db3b182e66e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/membership-access.test.ts",
+      "sha256": "3228dff159dbc469905946242d0c6d730fc10c142a05a5192ba5e99aa33f158f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/membership-access.ts",
+      "sha256": "d36731e580f253c94a2747dc1ca388516f29f6d058c6e08dbe609989e1feaad1",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/membership-plans.ts",
+      "sha256": "b8d78c41eb4e8c3e6291a8ad1cbdf010a727278b9e4017297694fbb00dcdca2a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/membership.ts",
+      "sha256": "db90d4421dc9de86365eb332e7abe5e3bf7bb6732b2be50a7f675e7113cef969",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/placement-assessment-storage.ts",
+      "sha256": "c8bcf9d88dff0d4ce7bbb94fbac71c3ccafd3c5ab97821c384759e39da15581c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/placement-assessment.test.ts",
+      "sha256": "ea3bfba676457d64ea810821d6b542c13063d825456aae6044d076f88495655c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/placement-assessment.ts",
+      "sha256": "d333a3b426bfd72816a2ebf39587924aca8eefeab845ded606c6b9770e17b394",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/pricing.ts",
+      "sha256": "6e5d0af7ab8470d88043afcce973a4f399388e4400bac97ba13b8fe84b57cb61",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/provision-member.ts",
+      "sha256": "8b33a1038528ddeb48aaf7dd3cb2fe244997eece2ca2649ab7dc62cb2979ff35",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/referral.ts",
+      "sha256": "b1bff3507bfea6655a1c0016db62f9b4b0bd8a9bd06c8445594fc7cfdd99b23d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/settings.ts",
+      "sha256": "748bdbcf4221291675a5aa8ce1864cc5b552fb798a026b98d7dc9d554a0dded7",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/setup-status.ts",
+      "sha256": "9cf2365be144d2782dd6dacf096b264ab74784cf6db217427a7d569646cf9aef",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/site.ts",
+      "sha256": "13f852ec77b5556a9dd9b3f47d62491313af0a5b3670876864f8792f55ef8026",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/stripe-setup.ts",
+      "sha256": "7f39b18fcf64e2555e49f4fd6b833bf65981001f56d3e6b9e16ede3f8b6e445b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/stripe.ts",
+      "sha256": "1c18509bc5629375abc2bba2e482b3800e22a1d339d9e91406a3ccc3fac5543f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/acknowledgments.ts",
+      "sha256": "f015744149138d84a09fbe01d339e8d3c32877997b202f9527a4828bc335b241",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/auth.ts",
+      "sha256": "0c6018d93b87ca4545df16460c844a01850264e9e5f403fedc7ff952707f17c6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/compatibility.ts",
+      "sha256": "5d8ea2135d01996bcbd311a59f81f51b6f3ff98ac9a6a9427b3d5dceae1582b2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/contracts.ts",
+      "sha256": "b612576acdae722f825a7e24a0de3152927c6699a8b777f866e2c2bb5f427cba",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/debt-credit-registry.ts",
+      "sha256": "989e01a92d8e80e5895a2ab91182dbd00f5ad211c88de3214e347303f07278db",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/financial-health-registry.ts",
+      "sha256": "f97b9b68f7e2dea270f7f69319bbeaf36df9292a86805fea2ec99998ef27d1fd",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/flags.ts",
+      "sha256": "3253db15c7084e36066cdd4e0925202b802281cc6fafaf2ab5a2dd7343cbfdf2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/index.ts",
+      "sha256": "49550434162f83c763bab81ee45300f28196bdf69d515a8e621d0af2403c16e6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/monthly-obligations-registry.ts",
+      "sha256": "b29e7106afb3ba45ebf5c554376d33089e6bc14e3c12d7c5ba94f268922a65c4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/phase1.test.ts",
+      "sha256": "ff767215883c34960eeeae01a9bd6af9f8eec4dc5822da4b54b7244e0efecddb",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/phase2.test.ts",
+      "sha256": "718ca42f1d5a05be37fa9bfaa995447f6622b2f8a28684adfa8364ff74c34695",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/phase3b-spec.test.ts",
+      "sha256": "ccb528b47c948d4766675c944becbaab73c22065a8692336091aab843fc942c8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/phase3b.test.ts",
+      "sha256": "bcfe1efa037ff73e921e47a995fea527a9f9afacf1217d2812a8a1cb167db141",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/phase3c.test.ts",
+      "sha256": "4fdc8a86e1dbdefb1a5e3bdaea13f010ac26de70de6ca47b0c49dc60dacecb11",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/phase3d.test.ts",
+      "sha256": "19ce564165f7b53fc9696c436cfaf1594e82661c5be6464f75769486987091e2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/phase3e.test.ts",
+      "sha256": "9ecfc400a7fe687ac956bfa1e73756a4add84e862273833455225d4018995e3d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/phase3f.test.ts",
+      "sha256": "15b8e9c88581995d92ed74ad562966af46672e347ce8b9f52075c26bd51bc11a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/composer.ts",
+      "sha256": "7283f1e3e7870bfe39f0fda654b93b6c11269e1188f8514d0cf271feb2289d76",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/conflicts.ts",
+      "sha256": "36ccb57c6222afc46f50b507639b1d0a1c68cbe9c83814c21beea3c9904c0e54",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/contracts.ts",
+      "sha256": "dc2e1c764f1f950ec028fcbccaf8fb80c1bfaadfd1f5966503b09cd5657d948c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/derived-features.ts",
+      "sha256": "8479ae8dd598b78c5a73ae215dfa71c4f9bf63828c3bd168d1ce8d14f7d43082",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/index.ts",
+      "sha256": "4797f9809cf2e648ffcbefa3b9f88542e164328cad9ac502af2cf2f402e709cb",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/normalization.ts",
+      "sha256": "db283b873fbbf74dff22c5c8601808df175960c296e763eafd627ce9cb4840f6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/pe1.test.ts",
+      "sha256": "8bf3f797a02391986cd1189a044d4b2167219bd0b6ce8bfdf6101105fd04a525",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/pe2.test.ts",
+      "sha256": "3f5503c7e597809d6619da2f315c653241d8416dc3b0da1240578394b0a83286",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/plan-engine-v1/uncertainty.test.ts",
+      "sha256": "034b65f48f2c1a92f727acb53537ce7fd88d15bd4debbf4cc7a818c0c661b63f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/service.ts",
+      "sha256": "c39e7fa2ae0d20ef9ea9bb737124b7101daae828963501a55d8d3f51d7db0598",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/snapshot.ts",
+      "sha256": "9a0b61191619ead8e2bad7b17abd6be568d275dede6230a115b57486e46ce504",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/trading-behavior-registry.ts",
+      "sha256": "2d4ec7d2b22c54807978bb896592112767dbd4bf867bfe957729fcf4c6843332",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/trading-capital-readiness-registry.ts",
+      "sha256": "5ce37af5b77071af9d8d8c994a6c6277f366dac5513f2c4d8a2044f598d929d6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/validation.ts",
+      "sha256": "42440e3ef3564a0649062d847b96a204697e8065a551ad09b4a9063d7c66179d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/workflow-fields.ts",
+      "sha256": "aaa9f8bff1cded1cc2111d1d601bd9e543b5aca27a0af08289cf4eed575778de",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/workflow-service.test.ts",
+      "sha256": "833afdf0738184af99745ebebe12bc290cd6ad6b95173ba3f364279a2a1a6e8e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake-v2/workflow.test.ts",
+      "sha256": "552c0180b20f8cc246f0d96bd824b5a7dccee0634dbf99edd0c35393867350fd",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-intake.ts",
+      "sha256": "ace87242554a1110d6543ec5684cd36145cf359b264711828bc5e31c6387e53f",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-lifecycle-contracts.ts",
+      "sha256": "1d39ba49c8ad09c93d51f61da0212a48a7a97488c0235a078dc5159262925191",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-lifecycle.test.ts",
+      "sha256": "c56139bc03b7256e44881e68560457415221e618ae1401eb522ee2504022a3ae",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-lifecycle.ts",
+      "sha256": "bee520c9ee55a1c92ec1ecc3c0d004cfbe1c514845bbf988c052b48a69b37601",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/student-placement.ts",
+      "sha256": "5aaa8a7fd35b6c88ff8859c935d4bf03175e8f253c43b17b7698810cb8746f86",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/calendar.test.ts",
+      "sha256": "051e782d52bc8d49fa871bfca7dc161ddae8b93904928bfc23f06686dc8d0b60",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/cpu.test.tsx",
+      "sha256": "9a91066a7bbe2dacfe92e97ec9ae62bc8f0452eb202e5f8e99ff29da05a04ce8",
+      "disposition": "verified Phase B CPU optimization/helper/regression"
+    },
+    {
+      "path": "lib/teaching/dashboard.test.tsx",
+      "sha256": "4cd882c89a79a6b7e7d1e97f4018cba29994c54d04f6b8a7b2041b8e5f6097b2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/delivery-adapter.ts",
+      "sha256": "521933adae9f733b84475a7df5735cdb9ec7e1ce588c0aaff6ec63643a4aa86d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/delivery.test.ts",
+      "sha256": "66c3362a31c0816f29e44e69acdb2db176f879555e77ab459fc4c7f5238bdc0c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/delivery.ts",
+      "sha256": "a71a4e792e740b3bdb014af387d89fe68ff7c90147894e409f1694cab1ea1771",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/dispatch-auth.test.ts",
+      "sha256": "d154cf54696dd5c04996353dafe4c141d3ef7c2c0e9d5df616659c7743e87397",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/dispatch-auth.ts",
+      "sha256": "e5ee1f8828c18131d56e81983306cfd59372123e150764b06c32ff6c71ecade7",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/dispatch-route.test.ts",
+      "sha256": "5c4a7deae162080172f8c11e16ad13aed9bb0b8e93c4d143fe6011abb694b502",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/messages.test.ts",
+      "sha256": "8bac18590caa11f663af254ff0e4625f431f2f373f7391fc236e468b7badec86",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/messages.ts",
+      "sha256": "9ca1f8d933649323e6b0e75c4746ede4d16a02fe5f2975f6236e6299acfc852d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/notifications.ts",
+      "sha256": "7d4be12ba859f8fd46b1a611d684092e3ddaf09c6d168df726ba255272f1894e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/outbox.test.ts",
+      "sha256": "8600acd9c6789ee5df54d6751e4eeb4c2206bd3e862c2a77021fe44bdb0b7055",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/outbox.ts",
+      "sha256": "550425f0e823dd42bb58ae32f073ed37290459c08f7d911488798cb9f4c9c5e0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/presentation.test.tsx",
+      "sha256": "858904975ba5d51147f983abb14a40dfd4575a5cd4b5a8163cea6c0795c870bb",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/provider.test.ts",
+      "sha256": "a9938a60dfbf918cbdc83f452e0fb7ec5ae3425079e6800356c77b81470fa129",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/routes.test.ts",
+      "sha256": "9ff4378a2d1bd81d15f26f17c27628b1a10ed4e625efa8e11ffcf19f70a6b319",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/service.test.ts",
+      "sha256": "519d5e82d8bfc3043e4ed8f280160bed6eaf7fe5503a805213d8f082a5ee2fa7",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/service.ts",
+      "sha256": "841a0e124b3f5cb843a74bc37015f48c6fb31d39ac49a640053d18e6a5b5cd2a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/teaching/time.ts",
+      "sha256": "0f38c52e8d6f174fe1aafaaf7f8b915fa245d097be3a503e634aa881708aaf9d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "lib/training-plan.ts",
+      "sha256": "88dc30c667ac08903102318de21f9e42fdd67fc50f9538880cf2c232ce4c5096",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0001_create_auth_tables.sql",
+      "sha256": "2d84cd71bf0150ec54a4ffd3cba4aca1ac78c4127077499f37f31b2a28a34919",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0002_admin_plugin_fields.sql",
+      "sha256": "5f580cf37e7dcbb3a805ac90fb941d3d929cc98b9f6498afcca6f781963a2905",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0003_app_settings.sql",
+      "sha256": "303e78a4f1ffe7ebb2477b867c471efba46ee64f4bdbbb2ef5c7fae7303da8e1",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0004_stripe_membership.sql",
+      "sha256": "220a589082ca876da8adeddca2bbfbc343306605fa8a9fce68598418288b1311",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0005_affiliates.sql",
+      "sha256": "05d60f237b6875c216282a726632069879b4194754194c6e477e4f7b95379dd6",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0006_invites.sql",
+      "sha256": "459dd38422e1626a8bf38c62b2aba554456b068f222c75a19734ff2beca4c3d7",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0007_communications.sql",
+      "sha256": "7df800f2bd0a8fd3fc258deb881e3a743777de28e23d054ae92366c100697a47",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0008_forced_password_change.sql",
+      "sha256": "d9d10d3bb563d923dec0173ff68c4ee27a31830dc37d703033f0c7c489ca102b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0009_nullable_user_id.sql",
+      "sha256": "a44be57af6084b8a5dc32ae72a8e2a108bf6cbf2234815fe82c2ff8757aa21b2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0010_consultation_types.sql",
+      "sha256": "bbd6b03e058105f3aea77a37cd534c1e98ffce2f7d0c276762e79d0e26054b43",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0011_availability_rules.sql",
+      "sha256": "e6d7fefbc23ebbc50f5ec2017472d7bfe3345a5a29fce764264fd23df82fc581",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0012_availability_overrides.sql",
+      "sha256": "b47741a1424bb9e8ab80edee5bc8604619c998a7718b68a6f5b47443bf49632d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0013_consultation_bookings.sql",
+      "sha256": "9c4b9f00d58c0dce7834b57ac3187b471b930048aa041a9191ee4d6c03c6d6e3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0014_booking_slot_holds.sql",
+      "sha256": "c5a44304d8f626f879604fac00e3216dbbacacffe83bcf8b1f885448a1a2843d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0015_complimentary_access.sql",
+      "sha256": "d0840935d2413ea08720330154f4fd5db808c2aebef63896fb1cf28c5df104c7",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0016_student_intake.sql",
+      "sha256": "3d9bb773a3ff7c557f44a90778256621a94775e8da2ba5b2c230318763c781fe",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0017_training_plan.sql",
+      "sha256": "bb487b65fea7a15d1eb9ec49b2fdc6ede8c8cda1916960bafbe9929bcfd3bd10",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0018_placement_assessment.sql",
+      "sha256": "9e6ad220426eaedbd44678bff668353603447843a5545d94294035fec3ff0be3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0019_student_placement.sql",
+      "sha256": "9529691bd075b90806da3a8051cd1437598c3252a861e08ca0d0038b29e186d0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0020_member_consultation_type.sql",
+      "sha256": "c9fa502969daa6a99646298cc625755f27a11bb5ce2aefe649a4b2d606bc992b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0021_consultation_questionnaire.sql",
+      "sha256": "9b4cfaa61b9bcbbdf0137064de0f0c849b9009e3bff8b76c6a785c24a27e3aad",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0022_academy_foundation.sql",
+      "sha256": "6905352ba15e35d0a8a4776de71834f223c7cebd78361905f6d2ca15e89107db",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0023_academy_assessments_foundation.sql",
+      "sha256": "2575b436f6cf6b71f1b544711cbd29f9d2255789c39993fe878a48ef1422411e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0024_consultation_game_plan_versioning.sql",
+      "sha256": "966bab2d4f6e715d0151f02dfc0de7d380e5a64487a2e96de56288c993e9ccd2",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0025_student_intake_v2_foundation.sql",
+      "sha256": "c0908f39ddc5d35b09a5023541fb8f541fe814e412061efffd337c252631dc92",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0026_consultation_questionnaire_revisions.sql",
+      "sha256": "5a1230bd77cff1f4724199b41db1694d1d42bb7a582570906aea4c086a6dfd19",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0027_interactive_learning.sql",
+      "sha256": "8be720485ecc6ce035cd6a0f6c2237383bab029e308eebe9eaaadda8151c38b3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0028_learning_versioned_open_attempt.sql",
+      "sha256": "96fb22ac565bfd9be677069383410ad66c43d342781cf9784699ce13080aa39b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0029_financial_readiness.sql",
+      "sha256": "ae7ef693ed98c2c708d114d718c6cceb235312c4f31640a602b7588b0ee536f3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0030_complimentary_invite_delivery.sql",
+      "sha256": "7cda2bbac031436add81c62a1943dda966a0cd58ac7ea879b83740ce7abfd034",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0031_member_lifecycle.sql",
+      "sha256": "d308d07c7069144217e38ff831f7c318b1846cbf9f69007eec67c4bac925ab4a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0032_personalized_learning_path.sql",
+      "sha256": "ef38e364f7505c35de58aedfdb30dd5ae51a2ad2237028567c6c1e728724dfaf",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0033_weekly_teaching.sql",
+      "sha256": "8191284158c17124df4773973a1680c54e59b250b26295cc51de832a1237600c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0034_teaching_delivery.sql",
+      "sha256": "f6ac1b5d04eb3f5e8c11a89c602fb938ac1a784e94d27ce9712841bd25eb1258",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0035_live_classroom.sql",
+      "sha256": "a54339dcf27b06e0af29de8cf7f70a11d46b0115dd162dedf9ccbe2afc916fde",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0036_classroom_webhooks.sql",
+      "sha256": "b9a9056b6154be9a97ad513eac9984b422b5b622ab0736cebcd8b90a817f68f8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "migrations/0037_classroom_teaching.sql",
+      "sha256": "619257bb37662599b9946437dd2969e251c460fa3ab658af32577b3d948a2110",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "next-env.d.ts",
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "7eef65cb7b95961c95bbbe212503c707ab0c5d15ad6bd295ac7f143beaca029e",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "open-next.config.ts",
+      "sha256": "92b0bdd7b7b90307de0b3174f0a97df13df9ab28220ca8cdf72a3045112edd7b",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e13f81cea8edf660a1bf263a61a1cfc39a9e00a97d8c872e6e85e66b435771c3",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "package.json",
+      "sha256": "13a1d297861024da81f4488ba41affbed167bf175f52750ce5db349f7e3c35f8",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "sha256": "141ef24ca27a99d08962210fdf20212d3435fdcfa21b46cd88b44d22f751dfae",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "public/favicon.ico",
+      "sha256": "eb8dbdde705770763e54b87b92e3460dce5846a573354ebb3d8b9f94fdc994ac",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "public/hft-seal-128.png",
+      "sha256": "eb8dbdde705770763e54b87b92e3460dce5846a573354ebb3d8b9f94fdc994ac",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "public/hft-seal-256.png",
+      "sha256": "18743b1bf9f9a223bc5bf37c22e151c5c94d16eb8fc270cef3eded41a33f817a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "public/hft-seal.png",
+      "sha256": "d2cd6b972aafb45ae85f5db37a9230fb6fb8fb942f5b041d1030ea08afd1c54c",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "scripts/classroom-request-cost.cjs",
+      "sha256": "9d83c4ff6800d45695e5d0606721d4dfde3e5070fe13e953144a28bc910f6420",
+      "disposition": "verified Phase B CPU optimization/helper/regression"
+    },
+    {
+      "path": "scripts/create-admin.mjs",
+      "sha256": "7a0a1b0ffe399a6ecb84990dddebc8e3e4427310c7acbcab044cfaf9353778ec",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "scripts/prepare-money-lesson.cjs",
+      "sha256": "a31e3c9219ec4078feb8a69c0b4175dcb258c286773260822e7592b86b8aab82",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "scripts/seed-academy-local.cjs",
+      "sha256": "3b6a044cfb0d5ec2504c7ae7f349b0b2f0005d78987eaa39521e7d014cb6cea0",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "scripts/test-register.cjs",
+      "sha256": "33e7282ed892a4b726cc21774566f035efb85a0f0516d4c2527154d89f3795f9",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "scripts/test.cjs",
+      "sha256": "3bbb63b662dfeb47ec03f7b6fc24715bcf78c1ae57592479029bb2c2b7f7c8e4",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "86c57aa7eec3e819fc7f5f7075219d9383d4ce824b751816636e581170b7cc97",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "workers/classroom/server-only.ts",
+      "sha256": "b8f21bed6cfbecc150443adc28d0dff1805fd65ed11d255c642b10c9d02888f5",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "workers/classroom/src/index.ts",
+      "sha256": "78b77437de2fb5277dda5a818fe8ebb35f3641685c7ae73e804b30e6c9fff523",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "workers/classroom/wrangler.jsonc",
+      "sha256": "0c153e4670720541597e49b6c32c6d3e7fe781814b439ea53e0d40799b882657",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    },
+    {
+      "path": "workers/payouts/src/index.ts",
+      "sha256": "63d06bf4a59d394aeaeca955eb1ff4f044bbbad647e7e89d95388e5cbc558153",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "workers/payouts/wrangler.jsonc",
+      "sha256": "323e294d2a53be4cfc4321a06b47ae565688437b8c1508d3a0674ebce5dfcf2d",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "workers/teaching-reminders/src/index.ts",
+      "sha256": "3b705db37487c2f5f194cf5b8f20e41603c4205738226fb90eb52d0142593774",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "workers/teaching-reminders/wrangler.jsonc",
+      "sha256": "8b2c3ce8dd6f8592f6a42a698a74e17c50df8e43fe2b93ed93fd1ad0c1849c9a",
+      "disposition": "unchanged original frozen Revision 3 source"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "sha256": "47ddf0edced585f8323569feca81c4a2551a1dfc094ed73bf01e69874aad469c",
+      "disposition": "reconciled certified Phase B fix/configuration"
+    }
+  ],
+  "modifiedOriginalFiles": [
+    "components/classroom/Classroom.tsx",
+    "components/classroom/presentation.ts",
+    "components/teaching/Scheduler.tsx",
+    "lib/auth-safety.test.ts",
+    "lib/classroom/realtime.test.ts",
+    "lib/classroom/service.ts",
+    "lib/dal.ts",
+    "workers/classroom/src/index.ts",
+    "workers/classroom/wrangler.jsonc",
+    "wrangler.jsonc"
+  ],
+  "addedFiles": [
+    "lib/access-context.ts",
+    "lib/access-context.test.ts",
+    "lib/classroom/testing/request-cost.ts",
+    "lib/classroom/cost.test.ts",
+    "lib/classroom/polling.test.ts",
+    "scripts/classroom-request-cost.cjs",
+    "lib/teaching/cpu.test.tsx"
+  ],
+  "acceptanceStrategy": {
+    "mailbox": "highfrequency17@icloud.com",
+    "qaMailboxCollisionReadCount": 0,
+    "invitationSent": false,
+    "accountCreated": false,
+    "workflow": "existing normal Complimentary Student invitation; email only; proposed seven days; no auth-table edits, impersonation or Stripe",
+    "sequence": [
+      "separately authorize exact corrected candidate",
+      "fresh read-only preflight and recovery point",
+      "controlled deployment of frozen artifacts preserving current secrets/bindings/caps",
+      "initial instructor/synthetic production smoke with CPU/503 monitoring",
+      "send only the authorized normal QA invitation after smoke passes",
+      "STOP for Demi normal inbox/account setup",
+      "resume student acceptance only after Demi confirms QA student signed in"
+    ]
+  },
+  "operationalWarnings": [
+    {
+      "warning": "Recovered native post-revocation HTTP 503 in certified Phase B exercise; internal cause unproven; no CPU exception; monitor recurrence",
+      "report": "docs/releases/2026-11-08-phase-b-final-eleven-acceptance-report.md"
+    }
+  ],
+  "excluded": [
+    "production/development credentials",
+    "QA runtime/data/identities",
+    "node_modules/build caches",
+    "unrelated dirty working-tree changes",
+    "Phase D",
+    "Lesson 2",
+    "Live Classroom additions beyond approved Phase C"
+  ],
+  "archive": {
+    "path": ".wrangler/phase-c-release/2026-11-08/phase-c-r3-reconciled/source-and-assets.tar.gz",
+    "sha256": "bf8cac46ce26ac8fc40af968969d6402a01222b820846db8d43582d8b387e144"
+  },
+  "report": "docs/releases/2026-11-08-teaching-phase-c-revision-3-reconciliation.md"
+}

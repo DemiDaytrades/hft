@@ -49,42 +49,34 @@ export async function setUserRole(
   return { ok: true };
 }
 
-/**
- * Sets a member's password directly.
- *
- * This is the recovery path while the site has no email: someone locked out
- * tells the owner, she sets a new password here and passes it on. Goes through
- * Better Auth's admin API so the hash format matches what sign-in expects and
- * its own permission check runs.
- */
-export async function setMemberPassword(
+/** Request a single-use recovery link without replacing the member’s credential. */
+export async function sendMemberPasswordReset(
   userId: string,
-  newPassword: string,
 ): Promise<ActionResult> {
   const admin = await requireAdmin();
-
-  if (newPassword.length < 12) {
-    return { ok: false, error: "Password must be at least 12 characters." };
-  }
   if (userId === admin.id) {
-    return {
-      ok: false,
-      error: "Use Account → Change password for your own login.",
-    };
+    return { ok: false, error: "Use Account → Change password for your own login." };
   }
-
   try {
-    await getAuth().api.setUserPassword({
-      body: { userId, newPassword },
+    const { getCloudflareContext } = await import("@opennextjs/cloudflare");
+    const db = getCloudflareContext().env.DB;
+    const user = await db
+      .prepare(`SELECT email FROM "user" WHERE id = ?;`)
+      .bind(userId)
+      .first<{ email: string }>();
+    if (!user?.email) return { ok: false, error: "Member not found." };
+
+    await getAuth().api.requestPasswordReset({
+      body: { email: user.email, redirectTo: "/reset-password" },
       headers: await headers(),
     });
   } catch (error) {
-    return failure(error, "Could not set that password.");
+    return failure(error, "Could not send a password reset email.");
   }
-
   revalidatePath("/admin/users");
   return { ok: true };
 }
+
 
 export async function setUserBanned(
   userId: string,
@@ -115,5 +107,41 @@ export async function setUserBanned(
 
   revalidatePath("/admin/users");
   revalidatePath("/admin");
+  return { ok: true };
+}
+
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+
+export async function grantComplimentaryAccess(
+  userId: string,
+  days?: number,
+  expiresAt?: string,
+  deliveryChannels: ("email" | "sms")[] = ["email"],
+): Promise<ActionResult> {
+  const admin = await requireAdmin();
+  const db = getCloudflareContext().env.DB;
+  try {
+    const user = await db.prepare('SELECT email FROM user WHERE id=?').bind(userId).first<{ email: string }>();
+    if (!user) return { ok: false, error: "Member not found." };
+    const { createComplimentaryInvitation } = await import("@/lib/complimentary-invitation");
+    await createComplimentaryInvitation(db, { userId: admin.id, role: "admin" }, { email: user.email, days, expiresAt, channels: deliveryChannels });
+  } catch (error) { return failure(error, "Could not grant complimentary access."); }
+  revalidatePath("/admin/users");
+  return { ok: true };
+}
+
+export async function revokeComplimentaryAccess(userId: string): Promise<ActionResult> {
+  await requireAdmin();
+  const db = getCloudflareContext().env.DB;
+  const now = new Date().toISOString();
+  await db
+    .prepare(
+      `UPDATE "user"
+       SET "complimentaryAccessRevokedAt" = ?, "updatedAt" = ?
+       WHERE id = ?;`,
+    )
+    .bind(now, now, userId)
+    .run();
+  revalidatePath("/admin/users");
   return { ok: true };
 }

@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 
 import { createOnboardingLink, refreshPayoutStatus } from "@/lib/affiliate-payouts";
 import { getAffiliateByUserId, setPayoutsEnabled } from "@/lib/affiliates";
-import { requireUser } from "@/lib/dal";
+import { requirePasswordReadyUser } from "@/lib/dal";
 import { friendlyStripeError } from "@/lib/stripe";
 
 async function currentOrigin(): Promise<string> {
@@ -25,7 +25,7 @@ export async function startPayoutSetupAction(
   _prev: PayoutSetupState,
   _formData: FormData,
 ): Promise<PayoutSetupState> {
-  const user = await requireUser();
+  const user = await requirePasswordReadyUser();
   const affiliate = await getAffiliateByUserId(user.id);
   if (!affiliate) {
     return { status: "error", message: "You're not set up as an affiliate yet." };
@@ -49,7 +49,7 @@ export async function startPayoutSetupAction(
 /** Called when they return from Stripe, so the page is right straight away
  *  instead of waiting on the account.updated webhook. */
 export async function syncPayoutStatusAction(): Promise<void> {
-  const user = await requireUser();
+  const user = await requirePasswordReadyUser();
   const affiliate = await getAffiliateByUserId(user.id);
   if (!affiliate?.stripeAccountId) return;
 

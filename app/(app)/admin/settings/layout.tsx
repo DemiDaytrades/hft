@@ -6,6 +6,7 @@ const TABS = [
   { href: "/admin/settings/payments", label: "Payments" },
   { href: "/admin/settings/pricing", label: "Pricing" },
   { href: "/admin/settings/affiliates", label: "Affiliates" },
+  { href: "/admin/communications-test", label: "Communications Test" },
 ];
 
 export default async function SettingsLayout({

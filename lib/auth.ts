@@ -1,10 +1,13 @@
 import "server-only";
 
 import { betterAuth } from "better-auth";
+import { APIError, createAuthMiddleware } from "better-auth/api";
 import { admin } from "better-auth/plugins/admin";
 import { adminAc, userAc } from "better-auth/plugins/admin/access";
 import { nextCookies } from "better-auth/next-js";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { getResend } from "@/lib/communications/providers";
+import { passwordResetEmail } from "@/lib/communications/templates";
 
 /**
  * Roles are stored on `user.role`. "admin" is staff (Demi + team); "student"
@@ -26,6 +29,12 @@ function createAuth(env: CloudflareEnv) {
     );
   }
 
+  const completePasswordSetup = async (userId: string) => {
+    await env.DB.prepare(
+      'UPDATE "user" SET "must_change_password" = 0, "updatedAt" = ? WHERE id = ?;',
+    ).bind(new Date().toISOString(), userId).run();
+  };
+
   return betterAuth({
     // Better Auth duck-types the D1 binding and uses its own D1SqliteDialect,
     // so the binding is passed straight through -- no kysely wrapper needed.
@@ -41,6 +50,32 @@ function createAuth(env: CloudflareEnv) {
         ? ["http://localhost:3000", "http://localhost:8787"]
         : [],
 
+    hooks: {
+      before: createAuthMiddleware(async (ctx) => {
+        if (ctx.path === "/admin/remove-user" || ctx.path.startsWith("/delete-user")) {
+          throw new APIError("FORBIDDEN", { message: "Permanent deletion is disabled pending retention policy. Use lifecycle impact preview." });
+        }
+        if (ctx.path === "/request-password-reset" && !getResend()) {
+          throw new APIError("SERVICE_UNAVAILABLE", { message: "Password reset email is not configured." });
+        }
+        if (ctx.path === "/change-password" && ctx.body?.newPassword === ctx.body?.currentPassword) {
+          throw new APIError("BAD_REQUEST", { message: "New password must be different from the current one." });
+        }
+      }),
+      after: createAuthMiddleware(async (ctx) => {
+        if (ctx.path !== "/change-password") return;
+        // Better Auth also runs after hooks for errors. Its successful response
+        // contains the authenticated user; error responses do not.
+        const result = ctx.context.returned;
+        if (result && typeof result === "object" && "user" in result &&
+            ctx.context.session && result.user &&
+            typeof result.user === "object" && "id" in result.user &&
+            result.user.id === ctx.context.session.user.id) {
+          await completePasswordSetup(ctx.context.session.user.id);
+        }
+      }),
+    },
+
     emailAndPassword: {
       enabled: true,
       // Closed signup: accounts are created only after payment (on /welcome) or
@@ -48,7 +83,40 @@ function createAuth(env: CloudflareEnv) {
       // anyone can call to mint a free account.
       disableSignUp: true,
       requireEmailVerification: false,
-      minPasswordLength: 12,
+      minPasswordLength: 8,
+      // Single-use verification tokens; Better Auth stores/invalidates them in
+      // the `verification` table. Keep links short-lived.
+      resetPasswordTokenExpiresIn: 60 * 60, // 1 hour
+      revokeSessionsOnPasswordReset: true,
+      onPasswordReset: async ({ user }) => {
+        await completePasswordSetup(user.id);
+      },
+      sendResetPassword: async ({ user, url }) => {
+        const resend = getResend();
+        if (!resend) {
+          console.error("[auth] password reset email skipped: RESEND not configured", { userId: user.id });
+          throw new Error("Could not send a password reset email.");
+        }
+        const from = (env as unknown as Record<string, string | undefined>).EMAIL_FROM ?? "High Frequency Trading <noreply@highfrequency.vip>";
+        const tpl = passwordResetEmail({ name: user.name ?? "there", resetUrl: url });
+        try {
+          const result = await resend.emails.send({
+            from,
+            to: [user.email],
+            subject: tpl.subject,
+            html: tpl.html,
+            text: tpl.text,
+          });
+          if (result.error) throw new Error("Delivery provider rejected the message.");
+        } catch {
+          // Never leak details to callers; log redacted context only.
+          console.error("[auth] password reset email failed", {
+            userId: user.id,
+            failed: true,
+          });
+          throw new Error("Could not send a password reset email.");
+        }
+      },
     },
 
     session: {

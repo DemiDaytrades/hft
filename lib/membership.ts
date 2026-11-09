@@ -9,7 +9,7 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
  */
 
 /** Statuses that entitle someone to member content. */
-export const ACTIVE_STATUSES = ["active", "trialing"] as const;
+export { ACTIVE_STATUSES, isActive, isComplimentaryActive, hasStudentAccess } from "./membership-access";
 
 function db() {
   return getCloudflareContext().env.DB;
@@ -31,9 +31,13 @@ export async function claimEvent(event: Stripe.Event): Promise<boolean> {
 }
 
 export type MembershipState = {
+  lifecycle_status: "ACTIVE" | "DEACTIVATED";
   subscriptionStatus: string | null;
   currentPeriodEnd: string | null;
   stripeCustomerId: string | null;
+  complimentaryAccessStartsAt: string | null;
+  complimentaryAccessExpiresAt: string | null;
+  complimentaryAccessRevokedAt: string | null;
 };
 
 /**
@@ -46,17 +50,13 @@ export async function getMembership(
 ): Promise<MembershipState | null> {
   return db()
     .prepare(
-      `SELECT "subscriptionStatus", "currentPeriodEnd", "stripeCustomerId"
+      `SELECT "lifecycle_status", "subscriptionStatus", "currentPeriodEnd", "stripeCustomerId",
+              "complimentaryAccessStartsAt", "complimentaryAccessExpiresAt",
+              "complimentaryAccessRevokedAt"
        FROM "user" WHERE id = ?;`,
     )
     .bind(userId)
     .first<MembershipState>();
-}
-
-export function isActive(status: string | null | undefined): boolean {
-  return (
-    !!status && ACTIVE_STATUSES.includes(status as (typeof ACTIVE_STATUSES)[number])
-  );
 }
 
 export async function findUserByCustomerId(customerId: string): Promise<{
@@ -151,3 +151,5 @@ export async function setReferrer(
     .bind(affiliateId, userId)
     .run();
 }
+
+

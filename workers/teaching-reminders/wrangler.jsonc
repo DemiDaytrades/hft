@@ -1,0 +1,12 @@
+{
+ "$schema":"../../node_modules/wrangler/config-schema.json",
+ "name":"hft-teaching-reminders",
+ "account_id":"780fda88bb137eedefd9d3981a8816b4",
+ "main":"src/index.ts",
+ "compatibility_date":"2026-08-01",
+ "workers_dev":false,
+ "preview_urls":false,
+ "triggers":{"crons":["* * * * *"]},
+ "vars":{"TEACHING_SCHEDULER_ENABLED":"false"},
+ "services":[{"binding":"HFT_APP","service":"hft-landing"}]
+}

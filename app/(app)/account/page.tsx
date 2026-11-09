@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
 import ChangePasswordForm from "@/components/ChangePasswordForm";
-import { requireUser } from "@/lib/dal";
+import { requirePasswordReadyUser } from "@/lib/dal";
 import { getMembership, isActive } from "@/lib/membership";
+import { isComplimentaryActive, membershipLabel } from "@/lib/membership-access";
 import { openBillingPortalAction } from "./actions";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 /** Available to every signed-in user, staff and students alike. */
 export default async function AccountPage() {
-  const user = await requireUser();
+  const user = await requirePasswordReadyUser();
   const membership = await getMembership(user.id);
   const active = isActive(membership?.subscriptionStatus);
 
@@ -33,16 +34,19 @@ export default async function AccountPage() {
         <p className="mt-1 text-[14px] text-white/45">{user.email}</p>
       </div>
 
-      {membership?.stripeCustomerId && (
+      {membership && (
         <section className="rounded-lg border border-white/8 bg-ink-900/80 p-8">
           <h2 className="font-display text-[15px] font-semibold uppercase tracking-[0.16em] text-white/80">
             Membership
           </h2>
           <p className="mt-3 text-[15px] text-white">
-            {active ? "Active" : "Not active"}
+            {membershipLabel(membership)}
             {active && renewsOn ? ` — renews ${renewsOn}` : ""}
           </p>
-          <p className="mt-2 text-[13px] text-white/45">
+          {isComplimentaryActive(membership) && (
+            <p className="mt-2 text-[13px] text-white/60">Complimentary access expires {new Date(membership.complimentaryAccessExpiresAt!).toLocaleDateString("en-US")}.</p>
+          )}
+          {membership.stripeCustomerId && <><p className="mt-2 text-[13px] text-white/45">
             Update your card, view past invoices, or cancel any time.
           </p>
           <form action={openBillingPortalAction} className="mt-6">
@@ -53,6 +57,7 @@ export default async function AccountPage() {
               Manage billing
             </button>
           </form>
+          </>}
         </section>
       )}
 

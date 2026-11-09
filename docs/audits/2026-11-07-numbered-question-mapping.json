@@ -1,0 +1,433 @@
+{
+  "formVersion": "student_intake_numbered.worker_v39",
+  "mappingVersion": "numbered_compat_v1",
+  "workerVersion": "b3d0dd53-5b14-43f0-9543-8500d0ff28f3",
+  "workerNumber": 39,
+  "sourceCreatedUTC": "2026-11-03T05:06:55.653582Z",
+  "moduleSha256": "c951a51361ae18633d4ceb5fe9a71795769701fb5bd6230b05ad83c03bf5fb7c",
+  "extractedComponentSha256": "49489cf3b45210093e04515f64031b32a7e886827090a49b51c533ec26ddc734",
+  "adjacentV38": {
+    "id": "eaa02dcb-3300-42b9-ae5e-40907990fbd1",
+    "createdUTC": "2026-11-03T05:01:41.636818Z",
+    "whyJoinPrompt": "Why join HFT?",
+    "numberedQuestionsPresent": false
+  },
+  "nextVersion40": {
+    "id": "34cd524c-64fc-4f03-9138-8134e60058db",
+    "createdUTC": "2026-11-03T05:22:12.813100Z"
+  },
+  "recognition": "legacy_intake source kind plus numbered keys plus completion/capture time in bounded v39 source window; known explicit internal form ID also supported. Row.version is revision, not form version. No answer text is used to infer question meaning. Unknown explicit forms or out-of-window records do not auto-map.",
+  "fields": [
+    {
+      "key": "q1",
+      "question": "Why do you want to learn trading?",
+      "type": "textarea",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "target": "motivationAndWhyNow",
+      "categories": [
+        "INFORMATIONAL_ONLY"
+      ],
+      "rule": "Motivation is known; the newer why-now scope is not established."
+    },
+    {
+      "key": "q2",
+      "question": "What do you want trading education to help you accomplish?",
+      "type": "textarea",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "target": "goalImmediate",
+      "categories": [
+        "INFORMATIONAL_ONLY"
+      ],
+      "rule": "No immediate timeframe was asked."
+    },
+    {
+      "key": "q3",
+      "question": "What would you like to accomplish in the next 90 days?",
+      "type": "textarea",
+      "classification": "EXACT MATCH",
+      "target": "goals30_60_90.goal90",
+      "categories": [
+        "INFORMATIONAL_ONLY"
+      ],
+      "rule": "Copy only the 90-day goal; never fill the 30/60-day goals."
+    },
+    {
+      "key": "q4",
+      "question": "What are your longer-term goals?",
+      "type": "textarea",
+      "classification": "SAFE COMPATIBLE MATCH",
+      "target": "goalBig",
+      "categories": [
+        "INFORMATIONAL_ONLY"
+      ],
+      "rule": "Retain the original long-term narrative without inventing dates."
+    },
+    {
+      "key": "q5",
+      "question": "Have you traded before?",
+      "type": "select",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "classification": "NO CANONICAL EQUIVALENT",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Overall historical use does not identify demo/live history or proficiency."
+    },
+    {
+      "key": "q6",
+      "question": "Which markets have you traded or are interested in?",
+      "type": "multiselect",
+      "options": [
+        "Forex",
+        "Indices",
+        "Crypto",
+        "Stocks",
+        "Options",
+        "Futures",
+        "Other"
+      ],
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "target": "marketsExperience",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Interest cannot be promoted to actual markets traded."
+    },
+    {
+      "key": "q7",
+      "question": "Which platforms have you used?",
+      "type": "multiselect",
+      "options": [
+        "MT4",
+        "MT5",
+        "TradingView",
+        "Other",
+        "None"
+      ],
+      "classification": "EXACT MATCH",
+      "target": "platformsBrokerExperience.platforms",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT",
+        "ACADEMY_READINESS"
+      ],
+      "rule": "Literal approved historical array only; no access, broker or proficiency inference."
+    },
+    {
+      "key": "q8",
+      "question": "Have you traded demo, live, both, or neither?",
+      "type": "select",
+      "options": [
+        "Demo",
+        "Live",
+        "Both",
+        "Neither"
+      ],
+      "classification": "SAFE COMPATIBLE MATCH",
+      "target": "demoLiveExperience",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Translate only the four explicit exclusive history choices to demo/live Yes/No."
+    },
+    {
+      "key": "q9",
+      "question": "Have you taken trading courses/coaching before?",
+      "type": "select",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "classification": "SAFE COMPATIBLE MATCH",
+      "target": "priorEducation.type",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Yes/No history only. Missing details remain required for Yes; no course proficiency is inferred."
+    },
+    {
+      "key": "q10",
+      "question": "Have you experienced a significant trading/investment loss or scam?",
+      "type": "select",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "classification": "SAFE COMPATIBLE MATCH",
+      "target": "majorNegativeExperience.type",
+      "categories": [
+        "INFORMATIONAL_ONLY"
+      ],
+      "rule": "Yes/No reported history only. A required reflection remains unanswered; optional old notes do not imply reflection."
+    },
+    {
+      "key": "q11",
+      "question": "Preferred learning methods",
+      "type": "multiselect",
+      "options": [
+        "Hands-on",
+        "Video",
+        "Reading",
+        "Notes",
+        "Quizzes",
+        "Repetition",
+        "Other"
+      ],
+      "classification": "SAFE COMPATIBLE MATCH",
+      "target": "learningStyles",
+      "categories": [
+        "SUPPORT_PREFERENCE",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Preserve literal preferences; no conflicting enum translation."
+    },
+    {
+      "key": "q12",
+      "question": "Patience (1–10)",
+      "type": "number-string, min 1 max 10",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "No conversion from a numeric self-rating to a behavioral enum or demonstrated skill."
+    },
+    {
+      "key": "q13",
+      "question": "Discipline (1–10)",
+      "type": "number-string, min 1 max 10",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Retain original context; no unsupported modern answer is inferred."
+    },
+    {
+      "key": "q14",
+      "question": "What areas do you struggle with most?",
+      "type": "textarea",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "SUPPORT_PREFERENCE",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Broad barriers are not automatically knowledge gaps, discipline or financial pressure."
+    },
+    {
+      "key": "q15",
+      "question": "Preferred coaching/session availability",
+      "type": "textarea",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "target": "weeklyAvailability",
+      "categories": [
+        "SUPPORT_PREFERENCE",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Retain scheduling narrative without inventing days, hours, timezone or consistency."
+    },
+    {
+      "key": "q16",
+      "question": "Approximate monthly take-home income",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "SAFE COMPATIBLE MATCH",
+      "target": "monthlyTakeHomeRange",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "Identity reuse only if already exactly an approved modern range; raw amounts require confirmation, no bucketing."
+    },
+    {
+      "key": "q17",
+      "question": "Approximate monthly essential expenses",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "Essential expenses do not equal all recurring/variable obligations."
+    },
+    {
+      "key": "q18",
+      "question": "Monthly family/support obligations",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "target": "dependentSupportObligation",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "Family support does not establish dependent status or a modern range."
+    },
+    {
+      "key": "q19",
+      "question": "Savings/emergency reserves",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "Combined amounts cannot fill separate savings/emergency fields."
+    },
+    {
+      "key": "q20",
+      "question": "Investments/assets",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "NO CANONICAL EQUIVALENT",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "Retain original context; no unsupported modern answer is inferred."
+    },
+    {
+      "key": "q21",
+      "question": "Debt balances",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "SAFE COMPATIBLE MATCH",
+      "target": "totalDebtRange",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "Identity reuse only for an exact approved modern debt range, never infer debt status or payments."
+    },
+    {
+      "key": "q22",
+      "question": "Vehicle payment and remaining balance, if applicable",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "Do not split payment and balance into invented values."
+    },
+    {
+      "key": "q23",
+      "question": "Approximate monthly disposable income",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "target": "disposableIncomeRange",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "The old prompt did not specify after essential bills/obligations; confirm that scope before treating it as modern remaining cash flow."
+    },
+    {
+      "key": "q24",
+      "question": "Amount that could responsibly be allocated to trading/trading education without affecting necessities",
+      "type": "free-text input (approximate dollar amounts)",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "FINANCIAL_READINESS_INPUT"
+      ],
+      "rule": "Combined education/trading allocation is not available trading capital or affordable loss."
+    },
+    {
+      "key": "q25",
+      "question": "Risk comfort",
+      "type": "select",
+      "options": [
+        "Low",
+        "Moderate",
+        "High"
+      ],
+      "classification": "NO CANONICAL EQUIVALENT",
+      "categories": [
+        "INFORMATIONAL_ONLY"
+      ],
+      "rule": "Comfort is not financial risk capacity, competence or permission for live trading."
+    },
+    {
+      "key": "q26",
+      "question": "Instructor notes",
+      "type": "textarea",
+      "classification": "NO CANONICAL EQUIVALENT",
+      "categories": [
+        "INSTRUCTOR_PRIVATE"
+      ],
+      "private": true,
+      "rule": "Historical instructor context only; never student report, current placement authority or automatic approval."
+    },
+    {
+      "key": "q27",
+      "question": "Recommended HFT track/level",
+      "type": "input",
+      "classification": "NO CANONICAL EQUIVALENT",
+      "categories": [
+        "INSTRUCTOR_PRIVATE"
+      ],
+      "private": true,
+      "rule": "Historical instructor context only; never student report, current placement authority or automatic approval."
+    },
+    {
+      "key": "q28",
+      "question": "Primary focus areas",
+      "type": "textarea",
+      "classification": "NO CANONICAL EQUIVALENT",
+      "categories": [
+        "INSTRUCTOR_PRIVATE"
+      ],
+      "private": true,
+      "rule": "Historical instructor context only; never student report, current placement authority or automatic approval."
+    },
+    {
+      "key": "q29",
+      "question": "Risks/concerns",
+      "type": "textarea",
+      "classification": "NO CANONICAL EQUIVALENT",
+      "categories": [
+        "INSTRUCTOR_PRIVATE"
+      ],
+      "private": true,
+      "rule": "Historical instructor context only; never student report, current placement authority or automatic approval."
+    },
+    {
+      "key": "q30",
+      "question": "Next steps",
+      "type": "textarea",
+      "classification": "NO CANONICAL EQUIVALENT",
+      "categories": [
+        "INSTRUCTOR_PRIVATE"
+      ],
+      "private": true,
+      "rule": "Historical instructor context only; never student report, current placement authority or automatic approval."
+    },
+    {
+      "key": "q9details",
+      "question": "Details (prior trading courses/coaching)",
+      "type": "textarea",
+      "classification": "SAFE COMPATIBLE MATCH",
+      "target": "priorEducation.notes",
+      "categories": [
+        "EDUCATIONAL_PLACEMENT_INPUT",
+        "LEARNING_PATH_INPUT"
+      ],
+      "rule": "Copy details only when the same source explicitly reports prior education Yes."
+    },
+    {
+      "key": "q10notes",
+      "question": "Optional notes (significant loss or scam)",
+      "type": "textarea",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "INFORMATIONAL_ONLY"
+      ],
+      "rule": "Notes do not necessarily answer the newer reflection question."
+    },
+    {
+      "key": "whyJoin",
+      "question": "Why join HFT?",
+      "type": "textarea; adjacent worker_v38 form",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "categories": [
+        "INFORMATIONAL_ONLY"
+      ],
+      "rule": "Retain the known adjacent-form prompt; HFT membership motivation does not answer why trading now."
+    }
+  ]
+}

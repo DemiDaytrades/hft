@@ -1,0 +1,18 @@
+{
+  "candidateFingerprint": "8f9085173e573edae8fe6f8294dcdf5f0edb9be539ae0711294bba07f8b1847d",
+  "artifactDirectory": "/Users/demi/Documents/GitHub/hft/.wrangler/release-preflight/2026-11-07",
+  "artifacts": [
+    {
+      "name": "controlled-launch-source.tar.gz",
+      "bytes": 2987350,
+      "sha256": "b6772e660034759bd6925089ba441c5112b45062295b4e754074f84583d2edb1"
+    },
+    {
+      "name": "controlled-launch-built.tar.gz",
+      "bytes": 11449766,
+      "sha256": "ea5d3f7bf91605c3b6868af36a96c554a97cd0bb94ebf3124ce1484b1021c483"
+    }
+  ],
+  "lesson1InstallArtifactSha256": "ad9f384a1419df214cc3635b74177e4d28005d57d0ecd3d1c6d9732610cd48fb",
+  "workerEntrySha256": "d05223bf4d44c84108a102ab62aa3bc9c5568f0c3ac2064c37be5cc65c64bc45"
+}

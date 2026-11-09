@@ -1,0 +1,839 @@
+{
+  "readOnlyProductionCheck": true,
+  "zeroProductionWrites": true,
+  "localAnalysisQueryOnly": true,
+  "originalSourceUnchanged": true,
+  "sourceDigest": "8f35b54555c577a04e3938832182029d0a2b711276e608d3419432563ef1695c",
+  "resolvedForm": "student_intake_numbered.worker_v39",
+  "recovered": [
+    {
+      "historicalKey": "q9",
+      "canonicalPath": "priorEducation.type",
+      "formVersion": "student_intake_numbered.worker_v39",
+      "mappingVersion": "numbered_compat_v1",
+      "evidenceKind": "HISTORICAL_STUDENT_REPORTED"
+    },
+    {
+      "historicalKey": "q3",
+      "canonicalPath": "goals30_60_90.goal90",
+      "formVersion": "student_intake_numbered.worker_v39",
+      "mappingVersion": "numbered_compat_v1",
+      "evidenceKind": "HISTORICAL_STUDENT_REPORTED"
+    },
+    {
+      "historicalKey": "q4",
+      "canonicalPath": "goalBig",
+      "formVersion": "student_intake_numbered.worker_v39",
+      "mappingVersion": "numbered_compat_v1",
+      "evidenceKind": "HISTORICAL_STUDENT_REPORTED"
+    },
+    {
+      "historicalKey": "q7",
+      "canonicalPath": "platformsBrokerExperience.platforms",
+      "formVersion": "student_intake_numbered.worker_v39",
+      "mappingVersion": "numbered_compat_v1",
+      "evidenceKind": "HISTORICAL_STUDENT_REPORTED"
+    },
+    {
+      "historicalKey": "q8",
+      "canonicalPath": "demoLiveExperience.demo",
+      "formVersion": "student_intake_numbered.worker_v39",
+      "mappingVersion": "numbered_compat_v1",
+      "evidenceKind": "HISTORICAL_STUDENT_REPORTED"
+    },
+    {
+      "historicalKey": "q8",
+      "canonicalPath": "demoLiveExperience.live",
+      "formVersion": "student_intake_numbered.worker_v39",
+      "mappingVersion": "numbered_compat_v1",
+      "evidenceKind": "HISTORICAL_STUDENT_REPORTED"
+    },
+    {
+      "historicalKey": "q10",
+      "canonicalPath": "majorNegativeExperience.type",
+      "formVersion": "student_intake_numbered.worker_v39",
+      "mappingVersion": "numbered_compat_v1",
+      "evidenceKind": "HISTORICAL_STUDENT_REPORTED"
+    },
+    {
+      "historicalKey": "q11",
+      "canonicalPath": "learningStyles",
+      "formVersion": "student_intake_numbered.worker_v39",
+      "mappingVersion": "numbered_compat_v1",
+      "evidenceKind": "HISTORICAL_STUDENT_REPORTED"
+    }
+  ],
+  "needsConfirmation": [
+    {
+      "key": "whyJoin",
+      "question": "Why join HFT?",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "reason": "Retain the known adjacent-form prompt; HFT membership motivation does not answer why trading now.",
+      "valueType": "string"
+    },
+    {
+      "key": "q1",
+      "question": "Why do you want to learn trading?",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "reason": "Motivation is known; the newer why-now scope is not established.",
+      "valueType": "string"
+    },
+    {
+      "key": "q2",
+      "question": "What do you want trading education to help you accomplish?",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "reason": "No immediate timeframe was asked.",
+      "valueType": "string"
+    },
+    {
+      "key": "q5",
+      "question": "Have you traded before?",
+      "classification": "NO CANONICAL EQUIVALENT",
+      "reason": "Overall historical use does not identify demo/live history or proficiency.",
+      "valueType": "string"
+    },
+    {
+      "key": "q6",
+      "question": "Which markets have you traded or are interested in?",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "reason": "Interest cannot be promoted to actual markets traded.",
+      "valueType": "array"
+    },
+    {
+      "key": "q12",
+      "question": "Patience (1–10)",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "reason": "No conversion from a numeric self-rating to a behavioral enum or demonstrated skill.",
+      "valueType": "string"
+    },
+    {
+      "key": "q13",
+      "question": "Discipline (1–10)",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "reason": "Retain original context; no unsupported modern answer is inferred.",
+      "valueType": "string"
+    },
+    {
+      "key": "q14",
+      "question": "What areas do you struggle with most?",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "reason": "Broad barriers are not automatically knowledge gaps, discipline or financial pressure.",
+      "valueType": "string"
+    },
+    {
+      "key": "q15",
+      "question": "Preferred coaching/session availability",
+      "classification": "PARTIAL / REQUIRES REVIEW",
+      "reason": "Retain scheduling narrative without inventing days, hours, timezone or consistency.",
+      "valueType": "string"
+    },
+    {
+      "key": "q16",
+      "question": "Approximate monthly take-home income",
+      "classification": "SAFE COMPATIBLE MATCH",
+      "reason": "Identity reuse only if already exactly an approved modern range; raw amounts require confirmation, no bucketing.",
+      "valueType": "string"
+    }
+  ],
+  "missingRequired": [
+    {
+      "path": "student_sections.preferredName",
+      "message": "Preferred name is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.location",
+      "message": "Location is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.timeZone",
+      "message": "Time zone is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.occupation",
+      "message": "Occupation is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.employmentType",
+      "message": "Employment situation is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.workScheduleSummary",
+      "message": "Typical work schedule is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.currentLifeGoal",
+      "message": "Current life goal is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.motivationAndWhyNow",
+      "message": "Motivation and why now are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.biggestTradingConfusion",
+      "message": "What confuses you most is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.reactionToLoss",
+      "message": "Reaction to loss is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.reactionToWin",
+      "message": "Reaction to win is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.goalImmediate",
+      "message": "Immediate goal is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.goalWhy",
+      "message": "Why goals matter is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.successDefinition",
+      "message": "Success definition is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.membershipValue",
+      "message": "Membership value is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.financialReasonForTrading",
+      "message": "Financial reason for learning trading is required (or Prefer not to say).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.majorResponsibilities",
+      "message": "Major responsibilities selection is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.monthlyTakeHomeRange",
+      "message": "Monthly take-home income response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.disposableIncomeRange",
+      "message": "Disposable income response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.recurringObligationsRange",
+      "message": "Recurring obligations response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.savingsEmergencyRanges",
+      "message": "Savings and emergency fund responses are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.unexpectedExpenseAbility",
+      "message": "Unexpected expense response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.availableTradingCapitalRange",
+      "message": "Trading capital availability response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.affordableLossRange",
+      "message": "Affordable loss response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.pressureToMakeMoneyQuickly",
+      "message": "Financial urgency response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.desiredAdditionalMonthlyIncomeRange",
+      "message": "Desired additional monthly income goal response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.variableExpensesRange",
+      "message": "Variable monthly expenses response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.incomeConsistencyPay",
+      "message": "Income consistency and pay frequency are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.additionalIncome",
+      "message": "Additional income response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.upcomingMajorExpenses",
+      "message": "Upcoming major expenses response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.debtStatusTypes",
+      "message": "Debt status response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.marketsExperience",
+      "message": "Markets experience is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix",
+      "message": "Knowledge matrix must be completed for all topics.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.buy_sell_direction",
+      "message": "Self-reported knowledge response missing for buy_sell_direction. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.stop_loss",
+      "message": "Self-reported knowledge response missing for stop_loss. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.take_profit",
+      "message": "Self-reported knowledge response missing for take_profit. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.lot_size",
+      "message": "Self-reported knowledge response missing for lot_size. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.pips",
+      "message": "Self-reported knowledge response missing for pips. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.leverage",
+      "message": "Self-reported knowledge response missing for leverage. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.spread_fees",
+      "message": "Self-reported knowledge response missing for spread_fees. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.candlesticks",
+      "message": "Self-reported knowledge response missing for candlesticks. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.support_resistance",
+      "message": "Self-reported knowledge response missing for support_resistance. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.trend",
+      "message": "Self-reported knowledge response missing for trend. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.market_structure_basics",
+      "message": "Self-reported knowledge response missing for market_structure_basics. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.risk_management",
+      "message": "Self-reported knowledge response missing for risk_management. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.knowledgeMatrix.position_sizing",
+      "message": "Self-reported knowledge response missing for position_sizing. Unknown/not familiar is valid evidence; do not invent a rating.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.platformsBrokerExperience",
+      "message": "Platforms/tools and broker experience are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.behaviorMatrix",
+      "message": "Behavior matrix must be completed.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.behaviorMatrix.fomo",
+      "message": "Self-reported behavior response missing for fomo.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.behaviorMatrix.revenge_trading",
+      "message": "Self-reported behavior response missing for revenge_trading.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.behaviorMatrix.impulsiveness",
+      "message": "Self-reported behavior response missing for impulsiveness.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.behaviorMatrix.patience",
+      "message": "Self-reported behavior response missing for patience.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.behaviorMatrix.rule_consistency",
+      "message": "Self-reported behavior response missing for rule_consistency.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.behaviorTendencies",
+      "message": "Behavior tendencies selection is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.willingDemoFirst",
+      "message": "Demo-first willingness is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.willingRiskLimits",
+      "message": "Risk-limits willingness is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.goals30_60_90",
+      "message": "30, 60, and 90-day goals are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.goals6_12.goal6",
+      "message": "6-month goal is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.desiredTradingIncomeRange",
+      "message": "Desired trading income range is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.paceAndQuestionComfort",
+      "message": "Pace and question comfort are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.homeworkPreference",
+      "message": "Homework preference is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.accountabilityFeedback",
+      "message": "Accountability and feedback preferences are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.weeklyAvailability",
+      "message": "Weekly availability schedule is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.unavailableDays",
+      "message": "Unavailable days selection is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.weeklyHoursRange",
+      "message": "Weekly hours range is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.windowsAndConsistency",
+      "message": "Preferred windows and consistency expectation are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.devicesInternet",
+      "message": "Devices and internet reliability are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.platformAccess",
+      "message": "Platform access responses are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.supportTechReadiness",
+      "message": "Screen share and software comfort are required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.debtRepaymentConfidence",
+      "message": "Debt repayment confidence response is required (or Prefer not to say).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.creditUtilizationAwareness",
+      "message": "Credit utilization awareness response is required (or Prefer not to say / Not sure yet).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.paymentHistoryConsistency",
+      "message": "Payment history consistency response is required (or Prefer not to say / Not sure yet).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.debtRelatedStress",
+      "message": "Debt-related stress response is required (or Prefer not to say).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.creditBuildingGoals",
+      "message": "Credit-building goals response is required (or Prefer not to say / Not sure yet).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.emergencyBorrowingReliance",
+      "message": "Emergency borrowing reliance response is required (or Prefer not to say).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.creditEducationInterest",
+      "message": "Credit education interest response is required (or Prefer not to say).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.recentFinancialHardship.status",
+      "message": "Recent financial hardship status is required (or Prefer not to say / Not sure yet).",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.financialImprovementGoals612",
+      "message": "6–12 month financial improvement goals selection is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.situationalLossResponse",
+      "message": "Situational loss response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.situationalWinStreakResponse",
+      "message": "Situational win-streak response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.missedTradeFomoResponse",
+      "message": "Missed-trade/FOMO response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.unplannedTradeFrequency",
+      "message": "Unplanned-trade frequency response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.plannedLossLimitStopAdherence",
+      "message": "Planned loss-limit stop adherence response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.willingToPauseLiveTradingAndReturnToDemo",
+      "message": "Willingness/ability to pause live trading and return to demo/education is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.protectiveExitBehavior",
+      "message": "Protective-exit behavior response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.noTradeDayAcceptance",
+      "message": "No-trade-day acceptance response is required.",
+      "code": "required"
+    },
+    {
+      "path": "student_sections.journalReviewPractice",
+      "message": "Trade journaling/review practice response is required.",
+      "code": "required"
+    },
+    {
+      "path": "acknowledgments.ackRiskOfLoss",
+      "message": "Acknowledgment ackRiskOfLoss is required.",
+      "code": "ack_required"
+    },
+    {
+      "path": "acknowledgments.ackEducationOnly",
+      "message": "Acknowledgment ackEducationOnly is required.",
+      "code": "ack_required"
+    },
+    {
+      "path": "acknowledgments.ackNoGuarantees",
+      "message": "Acknowledgment ackNoGuarantees is required.",
+      "code": "ack_required"
+    },
+    {
+      "path": "acknowledgments.ackPastPerformance",
+      "message": "Acknowledgment ackPastPerformance is required.",
+      "code": "ack_required"
+    },
+    {
+      "path": "acknowledgments.ackEssentialFunds",
+      "message": "Acknowledgment ackEssentialFunds is required.",
+      "code": "ack_required"
+    },
+    {
+      "path": "acknowledgments.ackDemoMayBeRequired",
+      "message": "Acknowledgment ackDemoMayBeRequired is required.",
+      "code": "ack_required"
+    },
+    {
+      "path": "acknowledgments.ackPersonalResponsibility",
+      "message": "Acknowledgment ackPersonalResponsibility is required.",
+      "code": "ack_required"
+    },
+    {
+      "path": "ack_audit.ackRiskOfLoss",
+      "message": "Acknowledgment audit record missing for ackRiskOfLoss.",
+      "code": "ack_audit_required"
+    },
+    {
+      "path": "ack_audit.ackEducationOnly",
+      "message": "Acknowledgment audit record missing for ackEducationOnly.",
+      "code": "ack_audit_required"
+    },
+    {
+      "path": "ack_audit.ackNoGuarantees",
+      "message": "Acknowledgment audit record missing for ackNoGuarantees.",
+      "code": "ack_audit_required"
+    },
+    {
+      "path": "ack_audit.ackPastPerformance",
+      "message": "Acknowledgment audit record missing for ackPastPerformance.",
+      "code": "ack_audit_required"
+    },
+    {
+      "path": "ack_audit.ackEssentialFunds",
+      "message": "Acknowledgment audit record missing for ackEssentialFunds.",
+      "code": "ack_audit_required"
+    },
+    {
+      "path": "ack_audit.ackDemoMayBeRequired",
+      "message": "Acknowledgment audit record missing for ackDemoMayBeRequired.",
+      "code": "ack_audit_required"
+    },
+    {
+      "path": "ack_audit.ackPersonalResponsibility",
+      "message": "Acknowledgment audit record missing for ackPersonalResponsibility.",
+      "code": "ack_audit_required"
+    },
+    {
+      "path": "instructor_review",
+      "message": "Confirm the concise instructor review for the current saved answers.",
+      "code": "review_required"
+    }
+  ],
+  "distinctMissingPaths": [
+    "student_sections.preferredName",
+    "student_sections.location",
+    "student_sections.timeZone",
+    "student_sections.occupation",
+    "student_sections.employmentType",
+    "student_sections.workScheduleSummary",
+    "student_sections.currentLifeGoal",
+    "student_sections.motivationAndWhyNow",
+    "student_sections.biggestTradingConfusion",
+    "student_sections.reactionToLoss",
+    "student_sections.reactionToWin",
+    "student_sections.goalImmediate",
+    "student_sections.goalWhy",
+    "student_sections.successDefinition",
+    "student_sections.membershipValue",
+    "student_sections.financialReasonForTrading",
+    "student_sections.majorResponsibilities",
+    "student_sections.monthlyTakeHomeRange",
+    "student_sections.disposableIncomeRange",
+    "student_sections.recurringObligationsRange",
+    "student_sections.savingsEmergencyRanges",
+    "student_sections.unexpectedExpenseAbility",
+    "student_sections.availableTradingCapitalRange",
+    "student_sections.affordableLossRange",
+    "student_sections.pressureToMakeMoneyQuickly",
+    "student_sections.desiredAdditionalMonthlyIncomeRange",
+    "student_sections.variableExpensesRange",
+    "student_sections.incomeConsistencyPay",
+    "student_sections.additionalIncome",
+    "student_sections.upcomingMajorExpenses",
+    "student_sections.debtStatusTypes",
+    "student_sections.marketsExperience",
+    "student_sections.knowledgeMatrix",
+    "student_sections.knowledgeMatrix.buy_sell_direction",
+    "student_sections.knowledgeMatrix.stop_loss",
+    "student_sections.knowledgeMatrix.take_profit",
+    "student_sections.knowledgeMatrix.lot_size",
+    "student_sections.knowledgeMatrix.pips",
+    "student_sections.knowledgeMatrix.leverage",
+    "student_sections.knowledgeMatrix.spread_fees",
+    "student_sections.knowledgeMatrix.candlesticks",
+    "student_sections.knowledgeMatrix.support_resistance",
+    "student_sections.knowledgeMatrix.trend",
+    "student_sections.knowledgeMatrix.market_structure_basics",
+    "student_sections.knowledgeMatrix.risk_management",
+    "student_sections.knowledgeMatrix.position_sizing",
+    "student_sections.platformsBrokerExperience",
+    "student_sections.behaviorMatrix",
+    "student_sections.behaviorMatrix.fomo",
+    "student_sections.behaviorMatrix.revenge_trading",
+    "student_sections.behaviorMatrix.impulsiveness",
+    "student_sections.behaviorMatrix.patience",
+    "student_sections.behaviorMatrix.rule_consistency",
+    "student_sections.behaviorTendencies",
+    "student_sections.willingDemoFirst",
+    "student_sections.willingRiskLimits",
+    "student_sections.goals30_60_90",
+    "student_sections.goals6_12.goal6",
+    "student_sections.desiredTradingIncomeRange",
+    "student_sections.paceAndQuestionComfort",
+    "student_sections.homeworkPreference",
+    "student_sections.accountabilityFeedback",
+    "student_sections.weeklyAvailability",
+    "student_sections.unavailableDays",
+    "student_sections.weeklyHoursRange",
+    "student_sections.windowsAndConsistency",
+    "student_sections.devicesInternet",
+    "student_sections.platformAccess",
+    "student_sections.supportTechReadiness",
+    "student_sections.debtRepaymentConfidence",
+    "student_sections.creditUtilizationAwareness",
+    "student_sections.paymentHistoryConsistency",
+    "student_sections.debtRelatedStress",
+    "student_sections.creditBuildingGoals",
+    "student_sections.emergencyBorrowingReliance",
+    "student_sections.creditEducationInterest",
+    "student_sections.recentFinancialHardship.status",
+    "student_sections.financialImprovementGoals612",
+    "student_sections.situationalLossResponse",
+    "student_sections.situationalWinStreakResponse",
+    "student_sections.missedTradeFomoResponse",
+    "student_sections.unplannedTradeFrequency",
+    "student_sections.plannedLossLimitStopAdherence",
+    "student_sections.willingToPauseLiveTradingAndReturnToDemo",
+    "student_sections.protectiveExitBehavior",
+    "student_sections.noTradeDayAcceptance",
+    "student_sections.journalReviewPractice",
+    "acknowledgments.ackRiskOfLoss",
+    "acknowledgments.ackEducationOnly",
+    "acknowledgments.ackNoGuarantees",
+    "acknowledgments.ackPastPerformance",
+    "acknowledgments.ackEssentialFunds",
+    "acknowledgments.ackDemoMayBeRequired",
+    "acknowledgments.ackPersonalResponsibility",
+    "ack_audit.ackRiskOfLoss",
+    "ack_audit.ackEducationOnly",
+    "ack_audit.ackNoGuarantees",
+    "ack_audit.ackPastPerformance",
+    "ack_audit.ackEssentialFunds",
+    "ack_audit.ackDemoMayBeRequired",
+    "ack_audit.ackPersonalResponsibility",
+    "instructor_review"
+  ],
+  "summaryCanonicalFacts": [
+    "demoLiveExperience",
+    "platformsBrokerExperience",
+    "goals30_60_90",
+    "goalBig",
+    "learningStyles"
+  ],
+  "otherSchemas": {
+    "legacyIntakeRows": [
+      {
+        "revision": 1,
+        "status": "completed",
+        "keys": [
+          "whyJoin",
+          "q18",
+          "q9",
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "q5",
+          "q6",
+          "q7",
+          "q8",
+          "q10",
+          "q11",
+          "q12",
+          "q13",
+          "q14",
+          "q15",
+          "q16"
+        ]
+      }
+    ],
+    "consultationRows": [
+      {
+        "status": "submitted",
+        "keys": []
+      },
+      {
+        "status": "submitted",
+        "keys": []
+      },
+      {
+        "status": "submitted",
+        "keys": []
+      },
+      {
+        "status": "in_progress",
+        "keys": []
+      },
+      {
+        "status": "in_progress",
+        "keys": []
+      },
+      {
+        "status": "in_progress",
+        "keys": []
+      }
+    ],
+    "bookingKeyShapes": [
+      {
+        "duration_min": 10,
+        "student_linked": 0,
+        "field_keys": "q3"
+      },
+      {
+        "duration_min": 10,
+        "student_linked": 0,
+        "field_keys": "q3"
+      },
+      {
+        "duration_min": 60,
+        "student_linked": 0,
+        "field_keys": "q1,q2,q3,q4,q5,q6"
+      },
+      {
+        "duration_min": 30,
+        "student_linked": 1,
+        "field_keys": null
+      }
+    ]
+  },
+  "noPersistentPlansOrPathsGenerated": true,
+  "queries": 18
+}

@@ -1,0 +1,304 @@
+{
+  "scope": "Stage 1 local only; no production configuration, credentials, database or generated artifacts copied",
+  "files": [
+    {
+      "path": "lib/academy/school/reference.ts",
+      "sha256": "02f18cd4eaab9d1a0b3b4ae76685ee1413f347ef20de60236e59a97121f4a7f2",
+      "before": "00779d0be107413e321f3d56f5c5f697ad072b221d1092384bb5f3ddbeb8537f"
+    },
+    {
+      "path": "lib/academy/school/service.test.ts",
+      "sha256": "df68f8d1b6f778199459e8f8f2fc338d347c02d26e8e681d40d014a0582cdcfa",
+      "before": "f4e3dcc8e0dfbcba8570635f4417bdc75053c4d3a47d64b2d5b84a5f27f192dc"
+    },
+    {
+      "path": "lib/academy/school/roadmap.test.ts",
+      "sha256": "b9e55088dd70a92869b595bbf9b56649e5f71c6ac88ead968f03119a0cbe8523",
+      "before": "c5dbd4e4df0b31e32affdce5c29f6054b0a2fb94d03221006cc16b2da59970e5"
+    },
+    {
+      "path": "lib/academy/school/presentation.ts",
+      "sha256": "fc3a4c20c05461f4a58cf2e5d272350719799d1c1235c43418ce81cef0e351a2",
+      "before": "bdcb17cd0438cc53a070beed136a18cdabbb84fba19f65b59722cbf9cbdc814a"
+    },
+    {
+      "path": "lib/academy/school/registry.test.ts",
+      "sha256": "6f67f7d708150779834c5bce7129b03c806d9ffb527dd95eedaab47cfd82d340",
+      "before": "164feb74af6187b2670ec802518079bb8707798514e72d11b8d46725d184c545"
+    },
+    {
+      "path": "lib/academy/school/registry.ts",
+      "sha256": "7ea17eee53a4f4f47c64f5b31f8c55cd347e56d3af19ac4460ba36f4be3184a2",
+      "before": "85c5c20f8fc979ed4f5f0f23f4ea6985ea05453aa6b8faf87aaf9df8760db794"
+    },
+    {
+      "path": "lib/academy/school/roadmap.ts",
+      "sha256": "58e7a61d9dc08b308a321e4abbc1ec502f5b209ee7e1d87bd31fc00d411e5d9c",
+      "before": "95ddb731093cc2a769bbdd2c61fc5d0ae0fd089adb9dfe8064906296a7f8f491"
+    },
+    {
+      "path": "lib/academy/school/integration.test.ts",
+      "sha256": "3e547a8e8d8bb3c5a683f3f0c22a4b97e1cd5c7f7659ba82c8674407bbe3c272",
+      "before": "29c7f6b5009ec700f93265ce08014322ca83b1b2393d8bd4dbc1abd0040027f2"
+    },
+    {
+      "path": "lib/academy/school/service.ts",
+      "sha256": "b81b086339093d5d012b92cfd364112b3e6fbf938e4459b9a1e900265c4f5625",
+      "before": "eebbb1a94934e0a4a19b07111e657db0f21ec8904e2fd702c700fbbee04eb2b5"
+    },
+    {
+      "path": "lib/academy/school/teaching.ts",
+      "sha256": "4858f5bafbb143c14c927099dd26876851f4b98ad86114c14764e16bfc70a9cd",
+      "before": "009bca0ebb72d259b6bbeae3ed8f548e4c74e01ae1e5c1ad2ad66c81ea589f9b"
+    },
+    {
+      "path": "components/academy/school/QuestionFields.tsx",
+      "sha256": "1bfc73af14e867d778cb415516cdceefe8be0cf99e70a3af817cf17070f37f3e",
+      "before": "c8103971aef78d2fa3e95812fb52ef058d862cc65962f9f5f4fc8bbf90429b77"
+    },
+    {
+      "path": "components/academy/school/InstructorSchool.tsx",
+      "sha256": "fb60b06ee2b1a3e299fb5b83e00c62e15cffd584dbbc399e3d6ef5391a73dc0d",
+      "before": "541e5596dfff5491053f9dcf9c6bac82a177b0ebb15a76ebe2a33c10e9fcd1a2"
+    },
+    {
+      "path": "components/academy/school/school.css",
+      "sha256": "44705c443fc10f22fa4dd6825ce110a328ddeeba340e79f1e9838d254b48ea14",
+      "before": "6d2148a97149f8fa030e9d9c8199b577eed4536a7d29a98097b256022560fd63"
+    },
+    {
+      "path": "components/academy/school/SchoolRoadmap.tsx",
+      "sha256": "bd542d9e0513b9de8acd67797fee13a446a739039d17ca8313a5b4262c07a52d",
+      "before": "a3baa7092024d25c7974fbce84035db481903c6bbc89a853e978723c328daa64"
+    },
+    {
+      "path": "components/academy/school/SectionExperience.tsx",
+      "sha256": "0883221bcd571533001adb335ade180ca9987844ab4bc312672e681cbe6463f8",
+      "before": "2629092e3fda06778d95a56425f20320a872ce7f870dcc1a1232c2baf4138b60"
+    },
+    {
+      "path": "app/(app)/academy/school/page.tsx",
+      "sha256": "e91f54967f66d3fa834271c3f732cb0c11da2deb3633c3e5ff11e722b0361972",
+      "before": "f25a7f770b152974983ec965f4df3ff34d50f9e4a6a6f00f5b6bcf70e18514e5"
+    },
+    {
+      "path": "app/(app)/academy/school/[classId]/page.tsx",
+      "sha256": "9e2dd4310dc87efdb6766c4304684ecabaa8b9b031acfcfb8a7860c34b0b63bf",
+      "before": "7b02ef0f14dd3ce6960dadea7d5c76dac9c3f7391aac4461ab5e8973a208a3e3"
+    },
+    {
+      "path": "app/(app)/academy/study-guides/page.tsx",
+      "sha256": "adb10f71ad105215c470098023a5d2a510b47bcc5af86944d82c8bf9e0be07af",
+      "before": "c51955f34b2649ac8cd9fe067195e31e15e06528394340b94eeda6e751059a4b"
+    },
+    {
+      "path": "app/(app)/academy/study-guides/[classId]/page.tsx",
+      "sha256": "fc1c144cbcb9acfc734f24d7f8508f8204b8f89f4774faf097745029ffd451fd",
+      "before": "a2d5eddcb02b9b462bc97506a43e2e9bab824f3c64f6e66f24022e8bc0895b8d"
+    },
+    {
+      "path": "app/(app)/admin/academy/school/page.tsx",
+      "sha256": "a5b2d483a84ae980059d093210cedd289e6f5fc207f35fd424ce0ffd614f030e",
+      "before": "08c4ad7a6559f5f506f5dd0084f6427da638f48dd2a3dd31bdba15bca655684c"
+    },
+    {
+      "path": "app/api/academy/school/route.ts",
+      "sha256": "e777ab6c874910de46384e56dd407de70b1ce046d45bc7a6c30b396f04e48840",
+      "before": "bd7784387edb6f6b1e287e7aa507e3a0574bde9eae64083b5b4b9d359ec7f8a5"
+    },
+    {
+      "path": "lib/academy/school/exploration.ts",
+      "sha256": "6cd424b811fb9287d6657b39fae590341dc2c5722f33dd97fa3eb7966a701aff",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/author-four-six.test.ts",
+      "sha256": "8799a1b8a005e95f25e999746ddddb47136760dccee9c26ba61626e2b4fc720a",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/author-seven-eight.test.ts",
+      "sha256": "d74158924a899b1fe4121836ced0d3a7ccb9f3809cd2fcae8aa70b372eaab7b2",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/author-two-three.test.ts",
+      "sha256": "a1a808211127dbbaadf9caa5bc0f0b87db3b2200f8d87bad477c14a52ae915f0",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/class-eight.ts",
+      "sha256": "01897c208e4f3b8b9d6f528394ee16ec593939c925014083a6158970ecb10171",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/class-five.ts",
+      "sha256": "c3392d4f46a0d1e7e96d3ed8a8691c8665085574069ea3a3c6a512f31661109e",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/class-four.ts",
+      "sha256": "afe9f92b83ce135ba2a4ba2ea57256813a87193998d10e04e9008d6f9ea7626a",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/class-seven.ts",
+      "sha256": "abb1f5a27e4ed00b0220e654d7b41f987314f309323eaf2845c080822c2b74a5",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/class-six.ts",
+      "sha256": "a706b194a0dac3b3e9bc77444b145c82657d56b9157b6d811e9b2d3b7a73e04a",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/class-three.ts",
+      "sha256": "3f61bbcc71b341fcb954bf7265f75a41074a244edb9528c81cb72cbd190583f1",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/class-two.ts",
+      "sha256": "327fa9ad2b650a6d16da89d6df2831b49a210128b5653b9c15794557fc4886ec",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/contracts.ts",
+      "sha256": "28281b174d3a4273f603a7102f969fbce4435cc5260573e49df7a0525df4f443",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/experience-eight.ts",
+      "sha256": "45ad76630c3ac73e9a2ea63499b6a77b43b52e72eb47907a8ed0d785b238f667",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/experience-five.ts",
+      "sha256": "d9743b987b1b7d4527d34b8763ef6c41eed63f03010eb3862f1ff9130f775e0e",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/experience-four.ts",
+      "sha256": "b4f6b449553495044580ec87c1d781dbc2f689947fc31bed771a63047a05d1fd",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/experience-seven.ts",
+      "sha256": "76bc1f9f2bbbd815179be6cf55899d602e8f64f25320fb2e990d8309100317c4",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/experience-six.ts",
+      "sha256": "b1cbb508d48c16539d475853642b3de49a0015c1868f4b1c5febb78ce711a0dc",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/experience-three.ts",
+      "sha256": "656d36df081da277df62ba88a60b719b411b36beffea19d4f974fa1d3bbb7c4d",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/experience-two.ts",
+      "sha256": "6d1d510bf67f47320c8a2416f30e31da85ad5c960ca4b35073fdc2ba0317a678",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/experiences.ts",
+      "sha256": "a48d9595e07b41d4fde36ca797533f9295cd4227c6611f0e0879e8a46673f724",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/practice.test.ts",
+      "sha256": "7ec54ded852b513455b6c92350895b72f90bf5f30719b4463fb00a3aa163100b",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/practice.ts",
+      "sha256": "d5d31348f3b5fa6b40dcfbcea79b31846f73bd3996183d1079b610479907b57c",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage/test-fixture.ts",
+      "sha256": "42e08f5a3679a10f4891292fabf330c0d1244be2fe2bfc0db71d2fcf218166d5",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage-runtime.test.ts",
+      "sha256": "0d5fef18b65c7d5031ae41b2df2663490f85cb9b65e48c2afbb1054f5502b9d1",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/stage-ui.test.tsx",
+      "sha256": "d63469dab56c09329bd3fa5490a845bc03259af193f7a615682b5696bf23908b",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/student-client.test.ts",
+      "sha256": "02887ae18a6baec90cd25c290a46f1aa46ccd70300b16b726aff271d2a5a2312",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/student-client.ts",
+      "sha256": "021b029c8602b3db5dcdd6036cf4422651f5f4e10e5228ee3210d2d655574b81",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/student.test.ts",
+      "sha256": "8ae05b161ffdc15b9e1c50e20b00742c2a2ea1bf2de8ccaff8c3a99b0bdad983",
+      "before": null
+    },
+    {
+      "path": "lib/academy/school/student.ts",
+      "sha256": "68e43ec76911a1c80ebd3402e6b93914fc5fb0b3a6630369267c1201996ea0ff",
+      "before": null
+    },
+    {
+      "path": "components/academy/school/StageExperience.tsx",
+      "sha256": "004f31e010291c090d04bcb2ab5122f8d27552908ab8f7cb034cf8216f7b4e7a",
+      "before": null
+    },
+    {
+      "path": "components/academy/school/StudentGuide.tsx",
+      "sha256": "978a8e52b430ce753d14368b8140799ee0068ea396dcee3b52d5b3e12a3e1d13",
+      "before": null
+    },
+    {
+      "path": "components/academy/school/StudentPlayer.tsx",
+      "sha256": "55250a95e34d07f81ef5b78a1def6b8ce8b6c9ed5d0305a36b059b0e91d5f78d",
+      "before": null
+    },
+    {
+      "path": "scripts/seed-stage-one-local.cjs",
+      "sha256": "e04564d517ea6dd3b94496344904e661f5b3c282aa1f6595cfc389761ed9b846",
+      "before": null
+    },
+    {
+      "path": "docs/academy/stage-one-review.md",
+      "sha256": "7f328d34b2459900fca38ace7aefa45bedb9a8a8004b4bc733d63f1e759db4cf",
+      "before": null
+    },
+    {
+      "path": "app/(app)/academy/page.tsx",
+      "sha256": "f94d85b037d731f44e9b70e6c69b1fcdda1fc37f6d7c3e2b7565e169e85b309f",
+      "before": "2f2714f96053e3af8f977807d70ffd87f5b76b1f6b52a98d01cc09627d1eae97",
+      "baselineNote": "Scoped adapter delta reviewed against existing root; no unrelated changes."
+    },
+    {
+      "path": "app/(app)/academy/lesson/[lessonId]/page.tsx",
+      "sha256": "340c263fe71236e38e06f6143e9828362664d9bddb5833d0137021f28460aa35",
+      "before": "6d67906fae79042f453a130a76f17e9f9f2b3dfe8f2ea0489c24b2f0debb3db5",
+      "baselineNote": "Scoped adapter delta reviewed against existing root; no unrelated changes."
+    },
+    {
+      "path": "app/(app)/admin/academy/inspect/[lessonId]/page.tsx",
+      "sha256": "5f3b27470c8c243d5a77d1d98408f5243fdbf8f12a3d79190aab4590448d6414",
+      "before": "69dbbfc60379b74a274b6edceb798707b3daec01d6450c85db42d365288a88d8",
+      "baselineNote": "Scoped adapter delta reviewed against existing root; no unrelated changes."
+    },
+    {
+      "path": "app/(app)/admin/academy/preview/[lessonId]/page.tsx",
+      "sha256": "eeb6dab45c661e32d02c87f59ee14ab13764519fe4d0893a92157f9dc06c5deb",
+      "before": "ab55fbb74bf4ed097c4e134a42038af2c20e704e08e98ad4aa3d07ce945cb73d",
+      "baselineNote": "Scoped adapter delta reviewed against existing root; no unrelated changes."
+    }
+  ]
+}

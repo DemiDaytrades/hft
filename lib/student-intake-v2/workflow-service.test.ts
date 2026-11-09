@@ -1,0 +1,23 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {fixtureDb} from '../financial-plan/testing/db';
+import {baseStudent,instructor,pfAnswers} from '../financial-plan/testing/fixture';
+import {ACKNOWLEDGMENT_KEYS} from './contracts';
+import {createDraftForStudent,saveStudentAnswers,saveInstructorAssessment,saveAcknowledgments,completeIntake,getIntakeById} from './service';
+const actor={userId:'staff',role:'admin'};
+test('local workflow rejects stale writes, preserves original consent audit and final snapshots',async()=>{
+ const {db,sqlite}=fixtureDb();
+ for(const id of ['staff','qa'])sqlite.prepare('INSERT INTO user(id,name,email,role,createdAt,updatedAt) VALUES(?,?,?,?,?,?)').run(id,id,id+'@example.invalid',id==='staff'?'admin':'user','2026-11-07','2026-11-07');
+ let r=await createDraftForStudent(db,{studentUserId:'qa',actor});const stale=r.snapshot_version;
+ r=await saveStudentAnswers(db,{intakeId:r.id,studentUserId:'qa',actor,mode:'instructor_entered_for_student',expectedSnapshotVersion:stale,sections:{...baseStudent(),...pfAnswers()}});
+ await assert.rejects(saveStudentAnswers(db,{intakeId:r.id,studentUserId:'qa',actor,mode:'instructor_entered_for_student',expectedSnapshotVersion:stale,sections:{preferredName:{value:'stale'}}}),/changed/);
+ assert.equal(r.provenance_json?.preferredName.source,'instructor_entered_for_student');
+ const confirmations=Object.fromEntries(ACKNOWLEDGMENT_KEYS.map(k=>[k,true]));const ackAudit={records:ACKNOWLEDGMENT_KEYS.map(ack_key=>({ack_key,confirmed:true,capture_mode:'instructor_entered_for_student'}))} as any;
+ r=await saveAcknowledgments(db,{intakeId:r.id,studentUserId:'qa',actor,acknowledgments:confirmations,ackAudit});const original=r.ack_audit_json;
+ r=await saveAcknowledgments(db,{intakeId:r.id,studentUserId:'qa',actor:{userId:'qa',role:'admin'},acknowledgments:confirmations,ackAudit});assert.deepEqual(r.ack_audit_json,original);
+ await assert.rejects(completeIntake(db,{intakeId:r.id,studentUserId:'qa',actor}),/validation/);
+ r=await saveInstructorAssessment(db,{intakeId:r.id,studentUserId:'qa',actor,assessment:instructor()});
+ const done=await completeIntake(db,{intakeId:r.id,studentUserId:'qa',actor,expectedSnapshotVersion:r.snapshot_version});assert.equal(done.intake.status,'completed');
+ await assert.rejects(saveStudentAnswers(db,{intakeId:r.id,studentUserId:'qa',actor,mode:'instructor_entered_for_student',sections:{preferredName:{value:'overwrite'}}}));
+ const next=await createDraftForStudent(db,{studentUserId:'qa',actor});assert.notEqual(next.id,r.id);assert.equal((await getIntakeById(db,r.id))?.status,'completed');sqlite.close();
+});

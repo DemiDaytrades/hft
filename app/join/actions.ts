@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { createCheckoutSession } from "@/lib/checkout";
 import { getSession } from "@/lib/dal";
 import { getMembership } from "@/lib/membership";
+import { DEFAULT_MEMBERSHIP_PLAN, getMembershipPlan } from "@/lib/membership-plans";
 import { REFERRAL_COOKIE } from "@/lib/referral";
 import { friendlyStripeError } from "@/lib/stripe";
 
@@ -25,6 +26,9 @@ export async function startCheckoutAction(
 ): Promise<JoinState> {
   const email = String(formData.get("email") ?? "").trim();
   if (!email) return { status: "error", message: "Enter your email to continue." };
+  // Server-authorized plan selection only. Unknown values fall back to legacy default.
+  const requestedPlan = String(formData.get("plan") ?? "");
+  const plan = getMembershipPlan(requestedPlan)?.key ?? DEFAULT_MEMBERSHIP_PLAN;
 
   let url: string;
   try {
@@ -38,6 +42,7 @@ export async function startCheckoutAction(
       email: session?.user.email ?? email,
       customerId: membership?.stripeCustomerId ?? null,
       referralCode: referral,
+      planKey: plan,
     });
   } catch (error) {
     return { status: "error", message: friendlyStripeError(error) };

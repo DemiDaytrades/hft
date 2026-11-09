@@ -64,12 +64,26 @@ export default function SiteFooter() {
             ))}
           </nav>
 
-          <a
-            href={`mailto:${site.email}`}
-            className="text-[14px] text-white/60 transition-colors hover:text-brand-500"
-          >
-            {site.email}
-          </a>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link
+              href="/privacy"
+              className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-white/60 transition-colors hover:text-brand-500"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-white/60 transition-colors hover:text-brand-500"
+            >
+              Terms & Conditions
+            </Link>
+            <a
+              href={`mailto:${site.email}`}
+              className="text-[14px] text-white/60 transition-colors hover:text-brand-500"
+            >
+              {site.email}
+            </a>
+          </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/6 pt-8 text-[12.5px] leading-relaxed text-white/35 lg:flex-row lg:items-start lg:justify-between">

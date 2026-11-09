@@ -1,0 +1,15 @@
+{
+ "$schema":"../../node_modules/wrangler/config-schema.json",
+ "name":"hft-classroom-control",
+ "main":"src/index.ts",
+ "compatibility_date":"2026-08-01",
+ "compatibility_flags":["nodejs_compat"],
+ "workers_dev":false,
+ "alias":{"server-only":"./server-only.ts"},
+ "preview_urls":false,
+ "services":[{"binding":"HFT_APP","service":"hft-landing"}],
+ "durable_objects":{"bindings":[{"name":"CLASSROOM_ROOMS","class_name":"ClassroomRoom"}]},
+ "migrations":[{"tag":"v1","new_sqlite_classes":["ClassroomRoom"]}],
+ "d1_databases":[{"binding":"DB","database_name":"hft-data","database_id":"baec727f-4a9a-4915-81e2-d549c5095fb5","migrations_dir":"../../migrations"}],
+ "vars":{"BETTER_AUTH_URL":"http://localhost:3006"}
+}

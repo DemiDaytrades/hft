@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -9,6 +10,7 @@ export default function LoginForm({ next }: { next?: string }) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -18,13 +20,14 @@ export default function LoginForm({ next }: { next?: string }) {
     setBusy(true);
 
     const { error: signInError } = await authClient.signIn.email({
-      email,
+      email: email.trim().toLowerCase(),
       password,
     });
 
     if (signInError) {
-      // Deliberately vague: never reveal whether the address has an account.
-      setError(signInError.message ?? "Invalid email or password.");
+      // Enumeration-safe: never reveal whether the address exists or which
+      // credential was wrong.
+      setError("Invalid email or password.");
       setBusy(false);
       return;
     }
@@ -61,23 +64,38 @@ export default function LoginForm({ next }: { next?: string }) {
       </div>
 
       <div>
-        <label
-          htmlFor="password"
-          className="mb-2 block font-display text-[12px] font-semibold uppercase tracking-[0.16em] text-white/55"
-        >
-          Password
-        </label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={field}
-          placeholder="••••••••••••"
-        />
+        <div className="mb-2 flex items-center justify-between gap-3">
+          <label
+            htmlFor="password"
+            className="block font-display text-[12px] font-semibold uppercase tracking-[0.16em] text-white/55"
+          >
+            Password
+          </label>
+          <Link href="/forgot-password" className="text-[12px] font-semibold uppercase tracking-[0.08em] text-brand-500 hover:text-brand-400">
+            Forgot password?
+          </Link>
+        </div>
+        <div className="relative">
+          <input
+            id="password"
+            name="password"
+            type={showPassword ? "text" : "password"}
+            autoComplete="current-password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={`${field} pr-20`}
+            placeholder="••••••••••••"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((s) => !s)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-[12px] font-semibold uppercase tracking-[0.08em] text-white/55 hover:text-white"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
+        </div>
       </div>
 
       {error && (

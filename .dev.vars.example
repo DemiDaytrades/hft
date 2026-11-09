@@ -1,0 +1,6 @@
+# Local Next.js / OpenNext configuration. Copy to .dev.vars (gitignored).
+# Set a unique local-only secret before starting the dev server:
+# node -e "console.log(require('node:crypto').randomBytes(48).toString('base64url'))"
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3000
+# No email/SMS/Stripe keys are needed for local Instructor Academy acceptance.

@@ -1,0 +1,101 @@
+{
+  "status": "DEPLOYED_VERIFIED",
+  "recordedAtUTC": "2026-11-07T22:56:25.380428Z",
+  "candidateFingerprint": "0ff7608c517d50621266a3666ef5abc67c143a2410ebb1eca670cbbc6119d5d0",
+  "frozenSourceFilesUnchanged": 428,
+  "frozenBuiltFilesVerified": 1850,
+  "deploymentId": "a3942ac6-54f9-4869-a665-cf65e237c88c",
+  "workerVersion": "ceb65b64-9a49-4342-9a25-d93f0dcd010c",
+  "deployedAtUTC": "2026-11-07T22:52:43.055569Z",
+  "trafficPercent": 100,
+  "rollbackWorkerVersion": "4ce752ee-afe7-4112-a742-eaa6dcf08880",
+  "rollbackDeploymentId": "365b0ebd-fd29-4ff2-a769-7f417e313e6b",
+  "migrationRun": false,
+  "lessonReinstalled": false,
+  "predeployChecks": {
+    "fullSuite": "325/325 PASS",
+    "typescript": "PASS exit 0",
+    "packagingDryRun": "PASS",
+    "OpenNext": "Previously passed frozen build; all 1850 artifact hashes and manifest fingerprint reverified without rebuild"
+  },
+  "browserSmoke": {
+    "authenticatedInstructor": "PASS",
+    "CarlosReadonlyRecovery": "PASS \u2014 seven historical answers / eight canonical leaves",
+    "generatedRecap": "PASS",
+    "missingInformationNavigation": "PASS \u2014 preferredName link opens About Student without draft creation",
+    "confirmationRequiredAnswers": "PASS \u2014 ten retained context/review items",
+    "historicalProvenance": "PASS \u2014 historical form, key, record revision, canonical path and mapping version displayed",
+    "FinancialReadinessPage": "PASS \u2014 no student plan selected or generated",
+    "LearningPathPage": "PASS \u2014 no path generated",
+    "finalCarlosHandoff": "PASS \u2014 STATUS NO INTAKE V2; seven compatible answers visible"
+  },
+  "anonymousSmoke": [
+    {
+      "path": "/",
+      "status": 200,
+      "location": null,
+      "noPrivateLeak": true
+    },
+    {
+      "path": "/login",
+      "status": 200,
+      "location": null,
+      "noPrivateLeak": true
+    },
+    {
+      "path": "/admin/student-intake-v2",
+      "status": 307,
+      "location": "/login",
+      "noPrivateLeak": true
+    },
+    {
+      "path": "/api/admin/consultation-review?studentId=nonexistent-release-probe",
+      "status": 307,
+      "location": "/login",
+      "noPrivateLeak": true
+    },
+    {
+      "path": "/admin/financial-plan",
+      "status": 307,
+      "location": "/login",
+      "noPrivateLeak": true
+    },
+    {
+      "path": "/admin/learning-path",
+      "status": 307,
+      "location": "/login",
+      "noPrivateLeak": true
+    },
+    {
+      "path": "/api/financial-plan",
+      "status": 401,
+      "location": null,
+      "noPrivateLeak": true
+    },
+    {
+      "path": "/api/learning-path",
+      "status": 401,
+      "location": null,
+      "noPrivateLeak": true
+    }
+  ],
+  "dataIntegrity": {
+    "all59TablesUnchanged": true,
+    "foreignKeyViolations": 0,
+    "users": 13,
+    "migrations": 32,
+    "CarlosHistoricalRecordUnchanged": true,
+    "CarlosHistoricalRecordSha256": "7cad1ac6da08e3d883ecefd9f0661c8b0d8a6e5b425322cffcea96cfa59d2bca",
+    "CarlosIntakeV2Rows": 0,
+    "bindingsUnchanged": true
+  },
+  "recoveryBookmark": "00000235-00000000-0000511c-56a8d248aa6eb49f7b03e0374251118e",
+  "canDemiResumeCarlosOnboarding": true,
+  "limitations": [
+    "No Carlos draft, adoption, edit, finalization, financial-plan generation or learning-path generation performed",
+    "No messages, invitations, transactions or membership/progress mutations",
+    "Student-role and cross-student private DTO boundaries covered by frozen tests; no real-student impersonation",
+    "69 remaining field groups include missing/conditional/partial information; authentic acknowledgments and instructor review still required",
+    "Historical schema inference remains bounded to verified source family/capture window; unknown forms fail closed"
+  ]
+}

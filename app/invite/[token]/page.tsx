@@ -4,6 +4,7 @@ import Link from "next/link";
 import InviteForm from "@/components/InviteForm";
 import Logo from "@/components/Logo";
 import { getInviteByToken, inviteStatus } from "@/lib/invites";
+import { findUserByEmail } from "@/lib/membership";
 
 export const metadata: Metadata = {
   title: "Your invite",
@@ -20,12 +21,13 @@ export default async function InvitePage({
   const { token } = await params;
   const invite = await getInviteByToken(token);
   const status = inviteStatus(invite);
+  const existingAccount = status === "valid" && invite ? !!(await findUserByEmail(invite.email)) : false;
 
   return (
     <div className="flex min-h-screen items-center justify-center px-6 py-16">
       <div className="w-full max-w-md">
         <div className="mb-10 flex justify-center">
-          <Link href="/" aria-label="High Frequency Talent — home">
+          <Link href="/" aria-label="High Frequency Trading — home">
             <Logo />
           </Link>
         </div>
@@ -37,13 +39,15 @@ export default async function InvitePage({
                 You&apos;re invited
               </h1>
               <p className="mt-2 text-[14px] leading-relaxed text-white/50">
-                {invite.kind === "admin"
+                {existingAccount
+                  ? "Redeem your invitation, then sign in with your existing password. Your password will not be replaced."
+                  : invite.kind === "admin"
                   ? "Set a password and you'll have full access to run the site — members, pricing and affiliates."
-                  : invite.kind === "member"
+                  : invite.kind === "member" || invite.kind.startsWith("member:")
                     ? "Set a password and your membership is ready. Nothing to pay."
                     : "Set a password and your affiliate account is ready. You'll get a link to share and earn on everyone who joins through it."}
               </p>
-              <InviteForm token={token} email={invite.email} />
+              <InviteForm token={token} email={invite.email} existingAccount={existingAccount} />
             </>
           ) : (
             <>

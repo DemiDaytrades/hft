@@ -1,0 +1,72 @@
+{
+  "status": "READY_FOR_CONTROLLED_PRODUCTION_PHASE_NOT_DEPLOYED",
+  "focusedTests": {
+    "passed": 262,
+    "failed": 0
+  },
+  "fullSuite": {
+    "passed": 275,
+    "failed": 0
+  },
+  "typescript": "PASS tsc --noEmit and final Next build",
+  "productionEquivalentBuild": "PASS OpenNext Cloudflare",
+  "compiledLocalSmoke": {
+    "compiledAdminAuthentication": 200,
+    "results": [
+      {
+        "route": "/admin/academy",
+        "status": 200
+      },
+      {
+        "route": "/admin/student-intake-v2?studentUserId=qa-controlled-launch-student",
+        "status": 200
+      },
+      {
+        "route": "/admin/academy/inspect/hft-money-1",
+        "status": 200
+      },
+      {
+        "route": "/admin/academy/preview/hft-money-1",
+        "status": 200
+      },
+      {
+        "route": "/admin/financial-plan?studentId=qa-controlled-launch-student",
+        "status": 200
+      },
+      {
+        "route": "/admin/learning-path?studentId=qa-controlled-launch-student",
+        "status": 200
+      },
+      {
+        "syntheticStudentRoute": "/academy/lesson/hft-money-1",
+        "status": 200
+      },
+      {
+        "syntheticStudentRoute": "/api/financial-plan",
+        "status": 200
+      },
+      {
+        "syntheticStudentRoute": "/api/learning-path",
+        "status": 200
+      },
+      {
+        "excludedBookingMutation": 404
+      }
+    ]
+  },
+  "compiledPipeline": {
+    "completedIntake": true,
+    "staffCapturedName": true,
+    "ackAuditRecords": 7,
+    "publishedStudentFinancialPlan": true,
+    "approvedStudentLearningPath": true,
+    "studentPayloadPrivateFieldsAbsent": true
+  },
+  "productionCatalogArtifactRehearsal": {
+    "runs": 2,
+    "referenceLessonCount": 1,
+    "foreignKeyViolations": 0,
+    "usersCopied": 0
+  },
+  "productionActivity": "NONE this implementation task: no Cloudflare account/config changes, migrations, deployments, production record changes, messages or payment transactions"
+}

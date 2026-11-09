@@ -1,0 +1,4 @@
+/** Acceleration is explicit, instructor-approved and never writes fake progress. */
+export async function isPlacementSkipApproved(db: D1Database, userId: string, lessonId: string) {
+    return !!await db.prepare(`SELECT d.lesson_id FROM learning_path_series s JOIN learning_path_version v ON v.id=s.current_version_id AND v.series_id=s.id AND v.status='APPROVED' JOIN learning_path_decision d ON d.version_id=v.id JOIN academy_lesson l ON l.id=d.lesson_id JOIN academy_module m ON m.id=l.module_id JOIN academy_course c ON c.id=m.course_id JOIN user u ON u.id=s.student_id WHERE s.student_id=? AND d.lesson_id=? AND d.action='SKIP' AND l.placement_classification='PLACEMENT_ELIGIBLE' AND l.id<>'hft-money-1' AND l.status='published' AND m.status='published' AND c.status='published' AND l.updated_at=d.catalog_updated_at AND u.lifecycle_status='ACTIVE' AND COALESCE(u.banned,0)=0`).bind(userId, lessonId).first();
+}

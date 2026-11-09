@@ -21,7 +21,21 @@
     }
   ],
 
+  "services": [{"binding":"CLASSROOM_HUB","service":"hft-classroom-control"}],
+
   "observability": {
     "enabled": true
+  },
+
+  "vars": {
+    "EMAIL_FROM": "High Frequency Talent <noreply@highfrequency.vip>",
+    "BETTER_AUTH_URL": "https://highfrequency.vip"
   }
+,
+  "r2_buckets": [
+    {
+      "binding": "ACADEMY_BUCKET",
+      "bucket_name": "hft-academy-uploads"
+    }
+  ]
 }

@@ -17,6 +17,15 @@ import {
   voidCommissionsForInvoice,
 } from "@/lib/commissions";
 import { recordCommissionForInvoice } from "@/lib/commission-attribution";
+import {
+  notifyConsultationAdmin,
+  notifyConsultationConfirmed,
+  notifyPaymentFailed,
+  notifySubscriptionCanceled,
+} from "@/lib/communications";
+import { confirmBooking, getBooking } from "@/lib/bookings";
+import { BOOKING_TIMEZONE } from "@/lib/availability";
+import { site } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -94,6 +103,15 @@ async function handleEvent(event: Stripe.Event): Promise<void> {
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
+
+      // If this checkout was for a consultation booking (metadata carries
+      // booking_id), confirm the booking instead of linking to a member.
+      const bookingId = session.metadata?.booking_id;
+      if (bookingId) {
+        await handleBookingCheckoutCompleted(session, bookingId);
+        break;
+      }
+
       await linkCheckoutToUser(session);
       break;
     }
@@ -110,6 +128,21 @@ async function handleEvent(event: Stripe.Event): Promise<void> {
       // customer.subscription.updated.
       if (invoice.id) {
         await voidCommissionsForInvoice(invoice.id, "Payment failed");
+      }
+      // Notify the member of the failed payment (best-effort).
+      try {
+        const user = await findUserByCustomerId(String(invoice.customer));
+        if (user) {
+          await notifyPaymentFailed({
+            userId: user.id,
+            email: user.email,
+            name: "",
+            amount: "",
+            retryUrl: "https://highfrequency.vip/account",
+          });
+        }
+      } catch {
+        // Swallowed: payment-failed notification is best-effort.
       }
       break;
     }
@@ -147,6 +180,18 @@ async function handleEvent(event: Stripe.Event): Promise<void> {
       const subscription = event.data.object as Stripe.Subscription;
       const user = await findUserByCustomerId(String(subscription.customer));
       if (user) await clearSubscription(user.id);
+      // Notify the member of cancellation (best-effort).
+      try {
+        if (user) {
+          await notifySubscriptionCanceled({
+            userId: user.id,
+            email: user.email,
+            name: "",
+          });
+        }
+      } catch {
+        // Swallowed: cancellation notification is best-effort.
+      }
       break;
     }
 
@@ -215,3 +260,70 @@ function readPeriodEnd(subscription: Stripe.Subscription): number | null {
     ? item.current_period_end
     : null;
 }
+
+/**
+ * Handle a completed Stripe checkout for a consultation booking.
+ *
+ * Confirms the PENDING booking, then sends customer + admin notifications.
+ * Delivery failures are logged but never roll back the confirmed booking.
+ * Stripe webhook idempotency (claimEvent) prevents duplicate confirmation.
+ */
+async function handleBookingCheckoutCompleted(
+  session: Stripe.Checkout.Session,
+  bookingId: string,
+): Promise<void> {
+  const booking = await getBooking(bookingId);
+  if (!booking) return;
+
+  // Confirm the booking. If already confirmed (replay), this throws — catch
+  // and treat as already handled.
+  try {
+    await confirmBooking(bookingId, session.id, session.payment_intent
+      ? String(session.payment_intent)
+      : "");
+  } catch {
+    // Already confirmed or otherwise not pending — idempotent no-op.
+    return;
+  }
+
+  // Customer confirmation email + optional SMS (best-effort).
+  try {
+    await notifyConsultationConfirmed({
+      userId: null,
+      email: booking.customerEmail,
+      phone: booking.smsOptedIn ? booking.customerPhone : undefined,
+      customerName: booking.customerName,
+      consultationType: booking.consultationTypeId, // resolved to name by caller if needed
+      appointmentAt: booking.appointmentAt,
+      durationMin: booking.durationMin,
+      timezone: BOOKING_TIMEZONE,
+      amountCents: booking.priceCents,
+    });
+  } catch {
+    // Swallowed: customer notification is best-effort.
+  }
+
+  // Admin notification email + optional SMS (best-effort).
+  try {
+    await notifyConsultationAdmin({
+      userId: null,
+      adminEmail: site.email,
+      adminPhone: (typeof process !== "undefined" && process.env
+        ? ((process.env as Record<string, string | undefined>).ADMIN_PHONE_NUMBER ?? null)
+        : null),
+      customerName: booking.customerName,
+      customerEmail: booking.customerEmail,
+      customerPhone: booking.customerPhone,
+      consultationType: booking.consultationTypeId,
+      appointmentAt: booking.appointmentAt,
+      durationMin: booking.durationMin,
+      timezone: BOOKING_TIMEZONE,
+      amountCents: booking.priceCents,
+      questions: booking.questions,
+      adminBookingUrl: `https://highfrequency.vip/admin/bookings/${booking.id}`,
+    });
+  } catch {
+    // Swallowed: admin notification is best-effort.
+  }
+}
+

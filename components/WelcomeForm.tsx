@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useActionState, useEffect } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 
 import { completeSignupAction, type WelcomeState } from "@/app/welcome/actions";
@@ -32,6 +32,7 @@ export default function WelcomeForm({
     completeSignupAction,
     { status: "idle" },
   );
+  const [smsConsent, setSmsConsent] = useState(false);
 
   useEffect(() => {
     if (state.status === "done") {
@@ -94,11 +95,82 @@ export default function WelcomeForm({
           type="password"
           autoComplete="new-password"
           required
-          minLength={12}
+          minLength={8}
           className={field}
         />
-        <p className="mt-2 text-[13px] text-white/40">At least 12 characters.</p>
+        <p className="mt-2 text-[13px] text-white/40">At least 8 characters.</p>
       </div>
+
+      {smsConsent ? null : (
+        <div>
+          <label htmlFor="password" className={labelClass}>
+            Choose a password
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="new-password"
+            required
+            minLength={8}
+            className={field}
+          />
+          <p className="mt-2 text-[13px] text-white/40">At least 8 characters.</p>
+        </div>
+      )}
+
+      <div>
+        <label htmlFor="phone" className={labelClass}>
+          Mobile number (optional)
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          placeholder="+1 (555) 000-0000"
+          className={field}
+        />
+        <p className="mt-2 text-[13px] text-white/40">
+          Used for important membership and payment notices only.
+        </p>
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex items-start gap-3">
+          <input
+            id="sms_consent"
+            name="sms_consent"
+            type="checkbox"
+            checked={smsConsent}
+            onChange={(e) => setSmsConsent(e.target.checked)}
+            className="mt-1.5 rounded border-white/12 bg-ink-950 text-brand-600 focus:ring-brand-600"
+          />
+          <label
+            htmlFor="sms_consent"
+            className="text-[13px] leading-relaxed text-white/60 cursor-pointer select-none"
+          >
+            I agree to receive SMS messages from High Frequency Trading about my membership, including account notifications, membership and payment/transaction updates, appointment or class reminders, and customer support. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.
+          </label>
+        </div>
+        <p className="pl-7 text-[13px] text-white/50">
+          See{" "}
+          <a href="/terms" className="text-brand-500 hover:text-brand-400 underline decoration-brand-700/60 underline-offset-2">
+            Terms &amp; Conditions
+          </a>{" "}
+          and{" "}
+          <a href="/privacy" className="text-brand-500 hover:text-brand-400 underline decoration-brand-700/60 underline-offset-2">
+            Privacy Policy
+          </a>.
+        </p>
+      </div>
+
+      {smsConsent && (
+        <p className="mt-2 text-[13px] text-brand-400">
+          A temporary password will be sent to your mobile number by text.
+          You&apos;ll create your own password after your first login.
+        </p>
+      )}
 
       {state.status === "error" && (
         <p

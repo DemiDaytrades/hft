@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { createPortalSession } from "@/lib/checkout";
-import { requireUser } from "@/lib/dal";
+import { requirePasswordReadyUser } from "@/lib/dal";
 import { getMembership } from "@/lib/membership";
 
 /**
@@ -12,7 +12,7 @@ import { getMembership } from "@/lib/membership";
  * invoices, or cancel. Keeps card details entirely out of this app.
  */
 export async function openBillingPortalAction(): Promise<void> {
-  const user = await requireUser();
+  const user = await requirePasswordReadyUser();
   const membership = await getMembership(user.id);
 
   if (!membership?.stripeCustomerId) redirect("/join");

@@ -1,0 +1,3 @@
+/** Public routing metadata only. This does not grant access or load private definitions. */
+export function schoolReference(content:unknown):string|null {if(typeof content!=='string'||!content.startsWith('{'))return null;try{const v=JSON.parse(content);return v.format==='hft-school-ref'&&typeof v.classId==='string'&&/^stage-[1-9][0-9]*-class-[1-9][0-9]*$/.test(v.classId)?v.classId:null;}catch{return null;}}
+export function instructorSchoolHref(content:unknown,preview=false){const id=schoolReference(content);return id?'/admin/academy/school?classId='+encodeURIComponent(id)+(preview?'#preview':''):null;}
